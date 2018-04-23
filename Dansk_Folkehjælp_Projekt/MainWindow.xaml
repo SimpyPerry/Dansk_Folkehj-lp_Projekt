@@ -7,6 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Background="BlanchedAlmond"  Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" >
+            <StackPanel>
+                <Label Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" />
+                <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click"    />
+
+                <Label Content="" />
+                <Label Content="//" HorizontalAlignment="Center" FontWeight="Bold" />
+                <Button x:Name="bt_AddInstructor" Content="//"  />
+                <Button x:Name="bt_AllInstructors" Content="//"  />
+
+
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>

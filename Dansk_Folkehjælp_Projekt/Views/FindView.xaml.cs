@@ -10,22 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Dansk_Folkehjælp_Projekt.ViewModels;
 
-namespace Dansk_Folkehjælp_Projekt
+namespace Dansk_Folkehjælp_Projekt.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FindView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FindView : Window
     {
-        private MainViewModel MainView = new MainViewModel();
-        public MainWindow()
+        public FindView()
         {
             InitializeComponent();
-            DataContext = MainView;
         }
     }
 }
