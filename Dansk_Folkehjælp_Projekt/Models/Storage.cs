@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dansk_Folkehjælp_Projekt.Models
 {
-    public class Storeage
+    public class Storage
     {
         //Storage
         public string location { get; set; }

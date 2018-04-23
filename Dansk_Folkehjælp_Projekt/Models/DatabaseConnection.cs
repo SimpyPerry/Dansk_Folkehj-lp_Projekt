@@ -11,12 +11,12 @@ namespace Dansk_Folkehjælp_Projekt.Models
     {
         
             //Forbinder til databasen
-            public List<Storeage> GetStorages { get; set; }
+            public List<Storage> GetStorages { get; set; }
             private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
 
             public DatabaseConnection()
             {
-                GetStorages = new List<Storeage>();
+                GetStorages = new List<Storage>();
             }
 
             //Metode til at søge efter genstande med navn der minder om ItemName
@@ -42,7 +42,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                             string DB_bookcaseID = reader.GetString(4);
                             string DB_location = reader.GetString(5);
 
-                            GetStorages.Add(new Storeage() { itemName = DB_name, amount = DB_amount, minAmount = DB_amount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
+                            GetStorages.Add(new Storage() { itemName = DB_name, amount = DB_amount, minAmount = DB_amount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
                         }
 
                     }
