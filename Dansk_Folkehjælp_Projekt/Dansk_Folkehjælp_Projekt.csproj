@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DatabaseConnection.cs" />
-    <Compile Include="Models\Storeage.cs" />
+    <Compile Include="Models\Storage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
