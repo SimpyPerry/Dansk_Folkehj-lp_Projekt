@@ -11,6 +11,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         Models.DatabaseConnection DatabaseConnection = new Models.DatabaseConnection();
 
         public string _itemName;
+        public string _storage;
         public void FindItem()
         {
             DatabaseConnection.FindByItemName(_itemName);
@@ -26,9 +27,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
         }
 
-        public void ChooseStoreage()
+        public void ChooseStorege()
         {
-
+            DatabaseConnection.ShowStorage(_storage);
         }
 
         public void NewBookcase()
