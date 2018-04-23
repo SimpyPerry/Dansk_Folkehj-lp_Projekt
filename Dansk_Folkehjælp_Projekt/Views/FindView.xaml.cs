@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Dansk_Folkehjælp_Projekt.ViewModels;
 
 namespace Dansk_Folkehjælp_Projekt.Views
 {
@@ -19,9 +20,20 @@ namespace Dansk_Folkehjælp_Projekt.Views
     /// </summary>
     public partial class FindView : Window
     {
+        private MainViewModel MainView;
         public FindView()
         {
+            MainView = new MainViewModel();
+           
+            
+            DataContext = MainView;
             InitializeComponent();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
