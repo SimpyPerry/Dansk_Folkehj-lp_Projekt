@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Dansk_Folkehjælp_Projekt.ViewModels;
+using Dansk_Folkehjælp_Projekt.Views;
 
 namespace Dansk_Folkehjælp_Projekt
 {
@@ -21,11 +22,19 @@ namespace Dansk_Folkehjælp_Projekt
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainViewModel MainView = new MainViewModel();
+        private MainViewModel MainView ;
+        private FindView find;
         public MainWindow()
         {
             InitializeComponent();
+            MainView = new MainViewModel();
             DataContext = MainView;
+        }
+
+        private void bt_Find_Click(object sender, RoutedEventArgs e)
+        {
+            find = new FindView();
+            find.ShowDialog();
         }
     }
 }
