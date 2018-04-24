@@ -51,7 +51,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     }
                 }
             }
-        public void AddNewItem(string itemName, int amount, int minAmount, string boxID, string location)
+        public void AddNewItem(string itemName, int amount, int minAmount, string boxID, string bookcaseName, string location)
         {
             string query = "INSERT into STORAGE(ItemName, Amount, MinAmount, BoxID, BookcaseName, Location) VALUES ( '" + itemName + "','" + amount + "','" + minAmount + "','" + boxID + "','" + location + "')";
             using (SqlConnection Connect = new SqlConnection(connectionString))
