@@ -27,6 +27,8 @@
 
         <!--Gule Klud kasse-->
         <TextBox HorizontalAlignment="Left" Grid.Row="1" Height="23" Margin="10.333,3,0,0" TextWrapping="Wrap" Text="Klud" VerticalAlignment="Top" Width="120" Background="LemonChiffon" Grid.Column="1"/>
+
+        <TextBox Background="SpringGreen" Text="Resultater" Height="20" Width="60" TextElement.FontStyle="Oblique"></TextBox>
         <!--Orange box-->
         <ListBox HorizontalAlignment="Left" Grid.Row="0" Height="100" Margin="32,58,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{Binding ItemList}" Grid.RowSpan="2" Background="DarkOrange" >
             <ListBox.ItemTemplate>
