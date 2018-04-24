@@ -24,7 +24,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             public void FindByItemName(string itemName)
             {
             GetStorages = new List<Storage>();
-            itemName = "Klud";
+            
                 string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
                     + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
             
