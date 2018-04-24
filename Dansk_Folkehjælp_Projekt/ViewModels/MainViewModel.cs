@@ -12,11 +12,13 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         Models.DatabaseConnection DatabaseConnection;
         public List<Storage> ItemList { get; set; }
         public List<Storage> Tr;
+        public Storage Current { get; set; }
         public MainViewModel()
         {
             DatabaseConnection = new Models.DatabaseConnection();
             DatabaseConnection.FindByItemName("Klud");
             ItemList = DatabaseConnection.GetStorages;
+            Current = ItemList[0];
         }
         public string _itemName;
         public void FindItem()
