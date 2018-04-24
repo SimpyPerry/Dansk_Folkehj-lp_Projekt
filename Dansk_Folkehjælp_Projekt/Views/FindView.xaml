@@ -36,11 +36,17 @@
         <StackPanel Grid.Row="4"  Orientation="Horizontal">
             <Button  Content="Søg" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click" />
         </StackPanel>
-        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="53,0,0,0" TextWrapping="Wrap" Text="{Binding Current.itemName}" VerticalAlignment="Top" Grid.Row="1"/>
-        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="54,71,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.amount}" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="54,34,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.minAmount}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Current.boxID}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Current.bookcaseName}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Column="3" HorizontalAlignment="Right" Margin="0,33,106.4,0" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Current.location}" VerticalAlignment="Top"/>
+        <Label Content="Navn" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Antal" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,58,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Minimum" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,32,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Kasse" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Margin="0.2,5,0,0" Grid.Row="2"/>
+        <Label Content="Reol" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Margin="0.2,36,0,0" Grid.Row="2"/>
+        <Label Content="Lager" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,67,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.itemName}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.minAmount}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.amount}" VerticalAlignment="Top" Grid.Column="2" Margin="99.2,63,0,0" Grid.Row="1"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.boxID}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.bookcaseName}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,71,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.location}" VerticalAlignment="Top" Grid.RowSpan="2"/>
     </Grid>
 </Window>
