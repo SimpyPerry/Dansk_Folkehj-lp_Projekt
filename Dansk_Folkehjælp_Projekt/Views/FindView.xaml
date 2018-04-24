@@ -15,7 +15,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <!--Definere rækker-->
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -24,11 +24,11 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <!--Usynlig koral farvet kasse-->
-        <TextBox HorizontalAlignment="Left" Grid.Row="3" Height="23" Margin="121,116,0,0" TextWrapping="Wrap" Text="Klud" VerticalAlignment="Top" Width="120" Background="Coral"/>
+
+        <!--Gule Klud kasse-->
+        <TextBox HorizontalAlignment="Left" Grid.Row="1" Height="23" Margin="10.333,3,0,0" TextWrapping="Wrap" Text="Klud" VerticalAlignment="Top" Width="120" Background="LemonChiffon" Grid.Column="1"/>
         <!--Orange box-->
-        <ListBox HorizontalAlignment="Left" Grid.Row="0" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{Binding ItemList}" Grid.RowSpan="2" Background="DarkOrange" >
+        <ListBox HorizontalAlignment="Left" Grid.Row="0" Height="100" Margin="32,58,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{Binding ItemList}" Grid.RowSpan="2" Background="DarkOrange" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -42,7 +42,7 @@
         <StackPanel Grid.Row="4"  Orientation="Horizontal">
             <Button  Content="Søg" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click" />
         </StackPanel>
-        
+
         <!--Rækken af labels-->
         <Label Content="Navn" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="Antal" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,58,0,0" Grid.Row="1" VerticalAlignment="Top"/>
@@ -50,7 +50,7 @@
         <Label Content="Kasse" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Margin="0.2,5,0,0" Grid.Row="2"/>
         <Label Content="Reol" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Margin="0.2,36,0,0" Grid.Row="2"/>
         <Label Content="Lager" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,67,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <!--Rækken af data--> 
+        <!--Rækken af data-->
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.itemName}" VerticalAlignment="Top"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.minAmount}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.amount}" VerticalAlignment="Top" Grid.Column="2" Margin="99.2,63,0,0" Grid.Row="1"/>
