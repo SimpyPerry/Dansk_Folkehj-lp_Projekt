@@ -21,15 +21,15 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DockPanel Background="BlanchedAlmond"  Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" >
+        <DockPanel Background="ForestGreen"  Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" >
             <StackPanel>
-                <Label Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" />
-                <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click"    />
+                <Label Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" Background="Orange"/>
+                <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click"  Background="Orange"  />
 
-                <Label Content="" />
-                <Label Content="//" HorizontalAlignment="Center" FontWeight="Bold" />
-                <Button x:Name="bt_AddInstructor" Content="//"  />
-                <Button x:Name="bt_AllInstructors" Content="//"  />
+                <Label Content="//" HorizontalContentAlignment="Center" Background="Orange"/>
+                <Label Content="//" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Orange"/>
+                <Button x:Name="bt_AddInstructor" Content="//" Background="Orange" />
+                <Button x:Name="bt_AllInstructors" Content="//" Background="Orange" />
 
 
             </StackPanel>

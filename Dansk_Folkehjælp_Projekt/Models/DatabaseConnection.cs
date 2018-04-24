@@ -51,6 +51,61 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     }
                 }
             }
+        public void ShowStorage(string storage)
+        {
+            if (storage == "Container")
+            {
+                string query = "SELECT ItemName, Amount, MinAmount"
+                        + "FROM STORAGE WHERE Storeage =" + storage;
+
+                using (SqlConnection Connect = new SqlConnection(connectionString))
+                {
+                    Connect.Open();
+                    SqlCommand GetByName = new SqlCommand(query, Connect);
+
+                    using (SqlDataReader reader = GetByName.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string DB_name = reader.GetString(0);
+                            int DB_amount = reader.GetInt32(1);
+                            int DB_minAmount = reader.GetInt32(2);
+
+                            GetStorages.Add(new Storage() { itemName = DB_name, amount = DB_amount, minAmount = DB_amount });
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName"
+                        + "FROM STORAGE WHERE Storeage =" + storage;
+
+                using (SqlConnection Connect = new SqlConnection(connectionString))
+                {
+                    Connect.Open();
+                    SqlCommand GetByName = new SqlCommand(query, Connect);
+
+                    using (SqlDataReader reader = GetByName.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string DB_name = reader.GetString(0);
+                            int DB_amount = reader.GetInt32(1);
+                            int DB_minAmount = reader.GetInt32(2);
+                            string DB_box = reader.GetString(3);
+                            string DB_bookcaseID = reader.GetString(4);
+
+                            GetStorages.Add(new Storage() { itemName = DB_name, amount = DB_amount, minAmount = DB_amount, boxID = DB_box, bookcaseName = DB_bookcaseID });
+                        }
+
+                    }
+                }
+            }
+        }
+        
         
     }
 }
+
