@@ -14,6 +14,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public List<Storage> Tr;
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
+
+        public Storage Test { get; set; }
         public MainViewModel()
         {
             DatabaseConnection = new Models.DatabaseConnection();
@@ -50,6 +52,13 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public void NewBookcase()
         {
 
+        }
+        public void UpdateList()
+        {
+            DatabaseConnection.FindByItemName(FindViewTextBox);
+            
+            ItemList = DatabaseConnection.GetStorages;
+            Current = ItemList[0];
         }
 
 
