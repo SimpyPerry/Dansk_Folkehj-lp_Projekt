@@ -1,25 +1,108 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Dansk_Folkehjælp_Projekt.Models
 {
-    public class Storage
+    public class Storage: INotifyPropertyChanged
     {
         //Storage
-        public string location { get; set; }
+        private string _location;
+        public string location {
+            get { return _location; }
+            set
+            {
+
+                {
+                    _location = value;
+                    OnPropertyChanged("location");
+                    
+                }
+            }
+        }
 
         //Bookcase
-        public string bookcaseName { get; set; }
+        private string _bookcaseName;
+        public string bookcaseName {
+            get { return _bookcaseName; }
+            set
+            {
+
+                {
+                    _bookcaseName = value;
+                    OnPropertyChanged("bookcaseName");
+
+                }
+            }
+        }
 
         //Box
-        public string boxID { get; set; }
+        private string _boxID;
+        public string boxID {
+            get { return _boxID; }
+            set
+            {
+
+                {
+                    _boxID = value;
+                    OnPropertyChanged("boxID");
+
+                }
+            }
+        }
 
         //Item
-        public string itemName { get; set; }
-        public int amount { get; set; }
-        public int minAmount { get; set; }
+        private string _itemName;
+        public string itemName {
+            get { return _itemName; }
+            set
+            {
+
+                {
+                    _itemName = value;
+                    OnPropertyChanged("itemName");
+
+                }
+            }
+        }
+        private int _amount;
+        public int amount {
+            get { return _amount; }
+            set
+            {
+
+                {
+                    _amount = value;
+                    OnPropertyChanged("amount");
+
+                }
+            }
+        }
+        private int _minAmount;
+        public int minAmount {
+            get { return _minAmount; }
+            set
+            {
+
+                {
+                    _minAmount = value;
+                    OnPropertyChanged("minAmount");
+
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }
