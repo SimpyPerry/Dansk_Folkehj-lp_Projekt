@@ -51,12 +51,13 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     }
                 }
             }
-        public void ShowStorage(string storage)
+        //Metode til at vælge hvilket lager man vil se genstande fra
+        public void ShowStorage(string location)
         {
-            if (storage == "Container")
+            if (location == "Container")
             {
                 string query = "SELECT ItemName, Amount, MinAmount"
-                        + "FROM STORAGE WHERE Storeage =" + storage;
+                        + "FROM STORAGE WHERE Storeage =" + "'" + location + "'";
 
                 using (SqlConnection Connect = new SqlConnection(connectionString))
                 {
@@ -80,7 +81,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             else
             {
                 string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName"
-                        + "FROM STORAGE WHERE Storeage =" + storage;
+                        + "FROM STORAGE WHERE Storeage =" + "'" + location + "'";
 
                 using (SqlConnection Connect = new SqlConnection(connectionString))
                 {
