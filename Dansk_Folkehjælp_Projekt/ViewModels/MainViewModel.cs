@@ -12,7 +12,12 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         Models.DatabaseConnection DatabaseConnection;
         public List<Storage> ItemList { get; set; }
         public List<Storage> Tr;
-
+        public MainViewModel()
+        {
+            DatabaseConnection = new Models.DatabaseConnection();
+            DatabaseConnection.FindByItemName("Klud");
+            ItemList = DatabaseConnection.GetStorages;
+        }
         public string _itemName;
         public void FindItem()
         {
@@ -31,7 +36,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
         public void ChooseStorege()
         {
-            DatabaseConnection.ShowStorage(_storage);
+           // DatabaseConnection.ShowStorage(_storage);
         }
 
         public void NewBookcase()

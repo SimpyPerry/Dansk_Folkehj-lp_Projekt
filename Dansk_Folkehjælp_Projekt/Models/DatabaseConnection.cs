@@ -27,7 +27,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             itemName = "Klud";
                 string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
                     + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
-            GetStorages = new List<Storage>();
+            
 
                 using (SqlConnection Connect = new SqlConnection(connectionString))
                 {

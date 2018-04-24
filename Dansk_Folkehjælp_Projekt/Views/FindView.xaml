@@ -22,7 +22,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBox HorizontalAlignment="Left" Grid.Row="3" Height="23" Margin="121,116,0,0" TextWrapping="Wrap" Text="Klud" VerticalAlignment="Top" Width="120"/>
-        <ListBox HorizontalAlignment="Left" Grid.Row="0" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{Binding Tr}" Grid.RowSpan="2" >
+        <ListBox HorizontalAlignment="Left" Grid.Row="0" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{Binding ItemList}" Grid.RowSpan="2" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
