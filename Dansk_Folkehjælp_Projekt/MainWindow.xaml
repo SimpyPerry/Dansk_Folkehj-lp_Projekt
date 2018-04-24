@@ -9,8 +9,8 @@
     <Grid>
         <!--Kolonner laves-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <!--Rækker laves-->
@@ -26,18 +26,10 @@
         </Grid.RowDefinitions>
 
         <!--Første kolonne gøres grøn-->
-        <DockPanel Background="ForestGreen"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Right" Width="211" Margin="0,-6,16,1.667"  >
-            <DockPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.897"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="1.534"/>
-                </TransformGroup>
-            </DockPanel.RenderTransform>
-
+        <DockPanel Background="ForestGreen"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Left" >
+            
             <!--De forskellige overskrifter og knapper-->
-            <StackPanel RenderTransformOrigin="0.971,0.637" Margin="0,0,0,-0.333" Width="215">
+            <StackPanel  Margin="0,0,0,0" Width="200">
                 <Label Grid.Row="0" Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent"/>
 
                 <Button Grid.Row="1" x:Name="bt_Find" Content="Søg" Click="bt_Find_Click"  Background="Orange"  />
