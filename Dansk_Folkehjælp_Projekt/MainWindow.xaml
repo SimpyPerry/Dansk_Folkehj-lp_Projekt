@@ -7,30 +7,40 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <!--Kolonner laves-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <!--Rækker laves-->
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <DockPanel Background="ForestGreen"  Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" >
-            <StackPanel>
-                <Label Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" Background="Orange"/>
-                <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click"  Background="Orange"  />
 
-                <Label Content="//" HorizontalContentAlignment="Center" Background="Orange"/>
-                <Label Content="//" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Orange"/>
-                <Button x:Name="bt_AddInstructor" Content="//" Background="Orange" />
-                <Button x:Name="bt_AllInstructors" Content="//" Background="Orange" />
+        <!--Første kolonne gøres grøn-->
+        <DockPanel Background="ForestGreen"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Left" >
+            
+            <!--De forskellige overskrifter og knapper-->
+            <StackPanel  Margin="0,0,0,0" Width="200">
+                <Label Grid.Row="0" Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent"/>
 
+                <Button Grid.Row="1" x:Name="bt_Find" Content="Søg" Click="bt_Find_Click"  Background="Orange"  />
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Overskrift" HorizontalContentAlignment="Center" Background="Orange"/>
+                <Button Grid.Row="3" Grid.Column="0" x:Name="bt_midlertidig" Content=" Tryk her" HorizontalContentAlignment=" Center" Background="Orange"/>
+
+                <Label Grid.Row="4" Content="Overskrift" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Orange"/>
+
+                <Button Grid.Row="5" Grid.Column="0" x:Name="bt_AddInstructor" Content="Ny genstand" Background="Orange"/>
+                <Button Grid.Row="6" Grid.Column="0" x:Name="bt_AllInstructors" Content="Ny Reol" Background="Orange"/>
 
             </StackPanel>
         </DockPanel>

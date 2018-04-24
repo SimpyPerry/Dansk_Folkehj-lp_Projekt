@@ -34,7 +34,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
         }
 
-        public void ChooseStorege()
+        public void ChooseStorage()
         {
            // DatabaseConnection.ShowStorage(_storage);
         }
