@@ -17,14 +17,17 @@ namespace Dansk_Folkehjælp_Projekt.Models
             public DatabaseConnection()
             {
                 GetStorages = new List<Storage>();
+
             }
 
             //Metode til at søge efter genstande med navn der minder om ItemName
             public void FindByItemName(string itemName)
             {
-                string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName, Location"
+            GetStorages = new List<Storage>();
+            itemName = "Klud";
+                string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
                     + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
-                GetStorages = null;
+            GetStorages = new List<Storage>();
 
                 using (SqlConnection Connect = new SqlConnection(connectionString))
                 {

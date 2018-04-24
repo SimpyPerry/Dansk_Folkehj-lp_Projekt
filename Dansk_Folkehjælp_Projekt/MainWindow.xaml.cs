@@ -26,9 +26,10 @@ namespace Dansk_Folkehjælp_Projekt
         private FindView find;
         public MainWindow()
         {
-            InitializeComponent();
+           
             MainView = new MainViewModel();
             DataContext = MainView;
+            InitializeComponent();
         }
 
         private void bt_Find_Click(object sender, RoutedEventArgs e)
