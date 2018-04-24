@@ -21,6 +21,11 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             Current = ItemList[0];
         }
         public string _itemName;
+        public int _amount;
+        public int _minAmount;
+        public string _boxID;
+        public string _bookcaseName;
+        public string _location;
         public void FindItem()
         {
             DatabaseConnection.FindByItemName(_itemName);
@@ -33,7 +38,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
         public void NewItem()
         {
-
+            DatabaseConnection.AddNewItem(_itemName,_amount,_minAmount,_boxID, _bookcaseName, _location);
         }
 
         public void ChooseStorage()
