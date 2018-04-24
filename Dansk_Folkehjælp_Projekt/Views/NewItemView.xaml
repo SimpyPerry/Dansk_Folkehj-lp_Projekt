@@ -8,7 +8,7 @@
         Title="NewItemView" Height="430.102" Width="668.367">
     <Grid>
         <!--Save new item button-->
-        <Button Name="Save_button" Content="Gem" HorizontalAlignment="Left" Margin="257,331,0,0" VerticalAlignment="Top" Width="147" Height="48"/>
+        <Button Name="Save_button" Content="Gem" HorizontalAlignment="Left" Margin="257,331,0,0" VerticalAlignment="Top" Width="147" Height="48" Click="Save_button_Click"/>
         <!--Item name box-->
         <TextBox Name="ItemNameBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Genstand: " HorizontalAlignment="Left" Margin="175,66,0,0" VerticalAlignment="Top"/>

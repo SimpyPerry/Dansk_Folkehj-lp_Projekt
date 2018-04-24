@@ -24,6 +24,7 @@ namespace Dansk_Folkehjælp_Projekt
     {
         private MainViewModel MainView ;
         private FindView find;
+        private NewItemView newItem;
         public MainWindow()
         {
            
@@ -36,6 +37,12 @@ namespace Dansk_Folkehjælp_Projekt
         {
             find = new FindView();
             find.ShowDialog();
+        }
+
+        private void bt_AddInstructor_Click(object sender, RoutedEventArgs e)
+        {
+            newItem = new NewItemView();
+            newItem.ShowDialog();
         }
     }
 }
