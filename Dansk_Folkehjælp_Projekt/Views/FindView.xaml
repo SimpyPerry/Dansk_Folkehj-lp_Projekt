@@ -36,5 +36,11 @@
         <StackPanel Grid.Row="4"  Orientation="Horizontal">
             <Button  Content="Søg" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click" />
         </StackPanel>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="53,0,0,0" TextWrapping="Wrap" Text="{Binding Current.itemName}" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="54,71,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.amount}" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="54,34,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.minAmount}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Current.boxID}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Current.bookcaseName}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Right" Margin="0,33,106.4,0" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Current.location}" VerticalAlignment="Top"/>
     </Grid>
 </Window>
