@@ -26,12 +26,12 @@
         </Grid.RowDefinitions>
 
         <TextBox Background="FloralWhite" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
-        
+
         <!--Første kolonne gøres grøn-->
-        <DockPanel Background="WhiteSmoke"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Left" >
-            
+        <DockPanel Background="WhiteSmoke"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Left" Margin="0,0,0,0.083" >
+
             <!--De forskellige overskrifter og knapper-->
-            <StackPanel  Margin="0,0,0,0" Width="200">
+            <StackPanel  Margin="0,0,0,0" Width="200" Height="450">
                 <Label Grid.Row="0" Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent"/>
 
                 <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click" Margin=" 0,0,0,5" Background="LimeGreen"  />
