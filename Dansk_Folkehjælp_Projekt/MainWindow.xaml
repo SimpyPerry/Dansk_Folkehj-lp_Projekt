@@ -25,24 +25,24 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox Background="Aqua" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+        <TextBox Background="WhiteSmoke" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
         
         <!--Første kolonne gøres grøn-->
-        <DockPanel Background="ForestGreen"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Left" >
+        <DockPanel Background="GhostWhite"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Left" >
             
             <!--De forskellige overskrifter og knapper-->
             <StackPanel  Margin="0,0,0,0" Width="200">
                 <Label Grid.Row="0" Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent"/>
 
-                <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click" Margin=" 0,0,0,5" Background="Orange"  />
+                <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click" Margin=" 0,0,0,5" Background="LimeGreen"  />
 
                 <Label Content="Overskrift" HorizontalContentAlignment="Center" Margin=" 0,20,0,5" FontWeight="Bold"/>
-                <Button x:Name="bt_midlertidig" Content=" Tryk her" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="Orange"/>
+                <Button x:Name="bt_midlertidig" Content=" Tryk her" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen"/>
 
                 <Label Content="Overskrift" HorizontalContentAlignment="Center" FontWeight="Bold" Margin=" 0,20,0,5" />
 
-                <Button x:Name="bt_AddInstructor" Content="Ny genstand" Margin=" 0,0,0,5" Background="Orange" Click="bt_AddInstructor_Click"/>
-                <Button x:Name="bt_AllInstructors" Content="Ny Reol" Margin=" 0,0,0,5" Background="Orange"/>
+                <Button x:Name="bt_AddInstructor" Content="Ny genstand" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_AddInstructor_Click"/>
+                <Button x:Name="bt_AllInstructors" Content="Ny Reol" Margin=" 0,0,0,5" Background="LimeGreen"/>
 
             </StackPanel>
         </DockPanel>
