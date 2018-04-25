@@ -52,6 +52,26 @@ namespace Dansk_Folkehjælp_Projekt.Views
             location.UpdateTarget();
 
 
+            //Kode til watermark
+            if (tb_Find.Text == "")
+            {
+                // Create an ImageBrush.
+                ImageBrush textImageBrush = new ImageBrush();
+                textImageBrush.ImageSource =
+                    new BitmapImage(
+                        new Uri("https://d43rqu5kpufo0.cloudfront.net/images/placeholder/440x440.png", UriKind.Relative)
+                    );
+                textImageBrush.AlignmentX = AlignmentX.Left;
+                textImageBrush.Stretch = Stretch.None;
+                // Use the brush to paint the button's background.
+                tb_Find.Background = textImageBrush;
+
+            }
+            else
+            {
+
+                tb_Find.Background = null;
+            }
         }
     }
 }
