@@ -36,6 +36,22 @@ namespace Dansk_Folkehjælp_Projekt.Views
             BindingExpression binding = tb_Find.GetBindingExpression(TextBox.TextProperty);
             binding.UpdateSource();
             MainView.UpdateList();
+
+            BindingExpression name = Name.GetBindingExpression(TextBlock.TextProperty);
+            BindingExpression minimum = Minimum.GetBindingExpression(TextBlock.TextProperty);
+            BindingExpression amount = Amount.GetBindingExpression(TextBlock.TextProperty);
+            BindingExpression box = Box.GetBindingExpression(TextBlock.TextProperty);
+            BindingExpression bookCase = Bookcase.GetBindingExpression(TextBlock.TextProperty);
+            BindingExpression location = Location.GetBindingExpression(TextBlock.TextProperty);
+
+            name.UpdateTarget();
+            minimum.UpdateTarget();
+            amount.UpdateTarget();
+            box.UpdateTarget();
+            bookCase.UpdateTarget();
+            location.UpdateTarget();
+
+
         }
     }
 }
