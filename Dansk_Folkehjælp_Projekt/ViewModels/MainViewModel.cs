@@ -19,7 +19,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public MainViewModel()
         {
             DatabaseConnection = new Models.DatabaseConnection();
-            DatabaseConnection.FindByItemName("Klud");
+            DatabaseConnection.FindByItemName("Bandage");
             ItemList = DatabaseConnection.GetStorages;
             Current = ItemList[0];
         }
@@ -55,24 +55,16 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void UpdateList()
         {
-            int o = ItemList.Count;
-            for(int i =0; i<o; i++)
-            {
-                ItemList.RemoveAt(0);
-            }
+            
 
 
 
             DatabaseConnection.FindByItemName(FindViewTextBox);
 
-            int p = DatabaseConnection.GetStorages.Count;
-            for(int i =0;i<p;i++)
-            {
-                ItemList.Add(DatabaseConnection.GetStorages[i]);
-            }
+            ItemList = DatabaseConnection.GetStorages;
             
            
-            Current = ItemList[0];
+            Current = DatabaseConnection.GetStorages[0];
         }
 
 
