@@ -25,10 +25,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox Background="WhiteSmoke" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+        <TextBox Background="FloralWhite" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
         
         <!--Første kolonne gøres grøn-->
-        <DockPanel Background="GhostWhite"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Left" >
+        <DockPanel Background="WhiteSmoke"  Grid.Column="0" Grid.RowSpan="8" Grid.ColumnSpan="1" HorizontalAlignment="Left" >
             
             <!--De forskellige overskrifter og knapper-->
             <StackPanel  Margin="0,0,0,0" Width="200">
