@@ -24,6 +24,9 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
+        <TextBox Background="FloralWhite" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+        <TextBox Background="WhiteSmoke" HorizontalAlignment="Left" Width="150" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
 
         <!--Usynlig koral farvet kasse-->
         <TextBox HorizontalAlignment="Left" Grid.Row="3" Height="23" Margin="121,116,0,0" TextWrapping="Wrap" Text="Klud" VerticalAlignment="Top" Width="120" Background="Coral"/>
@@ -57,6 +60,8 @@
         <TextBlock Name="Box" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.boxID}" VerticalAlignment="Top"/>
         <TextBlock Name="Bookcase" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.bookcaseName}" VerticalAlignment="Top"/>
         <TextBlock Name="Location" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,71,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.location}" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <TextBox Name="tb_Find" HorizontalAlignment="Left" Height="23" Margin="0,18,0,0" TextWrapping="Wrap" Text="{Binding FindViewTextBox, Mode=TwoWay , UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+
+        <TextBox Name="tb_Find" HorizontalAlignment="Left" Height="23" Margin="20,18,0,0" TextWrapping="Wrap" Text="{Binding FindViewTextBox, Mode=TwoWay , UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+
     </Grid>
 </Window>
