@@ -37,12 +37,12 @@ namespace Dansk_Folkehjælp_Projekt.Views
             binding.UpdateSource();
             MainView.UpdateList();
 
-            BindingExpression name = Name.GetBindingExpression(TextBlock.TextProperty);
-            BindingExpression minimum = Minimum.GetBindingExpression(TextBlock.TextProperty);
-            BindingExpression amount = Amount.GetBindingExpression(TextBlock.TextProperty);
-            BindingExpression box = Box.GetBindingExpression(TextBlock.TextProperty);
-            BindingExpression bookCase = Bookcase.GetBindingExpression(TextBlock.TextProperty);
-            BindingExpression location = Location.GetBindingExpression(TextBlock.TextProperty);
+            BindingExpression name = Name.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression minimum = Minimum.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression amount = Amount.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression box = Box.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bookCase = Bookcase.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression location = Location.GetBindingExpression(TextBox.TextProperty);
 
             name.UpdateTarget();
             minimum.UpdateTarget();
@@ -51,6 +51,25 @@ namespace Dansk_Folkehjælp_Projekt.Views
             bookCase.UpdateTarget();
             location.UpdateTarget();
 
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            BindingExpression name = Name.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression minimum = Minimum.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression amount = Amount.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression box = Box.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression bookCase = Bookcase.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression location = Location.GetBindingExpression(TextBox.TextProperty);
+
+            name.UpdateSource();
+            minimum.UpdateSource();
+            amount.UpdateSource();
+            box.UpdateSource();
+            bookCase.UpdateSource();
+            location.UpdateSource();
+
+            MainView.EditData();
         }
     }
 }
