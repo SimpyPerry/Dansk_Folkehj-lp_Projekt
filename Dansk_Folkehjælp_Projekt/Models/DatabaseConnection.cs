@@ -46,7 +46,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                             string DB_bookcaseID = reader.GetString(5);
                             string DB_location = reader.GetString(6);
 
-                            GetStorages.Add(new Storage() { itemID=DB_ItemID, itemName = DB_name, amount = DB_amount, minAmount = DB_amount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
+                            GetStorages.Add(new Storage() { itemID=DB_ItemID, itemName = DB_name, amount = DB_amount, minAmount = DB_minAmount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
                         }
 
                     }
