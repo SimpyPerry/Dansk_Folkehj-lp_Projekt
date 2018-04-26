@@ -40,7 +40,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
             bindingBoxID.UpdateSource();
             BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
             bindingBookcaseName.UpdateSource();
-            BindingExpression bindingLocation = Storage_Dropdown.GetBindingExpression(ComboBoxItem.IsSelectedProperty);
+            BindingExpression bindingLocation = LocationBox.GetBindingExpression(TextBox.TextProperty);
             bindingLocation.UpdateSource();
 
             MainView.NewItem();
