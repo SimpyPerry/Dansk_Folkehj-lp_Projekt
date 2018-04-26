@@ -30,22 +30,39 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void Save_button_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression bindingItem = ItemNameBox.GetBindingExpression(TextBox.TextProperty);
-            bindingItem.UpdateSource();
-            BindingExpression bindingAmount = ItemAmountbox.GetBindingExpression(TextBox.TextProperty);
-            bindingAmount.UpdateSource();
-            BindingExpression bindingMinAmount = MinAmountBox.GetBindingExpression(TextBox.TextProperty);
-            bindingMinAmount.UpdateSource();
-            BindingExpression bindingBoxID = BoxID_Box.GetBindingExpression(TextBox.TextProperty);
-            bindingBoxID.UpdateSource();
-            BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
-            bindingBookcaseName.UpdateSource();
-            BindingExpression bindingLocation = LocationBox.GetBindingExpression(TextBox.TextProperty);
-            bindingLocation.UpdateSource();
+            if (LocationBox.Text == "Container") {
+                BindingExpression bindingItem = ItemNameBox.GetBindingExpression(TextBox.TextProperty);
+                bindingItem.UpdateSource();
+                BindingExpression bindingAmount = ItemAmountbox.GetBindingExpression(TextBox.TextProperty);
+                bindingAmount.UpdateSource();
+                BindingExpression bindingMinAmount = MinAmountBox.GetBindingExpression(TextBox.TextProperty);
+                bindingMinAmount.UpdateSource();
+                BindingExpression bindingLocation = LocationBox.GetBindingExpression(TextBox.TextProperty);
+                bindingLocation.UpdateSource();
 
-            MainView.NewItem();
+                MainView.NewItem();
+                MessageBox.Show("Genstand tilføjet til containeren");
+            } else if( LocationBox.Text == "Loft")
+            {
+                BindingExpression bindingItem = ItemNameBox.GetBindingExpression(TextBox.TextProperty);
+                bindingItem.UpdateSource();
+                BindingExpression bindingAmount = ItemAmountbox.GetBindingExpression(TextBox.TextProperty);
+                bindingAmount.UpdateSource();
+                BindingExpression bindingMinAmount = MinAmountBox.GetBindingExpression(TextBox.TextProperty);
+                bindingMinAmount.UpdateSource();
+                BindingExpression bindingBoxID = BoxID_Box.GetBindingExpression(TextBox.TextProperty);
+                bindingBoxID.UpdateSource();
+                BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
+                bindingBookcaseName.UpdateSource();
+                BindingExpression bindingLocation = LocationBox.GetBindingExpression(TextBox.TextProperty);
+                bindingLocation.UpdateSource();
+                MainView.NewItem();
+                MessageBox.Show("Genstand tilføjet til loftet");
+            } else
+            {
 
-            MessageBox.Show("Genstand tilføjet");
+                MessageBox.Show("Lokation er ugyldig");
+            }
         }
     }
 }
