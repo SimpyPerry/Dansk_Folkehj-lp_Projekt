@@ -23,12 +23,12 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             ItemList = DatabaseConnection.GetStorages;
             Current = ItemList[0];
         }
-        public string _itemName;
-        public int _amount;
-        public int _minAmount;
-        public string _boxID;
-        public string _bookcaseName;
-        public string _location;
+        public string _itemName { get; set; }
+        public int _amount { get; set; }
+        public int _minAmount { get; set; }
+        public string _boxID { get; set; }
+        public string _bookcaseName { get; set; }
+        public string _location { get; set; }
         public void FindItem()
         {
             DatabaseConnection.FindByItemName(_itemName);
