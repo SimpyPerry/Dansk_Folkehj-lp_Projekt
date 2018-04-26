@@ -9,6 +9,17 @@ namespace Dansk_Folkehjælp_Projekt.Models
 {
     public class Storage: INotifyPropertyChanged
     {
+        private int _itemID;
+
+        public int itemID
+        {
+            get { return _itemID; }
+            set
+            {
+                _itemID = value;
+                OnPropertyChanged("itemID");
+            }
+        }
         //Storage
         private string _location;
         public string location {
