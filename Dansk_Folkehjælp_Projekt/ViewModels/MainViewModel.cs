@@ -67,6 +67,11 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             Current = DatabaseConnection.GetStorages[0];
         }
 
+        public void EditData()
+        {
+            DatabaseConnection.EditItem(Current.itemID, Current.itemName, Current.amount, Current.minAmount, Current.boxID, Current.bookcaseName, Current.location);
+        }
+
 
     }
 }
