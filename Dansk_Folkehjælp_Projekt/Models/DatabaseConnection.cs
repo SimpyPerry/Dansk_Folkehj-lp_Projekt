@@ -67,7 +67,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             if (location == "Container")
             {
                 string query = "SELECT ItemName, Amount, MinAmount"
-                        + "FROM STORAGE WHERE Storeage =" + "'" + location + "'";
+                        + "FROM STORAGE WHERE Storage =" + "'" + location + "'";
 
                 using (SqlConnection Connect = new SqlConnection(connectionString))
                 {
