@@ -25,12 +25,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         {
             DatabaseConnection = new Models.DatabaseConnection();
             DatabaseConnection.FindByItemName("Bandage");
-            ItemList = DatabaseConnection.GetStorages;
-            Current = ItemList[0];
-            collection = new ObservableCollection<Storage>()
-            {
-                new Storage(){itemName="en"}
-            };
+            collection = DatabaseConnection.GetStorages;
+            Current = collection[0];
+           
         }
         public string _itemName { get; set; }
         public int _amount { get; set; }
@@ -70,13 +67,21 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
             DatabaseConnection.FindByItemName(FindViewTextBox);
 
-            ItemList = DatabaseConnection.GetStorages;
-            Storage storage = new Storage() { itemName = "g" };
-            ItemList.Add(storage);
+            int p = collection.Count;
+            for(int i=0; i<p; i++)
+            {
+                collection.RemoveAt(0);
+            }
+
+            int u = DatabaseConnection.GetStorages.Count;
+            for(int i=0; i<u;i++)
+            { collection.Add(DatabaseConnection.GetStorages[i]); }
+            
+           
            
             Current = DatabaseConnection.GetStorages[0];
 
-            collection.Add(storage);
+            
         }
 
         public void EditData()

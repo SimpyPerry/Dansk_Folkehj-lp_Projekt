@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,19 +12,19 @@ namespace Dansk_Folkehjælp_Projekt.Models
     {
         
             //Forbinder til databasen
-            public List<Storage> GetStorages { get; set; }
+            public ObservableCollection <Storage> GetStorages { get; set; }
             private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
 
             public DatabaseConnection()
             {
-                GetStorages = new List<Storage>();
+                GetStorages = new ObservableCollection<Storage>();
 
             }
 
             //Metode til at søge efter alle genstande med navn der minder om ItemName
             public void FindByItemName(string itemName)
             {
-            GetStorages = new List<Storage>();
+            GetStorages = new ObservableCollection<Storage>();
             
                 string query = "SELECT ItemID, ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
                     + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
