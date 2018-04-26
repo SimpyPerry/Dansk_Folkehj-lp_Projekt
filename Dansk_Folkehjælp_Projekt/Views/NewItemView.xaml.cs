@@ -30,7 +30,22 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void Save_button_Click(object sender, RoutedEventArgs e)
         {
+            BindingExpression bindingItem = ItemNameBox.GetBindingExpression(TextBox.TextProperty);
+            bindingItem.UpdateSource();
+            BindingExpression bindingAmount = ItemAmountbox.GetBindingExpression(TextBox.TextProperty);
+            bindingAmount.UpdateSource();
+            BindingExpression bindingMinAmount = MinAmountBox.GetBindingExpression(TextBox.TextProperty);
+            bindingMinAmount.UpdateSource();
+            BindingExpression bindingBoxID = BoxID_Box.GetBindingExpression(TextBox.TextProperty);
+            bindingBoxID.UpdateSource();
+            BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
+            bindingBookcaseName.UpdateSource();
+            BindingExpression bindingLocation = Storage_Dropdown.GetBindingExpression(ComboBoxItem.IsSelectedProperty);
+            bindingLocation.UpdateSource();
 
+            MainView.NewItem();
+
+            MessageBox.Show("Genstand tilføjet");
         }
     }
 }
