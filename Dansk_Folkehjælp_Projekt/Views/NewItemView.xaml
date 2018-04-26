@@ -10,22 +10,22 @@
         <!--Save new item button-->
         <Button Name="Save_button" Content="Gem" HorizontalAlignment="Left" Margin="257,331,0,0" VerticalAlignment="Top" Width="147" Height="48" Click="Save_button_Click"/>
         <!--Item name box-->
-        <TextBox Name="ItemNameBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,66,0,0" TextWrapping="Wrap" Text="{Binding _itemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="ItemNameBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,66,0,0" TextWrapping="Wrap" Text="{Binding _itemName, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Genstand: " HorizontalAlignment="Left" Margin="175,66,0,0" VerticalAlignment="Top"/>
         <!--Item amount box-->
-        <TextBox x:Name="ItemAmountbox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,113,0,0" TextWrapping="Wrap" Text="{Binding _amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ItemAmountbox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,113,0,0" TextWrapping="Wrap" Text="{Binding _amount, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Antal:" HorizontalAlignment="Left" Margin="175,111,0,0" VerticalAlignment="Top"/>
         <!--MinAmount box-->
-        <TextBox x:Name="MinAmountBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,158,0,0" TextWrapping="Wrap" Text="{Binding _minAmount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="MinAmountBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,158,0,0" TextWrapping="Wrap" Text="{Binding _minAmount, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Minimum Antal:" HorizontalAlignment="Left" Margin="175,155,0,0" VerticalAlignment="Top"/>
         <!--Dropdown storage choice-->
         <!--BoxID box-->
-        <TextBox x:Name="BoxID_Box" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,247,0,0" TextWrapping="Wrap" Text="{Binding _boxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="BoxID_Box" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,247,0,0" TextWrapping="Wrap" Text="{Binding _boxID, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Kasse Navn" HorizontalAlignment="Left" Margin="175,244,0,0" VerticalAlignment="Top"/>
         <!--Bookcase Name box-->
-        <TextBox x:Name="BookcaseName_box" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,290,0,0" TextWrapping="Wrap" Text="{Binding _bookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="BookcaseName_box" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,290,0,0" TextWrapping="Wrap" Text="{Binding _bookcaseName, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Reol Navn" HorizontalAlignment="Left" Margin="175,287,0,0" VerticalAlignment="Top"/>
         <!--Location box-->
-        <TextBox x:Name="LocationBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,200,0,0" TextWrapping="Wrap" Text="{Binding _location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LocationBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,200,0,0" TextWrapping="Wrap" Text="{Binding _location, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
