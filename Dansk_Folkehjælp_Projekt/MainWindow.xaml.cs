@@ -44,5 +44,15 @@ namespace Dansk_Folkehjælp_Projekt
             newItem = new NewItemView();
             newItem.ShowDialog();
         }
+
+        private void bt_Attic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void bt_Container_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

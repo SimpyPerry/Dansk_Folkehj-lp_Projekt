@@ -36,8 +36,12 @@
 
                 <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click" Margin=" 0,0,0,5" Background="LimeGreen"  />
 
-                <Label Content="Overskrift" HorizontalContentAlignment="Center" Margin=" 0,20,0,5" FontWeight="Bold"/>
-                <Button x:Name="bt_midlertidig" Content=" Tryk her" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen"/>
+                <Label Content="Vælg Lager" HorizontalContentAlignment="Center" Margin=" 0,20,0,5" FontWeight="Bold"/>
+                <!--Attic button-->
+                <Button x:Name="bt_Attic" Content="Loft" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_Attic_Click"/>
+                <!--Container Button-->
+                <Button x:Name="bt_Container" Content="Container" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_Container_Click"/>
+
 
                 <Label Content="Overskrift" HorizontalContentAlignment="Center" FontWeight="Bold" Margin=" 0,20,0,5" />
 

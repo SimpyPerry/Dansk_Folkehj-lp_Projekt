@@ -62,6 +62,8 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 SqlCommand AddItemToTable = new SqlCommand(query, Connect);
 
                 AddItemToTable.ExecuteNonQuery();
+
+                Connect.Close();
                 
             }
             
