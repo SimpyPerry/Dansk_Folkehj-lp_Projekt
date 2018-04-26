@@ -9,8 +9,8 @@ namespace Dansk_Folkehjælp_Projekt.Models
 {
     public class Storage: INotifyPropertyChanged
     {
+        //ItemID
         private int _itemID;
-
         public int itemID
         {
             get { return _itemID; }
