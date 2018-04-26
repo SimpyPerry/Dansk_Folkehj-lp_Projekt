@@ -116,7 +116,17 @@ namespace Dansk_Folkehjælp_Projekt.Models
             }
         }
         
-        
+        public void EditItem(int itemID, string itemName, int amount, int minAmount, string boxID, string bookcase, string location)
+        {
+            string query = string.Format("UPDATE STORAGE SET ItemName='{0}', Amount='{1}', MinAmount='{2}', BoxID='{3}', BookcaseName='{4}', Location='{5}' WHERE ItemID='{6}'", itemName, amount, minAmount, boxID, bookcase, location, itemID);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand edit = new SqlCommand(query, Connect);
+                Connect.Open();
+                edit.ExecuteNonQuery();
+                Connect.Close();
+            }
+        }
     }
 }
 
