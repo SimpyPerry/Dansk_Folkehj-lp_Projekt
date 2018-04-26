@@ -20,7 +20,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
             }
 
-            //Metode til at søge efter genstande med navn der minder om ItemName
+            //Metode til at søge efter alle genstande med navn der minder om ItemName
             public void FindByItemName(string itemName)
             {
             GetStorages = new List<Storage>();
@@ -52,6 +52,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     }
                 }
             }
+        //Opretter ny genstand
         public void AddNewItem(string itemName, int amount, int minAmount, string boxID, string bookcaseName, string location)
         {
             string query = "INSERT into STORAGE(ItemName, Amount, MinAmount, BoxID, BookcaseName, Location) VALUES ( '" + itemName + "','" + amount + "','" + minAmount + "','" + boxID + "','" + location + "')";
@@ -116,6 +117,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             }
         }
         
+        //Redigere genstand info
         public void EditItem(int itemID, string itemName, int amount, int minAmount, string boxID, string bookcase, string location)
         {
             string query = string.Format("UPDATE STORAGE SET ItemName='{0}', Amount='{1}', MinAmount='{2}', BoxID='{3}', BookcaseName='{4}', Location='{5}' WHERE ItemID='{6}'", itemName, amount, minAmount, boxID, bookcase, location, itemID);
