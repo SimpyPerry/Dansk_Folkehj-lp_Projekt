@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Dansk_Folkehjælp_Projekt.Views"
         mc:Ignorable="d"
         Title="NewItemView" Height="430.102" Width="668.367">
+    
     <Grid>
+        <TextBox Background="FloralWhite" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+
         <!--Save new item button-->
         <Button Name="Save_button" Content="Gem" HorizontalAlignment="Left" Margin="257,331,0,0" VerticalAlignment="Top" Width="147" Height="48" Click="Save_button_Click"/>
         <!--Item name box-->
