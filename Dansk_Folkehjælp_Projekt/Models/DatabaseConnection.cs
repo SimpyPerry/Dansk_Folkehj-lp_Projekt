@@ -25,7 +25,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             {
             GetStorages = new List<Storage>();
             
-                string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
+                string query = "SELECT ItemID, ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
                     + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
             
 
@@ -38,14 +38,15 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     {
                         while (reader.Read())
                         {
-                            string DB_name = reader.GetString(0);
-                            int DB_amount = reader.GetInt32(1);
-                            int DB_minAmount = reader.GetInt32(2);
-                            string DB_box = reader.GetString(3);
-                            string DB_bookcaseID = reader.GetString(4);
-                            string DB_location = reader.GetString(5);
+                        int DB_ItemID = reader.GetInt32(0);
+                            string DB_name = reader.GetString(1);
+                            int DB_amount = reader.GetInt32(2);
+                            int DB_minAmount = reader.GetInt32(3);
+                            string DB_box = reader.GetString(4);
+                            string DB_bookcaseID = reader.GetString(5);
+                            string DB_location = reader.GetString(6);
 
-                            GetStorages.Add(new Storage() { itemName = DB_name, amount = DB_amount, minAmount = DB_amount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
+                            GetStorages.Add(new Storage() { itemID=DB_ItemID, itemName = DB_name, amount = DB_amount, minAmount = DB_amount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
                         }
 
                     }
