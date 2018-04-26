@@ -23,6 +23,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
         private MainViewModel MainView;
         public NewItemView()
         {
+            MainView = new MainViewModel();
             DataContext = MainView;
             InitializeComponent();
         }
