@@ -54,12 +54,16 @@ namespace Dansk_Folkehjælp_Projekt.Models
             }
         public void AddNewItem(string itemName, int amount, int minAmount, string boxID, string bookcaseName, string location)
         {
-            string query = "INSERT into STORAGE(ItemName, Amount, MinAmount, BoxID, BookcaseName, Location) VALUES ( '" + itemName + "','" + amount + "','" + minAmount + "','" + boxID + "','" + location + "')";
+            string query = "INSERT into STORAGE(ItemName, Amount, MinAmount, BoxID, BookcaseName, Location) VALUES ( '" + itemName + "','" + amount + "','" + minAmount + "','" + boxID + "','" + bookcaseName + "','" + location + "')";
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 Connect.Open();
                 SqlCommand AddItemToTable = new SqlCommand(query, Connect);
+
+                AddItemToTable.ExecuteNonQuery();
+                
             }
+            
         }
         //Metode til at vælge hvilket lager man vil se genstande fra
         public void ShowStorage(string location)
