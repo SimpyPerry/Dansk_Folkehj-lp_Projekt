@@ -32,7 +32,7 @@
         <!--Usynlig koral farvet kasse-->
         <TextBox HorizontalAlignment="Left" Grid.Row="3" Height="23" Margin="121,116,0,0" TextWrapping="Wrap" Text="Klud" VerticalAlignment="Top" Width="120" Background="Coral"/>
         <!--Orange box-->
-        <ListBox HorizontalAlignment="Left" Grid.Row="2" Height="100" Margin="20,0,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ItemList, Mode=OneWay}" Grid.RowSpan="2" Background="DarkOrange" >
+        <ListBox  HorizontalAlignment="Left" Grid.Row="2" Height="100" Margin="20,0,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding collection, Mode=OneWay }" Grid.RowSpan="2" Background="DarkOrange" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

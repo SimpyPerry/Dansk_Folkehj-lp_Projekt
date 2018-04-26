@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,10 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
     {
         Models.DatabaseConnection DatabaseConnection;
         public List<Storage> ItemList { get; set; }
+        public ObservableCollection<Storage> collection { get; set; }
+        
+        
+        
        
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
@@ -22,6 +27,10 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.FindByItemName("Bandage");
             ItemList = DatabaseConnection.GetStorages;
             Current = ItemList[0];
+            collection = new ObservableCollection<Storage>()
+            {
+                new Storage(){itemName="en"}
+            };
         }
         public string _itemName { get; set; }
         public int _amount { get; set; }
@@ -62,9 +71,12 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.FindByItemName(FindViewTextBox);
 
             ItemList = DatabaseConnection.GetStorages;
-            
+            Storage storage = new Storage() { itemName = "g" };
+            ItemList.Add(storage);
            
             Current = DatabaseConnection.GetStorages[0];
+
+            collection.Add(storage);
         }
 
         public void EditData()

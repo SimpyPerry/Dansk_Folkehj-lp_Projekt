@@ -51,6 +51,8 @@ namespace Dansk_Folkehjælp_Projekt.Views
             bookCase.UpdateTarget();
             location.UpdateTarget();
 
+          
+
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
