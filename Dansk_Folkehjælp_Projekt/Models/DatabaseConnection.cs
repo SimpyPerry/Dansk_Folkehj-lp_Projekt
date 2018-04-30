@@ -25,7 +25,10 @@ namespace Dansk_Folkehjælp_Projekt.Models
             public void FindByItemName(string itemName)
             {
             GetStorages = new ObservableCollection<Storage>();
-            
+
+            int DB_minAmount;
+            string DB_box;
+            string DB_bookcaseID;
                 string query = "SELECT ItemID, ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
                     + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
             
@@ -39,12 +42,35 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     {
                         while (reader.Read())
                         {
+                        
                         int DB_ItemID = reader.GetInt32(0);
                             string DB_name = reader.GetString(1);
+                        
                             int DB_amount = reader.GetInt32(2);
-                            int DB_minAmount = reader.GetInt32(3);
-                            string DB_box = reader.GetString(4);
-                            string DB_bookcaseID = reader.GetString(5);
+                        if (reader[3] != DBNull.Value)
+                        {
+
+                             DB_minAmount = reader.GetInt32(3);
+                        }
+                        else { DB_minAmount = 0; }
+
+                        if(reader[4]!=DBNull.Value)
+                        {
+                            DB_box = reader.GetString(4);
+                        }
+                             else
+                        {
+                            DB_box = "";
+                        }
+                        if(reader[5]!=DBNull.Value)
+                        {
+                            DB_bookcaseID = reader.GetString(5);
+                        }
+                        else
+                        {
+                            DB_bookcaseID = "";
+
+                        }
                             string DB_location = reader.GetString(6);
 
                             GetStorages.Add(new Storage() { itemID=DB_ItemID, itemName = DB_name, amount = DB_amount, minAmount = DB_minAmount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
