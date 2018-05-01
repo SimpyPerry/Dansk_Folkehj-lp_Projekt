@@ -222,10 +222,10 @@ namespace Dansk_Folkehjælp_Projekt.Models
             {
                 Conncet.Open();
                 SqlCommand Exsits = new SqlCommand(query, Conncet);
-                string empty = string.Empty;
+                string empty = null;
                 empty = (string)Exsits.ExecuteScalar();
 
-                if(empty.Length == 0)
+                if(empty == null)
                 {
                     return true;
                 }else
