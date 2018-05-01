@@ -49,19 +49,17 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
             } else if( LocationBox.Text == "Loft")
             {
-                BindingExpression bindingItem = ItemNameBox.GetBindingExpression(TextBox.TextProperty);
-                bindingItem.UpdateSource();
-                BindingExpression bindingAmount = ItemAmountbox.GetBindingExpression(TextBox.TextProperty);
-                bindingAmount.UpdateSource();
-                BindingExpression bindingMinAmount = MinAmountBox.GetBindingExpression(TextBox.TextProperty);
-                bindingMinAmount.UpdateSource();
-                BindingExpression bindingBoxID = BoxID_Box.GetBindingExpression(TextBox.TextProperty);
-                bindingBoxID.UpdateSource();
-                //BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
-                //bindingBookcaseName.UpdateSource();
-                BindingExpression bindingLocation = LocationBox.GetBindingExpression(TextBox.TextProperty);
-                bindingLocation.UpdateSource();
+                BindingExpression[] bindings = new BindingExpression[5];
+                TextBox[] box = new TextBox[] { ItemNameBox, ItemAmountbox, MinAmountBox, BoxID_Box, LocationBox };
 
+
+             
+
+                for (int i =0; i<5;i++)
+                {
+                    bindings[i] = box[i].GetBindingExpression(TextBox.TextProperty);
+                    bindings[i].UpdateSource();
+                }
                 MainView.NewItem();
                 MessageBox.Show("Genstand tilføjet til loftet");
                 ItemNameBox.Text = null;
