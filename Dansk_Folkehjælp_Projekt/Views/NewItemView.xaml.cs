@@ -57,8 +57,8 @@ namespace Dansk_Folkehjælp_Projekt.Views
                 bindingMinAmount.UpdateSource();
                 BindingExpression bindingBoxID = BoxID_Box.GetBindingExpression(TextBox.TextProperty);
                 bindingBoxID.UpdateSource();
-                BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
-                bindingBookcaseName.UpdateSource();
+                //BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
+                //bindingBookcaseName.UpdateSource();
                 BindingExpression bindingLocation = LocationBox.GetBindingExpression(TextBox.TextProperty);
                 bindingLocation.UpdateSource();
 
@@ -68,7 +68,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
                 ItemAmountbox.Text = null;
                 MinAmountBox.Text = null;
                 BoxID_Box.Text = null;
-                BookcaseName_box.Text = null;
+               // BookcaseName_box.Text = null;
                 LocationBox.Text = null;
             } else
             {

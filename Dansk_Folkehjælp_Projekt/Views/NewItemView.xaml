@@ -8,7 +8,16 @@
         Title="NewItemView" Height="430.102" Width="668.367">
     
     <Grid>
-        <TextBox Background="FloralWhite" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+        <TextBox Background="FloralWhite" Margin="0,450,302.6,-52.2" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
 
         <!--Save new item button-->
         <Button Name="Save_button" Content="Gem" HorizontalAlignment="Left" Margin="267,335,0,0" VerticalAlignment="Top" Width="147" Height="48" Click="Save_button_Click"/>
@@ -26,9 +35,9 @@
         <TextBox x:Name="BoxID_Box" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,247,0,0" TextWrapping="Wrap" Text="{Binding _boxID, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Kasse ID" HorizontalAlignment="Left" Margin="175,244,0,0" VerticalAlignment="Top"/>
         <!--Bookcase Name box-->
-        <TextBox x:Name="BookcaseName_box" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,290,0,0" TextWrapping="Wrap" Text="{Binding _bookcaseName, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Reol Navn" HorizontalAlignment="Left" Margin="175,287,0,0" VerticalAlignment="Top"/>
         <!--Location box-->
         <TextBox x:Name="LocationBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,200,0,0" TextWrapping="Wrap" Text="{Binding _location, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboBookcase" ItemsSource="{Binding bookcaseCombo}" SelectedItem="{Binding Path=_bookcaseName}" HorizontalAlignment="Left" Margin="293,290,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

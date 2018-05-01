@@ -13,10 +13,10 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         Models.DatabaseConnection DatabaseConnection;
         public List<Storage> ItemList { get; set; }
         public ObservableCollection<Storage> collection { get; set; }
-        
-        
-        
-       
+
+        public List<string> bookcaseCombo { get; set; }
+
+
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
 
@@ -27,7 +27,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.FindByItemName("Bandage");
             collection = DatabaseConnection.GetStorages;
             Current = collection[0];
-           
+
+            bookcaseCombo = new List<string> { "a", "b" };
         }
         public string _itemName { get; set; }
         public int _amount { get; set; }
@@ -35,6 +36,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public string _boxID { get; set; }
         public string _bookcaseName { get; set; }
         public string _location { get; set; }
+       
         public void FindItem()
         {
             DatabaseConnection.FindByItemName(_itemName);
