@@ -30,44 +30,33 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void Save_button_Click(object sender, RoutedEventArgs e)
         {
-            if (LocationBox.Text == "Container") {
-                BindingExpression bindingItem = ItemNameBox.GetBindingExpression(TextBox.TextProperty);
-                bindingItem.UpdateSource();
-                BindingExpression bindingAmount = ItemAmountbox.GetBindingExpression(TextBox.TextProperty);
-                bindingAmount.UpdateSource();
-                BindingExpression bindingMinAmount = MinAmountBox.GetBindingExpression(TextBox.TextProperty);
-                bindingMinAmount.UpdateSource();
-                BindingExpression bindingLocation = LocationBox.GetBindingExpression(TextBox.TextProperty);
-                bindingLocation.UpdateSource();
+            BindingExpression[] bindings = new BindingExpression[5];
+            TextBox[] box = new TextBox[] { ItemNameBox, ItemAmountbox, MinAmountBox, LocationBox, BoxID_Box, };
 
+            if (LocationBox.Text == "Container") {
+                
+                for (int i = 0; i < 4; i++)
+                {
+                    bindings[i] = box[i].GetBindingExpression(TextBox.TextProperty);
+                    bindings[i].UpdateSource();
+                    box[i].Text = null;
+                }
                 MainView.NewItem();
                 MessageBox.Show("Genstand tilføjet til containeren");
-                ItemNameBox.Text = null;
-                ItemAmountbox.Text = null;
-                MinAmountBox.Text = null;
-                LocationBox.Text = null;
+               
 
             } else if( LocationBox.Text == "Loft")
             {
-                BindingExpression[] bindings = new BindingExpression[5];
-                TextBox[] box = new TextBox[] { ItemNameBox, ItemAmountbox, MinAmountBox, BoxID_Box, LocationBox };
-
-
-             
-
+                
                 for (int i =0; i<5;i++)
                 {
                     bindings[i] = box[i].GetBindingExpression(TextBox.TextProperty);
                     bindings[i].UpdateSource();
+                    box[i].Text = null;
                 }
                 MainView.NewItem();
                 MessageBox.Show("Genstand tilføjet til loftet");
-                ItemNameBox.Text = null;
-                ItemAmountbox.Text = null;
-                MinAmountBox.Text = null;
-                BoxID_Box.Text = null;
-               // BookcaseName_box.Text = null;
-                LocationBox.Text = null;
+               
             } else
             {
 
