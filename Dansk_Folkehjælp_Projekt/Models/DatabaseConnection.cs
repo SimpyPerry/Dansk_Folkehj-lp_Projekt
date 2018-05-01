@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,49 +10,90 @@ namespace Dansk_Folkehjælp_Projekt.Models
 {
     public class DatabaseConnection
     {
+        
+            //Forbinder til databasen
+            public ObservableCollection <Storage> GetStorages { get; set; }
+            private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
 
-        //Forbinder til databasen
-        public List<Storage> GetStorages { get; set; }
-        private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
-
-        public DatabaseConnection()
-        {
-            GetStorages = new List<Storage>();
-
-        }
-
-        //Metode til at søge efter alle genstande med navn der minder om ItemName
-        public void FindByItemName(string itemName)
-        {
-            GetStorages = new List<Storage>();
-
-            string query = "SELECT ItemID, ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
-                + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
-
-
-            using (SqlConnection Connect = new SqlConnection(connectionString))
+            public DatabaseConnection()
             {
-                Connect.Open();
-                SqlCommand GetByName = new SqlCommand(query, Connect);
+                GetStorages = new ObservableCollection<Storage>();
 
-                using (SqlDataReader reader = GetByName.ExecuteReader())
+            }
+
+            //Metode til at søge efter alle genstande med navn der minder om ItemName
+            public void FindByItemName(string itemName)
+            {
+            GetStorages = new ObservableCollection<Storage>();
+
+            int DB_minAmount;
+            string DB_box;
+            string DB_bookcaseID;
+            string checkIfExists = "SELECT COUNT(*) FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
+                string query = "SELECT ItemID, ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
+                    + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
+            
+            
+                using (SqlConnection Connect = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+             SqlCommand CheckFirst = new SqlCommand(checkIfExists, Connect);
+                    Connect.Open();
+
+                int records = (int)CheckFirst.ExecuteScalar();
+
+             if(records!=0)
+                {
+                    SqlCommand GetByName = new SqlCommand(query, Connect);
+
+                    using (SqlDataReader reader = GetByName.ExecuteReader())
                     {
-                        int DB_ItemID = reader.GetInt32(0);
-                        string DB_name = reader.GetString(1);
-                        int DB_amount = reader.GetInt32(2);
-                        int DB_minAmount = reader.GetInt32(3);
-                        string DB_box = reader.GetString(4);
-                        string DB_bookcaseID = reader.GetString(5);
-                        string DB_location = reader.GetString(6);
+                        while (reader.Read())
+                        {
 
-                        GetStorages.Add(new Storage() { itemID = DB_ItemID, itemName = DB_name, amount = DB_amount, minAmount = DB_minAmount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
+                            int DB_ItemID = reader.GetInt32(0);
+                            string DB_name = reader.GetString(1);
+
+                            int DB_amount = reader.GetInt32(2);
+                            if (reader[3] != DBNull.Value)
+                            {
+
+                                DB_minAmount = reader.GetInt32(3);
+                            }
+                            else { DB_minAmount = 0; }
+
+                            if (reader[4] != DBNull.Value)
+                            {
+                                DB_box = reader.GetString(4);
+                            }
+                            else
+                            {
+                                DB_box = "";
+                            }
+                            if (reader[5] != DBNull.Value)
+                            {
+                                DB_bookcaseID = reader.GetString(5);
+                            }
+                            else
+                            {
+                                DB_bookcaseID = "";
+
+                            }
+                            string DB_location = reader.GetString(6);
+
+                            GetStorages.Add(new Storage() { itemID = DB_ItemID, itemName = DB_name, amount = DB_amount, minAmount = DB_minAmount, boxID = DB_box, bookcaseName = DB_bookcaseID, location = DB_location });
+                        }
+
                     }
+                }
 
+             else
+                {
+                    GetStorages.Add(new Storage() {  itemName = "Eksisterer ikke" });
+                }
+
+                
                 }
             }
-        }
         //Opretter ny genstand
         public void AddNewItem(string itemName, int amount, int minAmount, string boxID, string bookcaseName, string location)
         {
@@ -64,66 +106,64 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 AddItemToTable.ExecuteNonQuery();
 
                 Connect.Close();
-
+                
             }
-
+            
         }
         //Metode til at vælge hvilket lager man vil se genstande fra
-        public void ShowContainerStorage()
+        public void ShowStorage(string location)
         {
-
-            string query = "SELECT ItemName, Amount, MinAmount"
-                    + "FROM STORAGE WHERE Storage = Container";
-
-            using (SqlConnection Connect = new SqlConnection(connectionString))
+            if (location == "Container")
             {
-                Connect.Open();
-                SqlCommand GetByStorage = new SqlCommand(query, Connect);
+                string query = "SELECT ItemName, Amount, MinAmount"
+                        + "FROM STORAGE WHERE Storage =" + "'" + location + "'";
 
-                using (SqlDataReader reader = GetByStorage.ExecuteReader())
+                using (SqlConnection Connect = new SqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    Connect.Open();
+                    SqlCommand GetByStorage = new SqlCommand(query, Connect);
+
+                    using (SqlDataReader reader = GetByStorage.ExecuteReader())
                     {
-                        string DB_name = reader.GetString(0);
-                        int DB_amount = reader.GetInt32(1);
-                        int DB_minAmount = reader.GetInt32(2);
+                        while (reader.Read())
+                        {
+                            string DB_name = reader.GetString(0);
+                            int DB_amount = reader.GetInt32(1);
+                            int DB_minAmount = reader.GetInt32(2);
 
-                        GetStorages.Add(new Storage() { itemName = DB_name, amount = DB_amount, minAmount = DB_minAmount });
+                            GetStorages.Add(new Storage() { itemName = DB_name, amount = DB_amount, minAmount = DB_amount });
+                        }
+
                     }
+                }
+            }
+            else
+            {
+                string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName"
+                        + "FROM STORAGE WHERE Storeage =" + "'" + location + "'";
 
+                using (SqlConnection Connect = new SqlConnection(connectionString))
+                {
+                    Connect.Open();
+                    SqlCommand GetByName = new SqlCommand(query, Connect);
+
+                    using (SqlDataReader reader = GetByName.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string DB_name = reader.GetString(0);
+                            int DB_amount = reader.GetInt32(1);
+                            int DB_minAmount = reader.GetInt32(2);
+                            string DB_box = reader.GetString(3);
+                            string DB_bookcaseID = reader.GetString(4);
+
+                            GetStorages.Add(new Storage() { itemName = DB_name, amount = DB_amount, minAmount = DB_amount, boxID = DB_box, bookcaseName = DB_bookcaseID });
+                        }
+
+                    }
                 }
             }
         }
-
-            public void ShowAtticStorage() {
-                {
-                    string query = "SELECT ItemName, Amount, MinAmount, BoxID, BookcaseName"
-                            + "FROM STORAGE WHERE Storeage = Loft";
-
-                    using (SqlConnection Connect = new SqlConnection(connectionString))
-                    {
-                        Connect.Open();
-                        SqlCommand GetByName = new SqlCommand(query, Connect);
-
-                        using (SqlDataReader reader = GetByName.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                string DB_name = reader.GetString(0);
-                                int DB_amount = reader.GetInt32(1);
-                                int DB_minAmount = reader.GetInt32(2);
-                                string DB_box = reader.GetString(3);
-                                string DB_bookcaseID = reader.GetString(4);
-
-                                GetStorages.Add(new Storage() { itemName = DB_name, amount = DB_amount, minAmount = DB_minAmount, boxID = DB_box, bookcaseName = DB_bookcaseID });
-                            }
-
-                        }
-                    }
-                }
-            }
-        
-    
         
         //Redigere genstand info
         public void EditItem(int itemID, string itemName, int amount, int minAmount, string boxID, string bookcase, string location)

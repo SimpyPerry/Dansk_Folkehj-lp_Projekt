@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,11 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
     {
         Models.DatabaseConnection DatabaseConnection;
         public List<Storage> ItemList { get; set; }
-       
+        public ObservableCollection<Storage> collection { get; set; }
+
+        public List<string> bookcaseCombo { get; set; }
+
+
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
 
@@ -20,8 +25,10 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         {
             DatabaseConnection = new Models.DatabaseConnection();
             DatabaseConnection.FindByItemName("Bandage");
-            ItemList = DatabaseConnection.GetStorages;
-            Current = ItemList[0];
+            collection = DatabaseConnection.GetStorages;
+            Current = collection[0];
+
+            bookcaseCombo = new List<string> { "a", "b" };
         }
         public string _itemName { get; set; }
         public int _amount { get; set; }
@@ -29,6 +36,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public string _boxID { get; set; }
         public string _bookcaseName { get; set; }
         public string _location { get; set; }
+       
         public void FindItem()
         {
             DatabaseConnection.FindByItemName(_itemName);
@@ -61,10 +69,21 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
             DatabaseConnection.FindByItemName(FindViewTextBox);
 
-            ItemList = DatabaseConnection.GetStorages;
+            int p = collection.Count;
+            for(int i=0; i<p; i++)
+            {
+                collection.RemoveAt(0);
+            }
+
+            int u = DatabaseConnection.GetStorages.Count;
+            for(int i=0; i<u;i++)
+            { collection.Add(DatabaseConnection.GetStorages[i]); }
             
            
+           
             Current = DatabaseConnection.GetStorages[0];
+
+            
         }
 
         public void EditData()

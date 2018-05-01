@@ -42,6 +42,11 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
                 MainView.NewItem();
                 MessageBox.Show("Genstand tilføjet til containeren");
+                ItemNameBox.Text = null;
+                ItemAmountbox.Text = null;
+                MinAmountBox.Text = null;
+                LocationBox.Text = null;
+
             } else if( LocationBox.Text == "Loft")
             {
                 BindingExpression bindingItem = ItemNameBox.GetBindingExpression(TextBox.TextProperty);
@@ -52,12 +57,19 @@ namespace Dansk_Folkehjælp_Projekt.Views
                 bindingMinAmount.UpdateSource();
                 BindingExpression bindingBoxID = BoxID_Box.GetBindingExpression(TextBox.TextProperty);
                 bindingBoxID.UpdateSource();
-                BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
-                bindingBookcaseName.UpdateSource();
+                //BindingExpression bindingBookcaseName = BookcaseName_box.GetBindingExpression(TextBox.TextProperty);
+                //bindingBookcaseName.UpdateSource();
                 BindingExpression bindingLocation = LocationBox.GetBindingExpression(TextBox.TextProperty);
                 bindingLocation.UpdateSource();
+
                 MainView.NewItem();
                 MessageBox.Show("Genstand tilføjet til loftet");
+                ItemNameBox.Text = null;
+                ItemAmountbox.Text = null;
+                MinAmountBox.Text = null;
+                BoxID_Box.Text = null;
+               // BookcaseName_box.Text = null;
+                LocationBox.Text = null;
             } else
             {
 

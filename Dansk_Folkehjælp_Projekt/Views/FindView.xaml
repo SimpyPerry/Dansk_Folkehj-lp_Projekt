@@ -32,7 +32,7 @@
         <!--Usynlig koral farvet kasse-->
         <TextBox HorizontalAlignment="Left" Grid.Row="3" Height="23" Margin="121,116,0,0" TextWrapping="Wrap" Text="Klud" VerticalAlignment="Top" Width="120" Background="Coral"/>
         <!--Orange box-->
-        <ListBox HorizontalAlignment="Left" Grid.Row="2" Height="100" Margin="20,0,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ItemList, Mode=OneWay}" Grid.RowSpan="2" Background="DarkOrange" >
+        <ListBox  HorizontalAlignment="Left" Grid.Row="2" Height="100" Margin="20,0,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding collection, Mode=OneWay }" Grid.RowSpan="2" Background="DarkOrange" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -55,14 +55,14 @@
         <Label Content="Reol" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Margin="0.2,36,0,0" Grid.Row="2"/>
         <Label Content="Lager" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,67,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <!--Rækken af data-->
-        <TextBox Name="Name" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.itemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top"/>
-        <TextBox Name="Minimum" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.minAmount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top"/>
-        <TextBox Name="Amount" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.Column="2" Margin="99.2,63,0,0" Grid.Row="1"/>
-        <TextBox Name="Box" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.boxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top"/>
-        <TextBox Name="Bookcase" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.bookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top"/>
-        <TextBox Name="Location" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,71,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        
-        
+        <TextBox Name="Name" Grid.Column="2" HorizontalAlignment="Left" Margin="99,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.itemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Minimum" Grid.Column="2" HorizontalAlignment="Left" Margin="99,36,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.minAmount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Amount" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.Column="2" Margin="99,63,0,0" Grid.Row="1" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Box" Grid.Column="2" HorizontalAlignment="Left" Margin="99,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.boxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Bookcase" Grid.Column="2" HorizontalAlignment="Left" Margin="99,36,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.bookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Location" Grid.Column="2" HorizontalAlignment="Left" Margin="99,71,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="150"/>
+
+
         <TextBox Name="tb_Find" HorizontalAlignment="Left" Height="23" Margin="18,18,0,0" TextWrapping="Wrap" Text="{Binding FindViewTextBox, Mode=TwoWay , UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
         <Button Name="Edit" Content="Rediger" Grid.Column="3" HorizontalAlignment="Left" Margin="75,9,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Edit_Click"/>
 
