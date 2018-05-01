@@ -16,6 +16,8 @@ namespace Dansk_Folkehjælp_Projekt.Models
             private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
             public List<string> bookcases { get; set; }
 
+        public List<string> MailList { get; set; }
+
         public DatabaseConnection()
             {
                 GetStorages = new ObservableCollection<Storage>();
@@ -234,11 +236,45 @@ namespace Dansk_Folkehjælp_Projekt.Models
             }
         }
 
-        public void en()
+        public void AddNotificationMail(string mail)
         {
+            //AddNotificationMail()
+            string query = String.Format("INSERT INTO MailAddresses(MailAddress)VALUES('{0}'); ", mail);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand newMail = new SqlCommand(query, Connect);
 
+                newMail.ExecuteNonQuery();
+
+                Connect.Close();
+
+            }
         }
-        public void to()
+        public void GetMailAddresses()
+        {
+            MailList = new List<string>();
+            string query = "SELECT MailAddress FROM MailAddresses";
+
+            using (SqlConnection connect = new SqlConnection(connectionString))
+            {
+                SqlCommand GetAddress = new SqlCommand(query, connect);
+                connect.Open();
+                using (SqlDataReader reader = GetAddress.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string mail = reader.GetString(0);
+                        MailList.Add(mail);
+                    }
+                }
+
+                connect.Close();
+
+            }
+        }
+
+        public void DeleteMailAddress()
         {
 
         }
