@@ -225,13 +225,24 @@ namespace Dansk_Folkehjælp_Projekt.Models
             }
         }
 
-        public void en()
+        public void en(string mail)
         {
+            //AddNotificationMail()
+            string query = String.Format("INSERT INTO MailAddresses(MailAddress)VALUES('{0}'); ", mail);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand newMail = new SqlCommand(query, Connect);
 
+                newMail.ExecuteNonQuery();
+
+                Connect.Close();
+
+            }
         }
         public void to()
         {
-
+            //
         }
     }
 }
