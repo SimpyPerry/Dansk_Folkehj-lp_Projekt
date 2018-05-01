@@ -14,7 +14,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             //Forbinder til databasen
             public ObservableCollection <Storage> GetStorages { get; set; }
             private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
-            List<string> bookcases { get; set; }
+            public List<string> bookcases { get; set; }
 
         public DatabaseConnection()
             {

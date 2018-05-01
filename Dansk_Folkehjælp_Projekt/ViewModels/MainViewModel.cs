@@ -27,8 +27,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.FindByItemName("Bandage");
             collection = DatabaseConnection.GetStorages;
             Current = collection[0];
+            DatabaseConnection.ShowBookcases();
 
-            bookcaseCombo = new List<string> { "a", "b" };
+            bookcaseCombo = DatabaseConnection.bookcases;
         }
         public string _itemName { get; set; }
         public int _amount { get; set; }
