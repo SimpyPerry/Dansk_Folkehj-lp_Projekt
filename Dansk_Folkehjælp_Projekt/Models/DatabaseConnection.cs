@@ -213,6 +213,26 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
             }
         }
+        public void SeeIfExsists(string bookcaseName)
+        {
+            string query = "SELECT BookcaseName FROM Bookcase WHERE BookcaseName = '"+bookcaseName+"'";
+            using (SqlConnection Conncet = new SqlConnection(connectionString))
+            {
+                Conncet.Open();
+                SqlCommand Exsits = new SqlCommand(query, Conncet);
+                string empty = string.Empty;
+
+            }
+        }
+
+        public void en()
+        {
+
+        }
+        public void to()
+        {
+
+        }
     }
 }
 
