@@ -38,6 +38,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
                 
                 MainView.NewBookcase();
                 MessageBox.Show("Ny Reol skabt");
+                NewBookcaseName_box.Text = "";
             }
             else
             {
