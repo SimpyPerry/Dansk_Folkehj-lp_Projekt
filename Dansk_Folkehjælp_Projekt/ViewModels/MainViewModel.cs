@@ -60,7 +60,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
         public void NewBookcase()
         {
-
+            DatabaseConnection.AddNewBookcase(_bookcaseName);
         }
         public void UpdateList()
         {
