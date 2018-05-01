@@ -191,7 +191,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 {
                     while (reader.Read())
                     {
-                        string BookcaseName = reader.GetString(1);
+                        string BookcaseName = reader.GetString(0);
                         bookcases.Add(BookcaseName);
                     }
                 }
