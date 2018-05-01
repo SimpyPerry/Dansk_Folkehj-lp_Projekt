@@ -42,6 +42,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
            for(int i=0;i<6;i++)
             {
+                bindings[i] = boxes[i].GetBindingExpression(TextBox.TextProperty);
                 bindings[i].UpdateTarget();
             }
 
