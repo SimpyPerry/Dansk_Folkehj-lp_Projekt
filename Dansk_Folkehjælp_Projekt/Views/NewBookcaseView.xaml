@@ -9,7 +9,7 @@
     <Grid>
         <!--New Bookcase Name box-->
         <TextBox Name="NewBookcaseName_box" HorizontalAlignment="Left" Background="AntiqueWhite" Height="23" Margin="37,71,0,0" TextWrapping="Wrap" Text="{Binding _bookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="50,32,0,0" TextWrapping="Wrap" Text="Navnet på reolen" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,32,0,0" TextWrapping="Wrap" Text="Indtast navnet på reolen" VerticalAlignment="Top"/>
         <!--Gem Knap-->
         <Button Name="SaveButton" Content="Gem" HorizontalAlignment="Left" Margin="50,119,0,0" VerticalAlignment="Top" Width="91" Click="SaveButton_Click"/>
 

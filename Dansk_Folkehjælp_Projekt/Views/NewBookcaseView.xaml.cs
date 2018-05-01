@@ -32,8 +32,17 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
             BindingExpression binding = NewBookcaseName_box.GetBindingExpression(TextBox.TextProperty);
             binding.UpdateSource();
-            MainView.NewBookcase();
-            MessageBox.Show("Ny reol skabt");
+
+            if (MainView.CheckBookcase() == true)
+            {
+                
+                MainView.NewBookcase();
+                MessageBox.Show("Ny Reol skabt");
+            }
+            else
+            {
+                MessageBox.Show("Denne Reol findes allerede");
+            }
             
         }
     }

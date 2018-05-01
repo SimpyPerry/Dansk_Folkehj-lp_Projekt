@@ -92,6 +92,18 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.EditItem(Current.itemID, Current.itemName, Current.amount, Current.minAmount, Current.boxID, Current.bookcaseName, Current.location);
         }
 
+        public bool CheckBookcase()
+        {
+            //DatabaseConnection.SeeIfExsists(_bookcaseName);
+            if (DatabaseConnection.SeeIfExsists(_bookcaseName) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
