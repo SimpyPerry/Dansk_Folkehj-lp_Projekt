@@ -199,6 +199,20 @@ namespace Dansk_Folkehjælp_Projekt.Models
             }
 
         }
+        public void AddNewBookcase(string bookcaseName)
+        {
+            string query = "INSERT into Bookcase(BookcaseName) VALUES ( '" + bookcaseName + "')";
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand AddBookcaseToTable = new SqlCommand(query, Connect);
+
+                AddBookcaseToTable.ExecuteNonQuery();
+
+                Connect.Close();
+
+            }
+        }
     }
 }
 
