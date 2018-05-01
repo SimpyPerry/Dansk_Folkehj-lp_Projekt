@@ -37,19 +37,15 @@ namespace Dansk_Folkehjælp_Projekt.Views
             binding.UpdateSource();
             MainView.UpdateList();
 
-            BindingExpression name = Name.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression minimum = Minimum.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression amount = Amount.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression box = Box.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bookCase = Bookcase.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression location = Location.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression[] bindings = new BindingExpression[6];
+            TextBox[] boxes = new TextBox[] { Name, Minimum, Amount, Box, Bookcase, Location };
 
-            name.UpdateTarget();
-            minimum.UpdateTarget();
-            amount.UpdateTarget();
-            box.UpdateTarget();
-            bookCase.UpdateTarget();
-            location.UpdateTarget();
+           for(int i=0;i<6;i++)
+            {
+                bindings[i].UpdateTarget();
+            }
+
+      
 
        //     MainView.SendNotificationMail();
 
@@ -57,19 +53,15 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression name = Name.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression minimum = Minimum.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression amount = Amount.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression box = Box.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression bookCase = Bookcase.GetBindingExpression(TextBox.TextProperty);
-            BindingExpression location = Location.GetBindingExpression(TextBox.TextProperty);
+            BindingExpression[] bindings = new BindingExpression[6];
+            TextBox[] boxes = new TextBox[] { Name, Minimum, Amount, Box, Bookcase, Location };
 
-            name.UpdateSource();
-            minimum.UpdateSource();
-            amount.UpdateSource();
-            box.UpdateSource();
-            bookCase.UpdateSource();
-            location.UpdateSource();
+            
+            for(int i=0;i<6;i++)
+            {
+                bindings[i] = boxes[i].GetBindingExpression(TextBox.TextProperty);
+                bindings[i].UpdateSource();
+            }
 
             MainView.EditData();
         }
