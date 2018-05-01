@@ -14,8 +14,9 @@ namespace Dansk_Folkehjælp_Projekt.Models
             //Forbinder til databasen
             public ObservableCollection <Storage> GetStorages { get; set; }
             private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
+            List<string> bookcases { get; set; }
 
-            public DatabaseConnection()
+        public DatabaseConnection()
             {
                 GetStorages = new ObservableCollection<Storage>();
 
@@ -176,6 +177,27 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 edit.ExecuteNonQuery();
                 Connect.Close();
             }
+        }
+        public void ShowBookcases()
+        {
+            bookcases = new List<string>();
+            string query = "SELECT BookcaseName FROM Bookcase";
+
+            using (SqlConnection connect = new SqlConnection(connectionString))
+            {
+                SqlCommand showCase = new SqlCommand(query, connect);
+                connect.Open();
+                using (SqlDataReader reader = showCase.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string BookcaseName = reader.GetString(1);
+                        bookcases.Add(BookcaseName);
+                    }
+                }
+                
+            }
+
         }
     }
 }
