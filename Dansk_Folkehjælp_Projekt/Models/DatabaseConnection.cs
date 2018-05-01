@@ -213,7 +213,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
             }
         }
-        public void SeeIfExsists(string bookcaseName)
+        public bool SeeIfExsists(string bookcaseName)
         {
             string query = "SELECT BookcaseName FROM Bookcase WHERE BookcaseName = '"+bookcaseName+"'";
             using (SqlConnection Conncet = new SqlConnection(connectionString))
@@ -221,6 +221,15 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 Conncet.Open();
                 SqlCommand Exsits = new SqlCommand(query, Conncet);
                 string empty = string.Empty;
+                empty = (string)Exsits.ExecuteScalar();
+
+                if(empty.Length == 0)
+                {
+                    return true;
+                }else
+                {
+                    return false;
+                }
 
             }
         }
