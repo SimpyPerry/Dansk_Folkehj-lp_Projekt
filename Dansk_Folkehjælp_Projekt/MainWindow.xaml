@@ -46,7 +46,7 @@
                 <Label Content="Overskrift" HorizontalContentAlignment="Center" FontWeight="Bold" Margin=" 0,20,0,5" />
 
                 <Button x:Name="bt_AddInstructor" Content="Ny genstand" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_AddInstructor_Click"/>
-                <Button x:Name="bt_AllInstructors" Content="Ny Reol" Margin=" 0,0,0,5" Background="LimeGreen"/>
+                <Button x:Name="bt_AllInstructors" Content="Ny Reol" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_AllInstructors_Click"/>
 
             </StackPanel>
         </DockPanel>
