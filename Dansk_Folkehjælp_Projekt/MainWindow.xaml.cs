@@ -25,6 +25,7 @@ namespace Dansk_Folkehjælp_Projekt
         private MainViewModel MainView ;
         private FindView find;
         private NewItemView newItem;
+        private NewBookcaseView newCase;
         public MainWindow()
         {
            
@@ -53,6 +54,12 @@ namespace Dansk_Folkehjælp_Projekt
         private void bt_Container_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void bt_AllInstructors_Click(object sender, RoutedEventArgs e)
+        {
+            newCase = new NewBookcaseView();
+            newCase.ShowDialog();
         }
     }
 }

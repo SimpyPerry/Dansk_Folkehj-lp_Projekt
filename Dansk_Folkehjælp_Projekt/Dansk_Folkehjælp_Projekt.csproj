@@ -59,6 +59,9 @@
     <Compile Include="Views\FindView.xaml.cs">
       <DependentUpon>FindView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewBookcaseView.xaml.cs">
+      <DependentUpon>NewBookcaseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewItemView.xaml.cs">
       <DependentUpon>NewItemView.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\FindView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewBookcaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
