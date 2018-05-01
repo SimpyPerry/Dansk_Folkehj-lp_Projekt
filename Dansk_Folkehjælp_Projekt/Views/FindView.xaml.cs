@@ -51,7 +51,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
             bookCase.UpdateTarget();
             location.UpdateTarget();
 
-          
+       //     MainView.SendNotificationMail();
 
         }
 

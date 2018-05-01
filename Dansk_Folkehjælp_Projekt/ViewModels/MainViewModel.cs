@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using Dansk_Folkehjælp_Projekt.Models;
@@ -15,7 +16,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public ObservableCollection<Storage> collection { get; set; }
 
         public List<string> bookcaseCombo { get; set; }
-
+        public List<string> NotificationMail;
 
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
@@ -103,6 +104,32 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             {
                 return false;
             }
+        }
+
+        public void SendNotificationMail()
+        {
+            DatabaseConnection.GetMailAddresses();
+            NotificationMail = DatabaseConnection.MailList;
+            int mailCount = NotificationMail.Count;
+
+            for(int i =0; i<mailCount;i++)
+            {
+                string currentMail = NotificationMail[i];
+                MailMessage mail = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient("smtp.live.com", 587);
+                mail.From = new MailAddress("lagernotifikation@hotmail.com");
+                mail.To.Add(currentMail);
+                mail.Subject = "Test ";
+                mail.Body = "Ser bare om jeg kan sende";
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new System.Net.NetworkCredential("lagernotifikation@hotmail.com", "lagerDanskFolke");
+                smtpClient.EnableSsl = true;
+                smtpClient.Send(mail);
+
+
+
+            }
+
         }
 
     }
