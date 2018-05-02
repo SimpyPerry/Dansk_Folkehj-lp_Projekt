@@ -102,10 +102,32 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 
                 }
             }
+
+        public int GetBookcaseID(string name)
+        {
+            int ID = 0;
+            string query = String.Format("select BookcaseID From bookcase where bookcasename = '{0}'", name);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand FindByName = new SqlCommand(query, Connect);
+                Connect.Open();
+
+                using (SqlDataReader reader = FindByName.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ID = reader.GetInt32(0);
+                    }
+                }
+            }
+            return ID;
+        }
         //Opretter ny genstand
         public void AddNewItem(string itemName, int amount, int minAmount, string boxID, string bookcaseName, string location)
         {
-            string query = "INSERT into STORAGE(ItemName, Amount, MinAmount, BoxID, BookcaseName, Location) VALUES ( '" + itemName + "','" + amount + "','" + minAmount + "','" + boxID + "','" + bookcaseName + "','" + location + "')";
+            int bookcase = GetBookcaseID(bookcaseName);
+
+            string query = "INSERT into Item(ItemName, Amount, MinAmount, BoxID, Bookcase, Location) VALUES ( '" + itemName + "','" + amount + "','" + minAmount + "','" + boxID + "','" + bookcase + "','" + location + "')";
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 Connect.Open();
