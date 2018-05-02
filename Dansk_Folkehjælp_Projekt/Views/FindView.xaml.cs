@@ -37,8 +37,8 @@ namespace Dansk_Folkehjælp_Projekt.Views
             binding.UpdateSource();
             MainView.UpdateList();
 
-            BindingExpression[] bindings = new BindingExpression[6];
-            TextBox[] boxes = new TextBox[] { Name, Minimum, Amount, Box, Bookcase, Location };
+            BindingExpression[] bindings = new BindingExpression[5];
+            TextBox[] boxes = new TextBox[] { Name, Minimum, Amount, Box, Location };
 
            for(int i=0;i<6;i++)
             {
@@ -54,8 +54,8 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression[] bindings = new BindingExpression[6];
-            TextBox[] boxes = new TextBox[] { Name, Minimum, Amount, Box, Bookcase, Location };
+            BindingExpression[] bindings = new BindingExpression[5];
+            TextBox[] boxes = new TextBox[] { Name, Minimum, Amount, Box, Location };
 
             
             for(int i=0;i<6;i++)

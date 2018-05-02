@@ -59,12 +59,14 @@
         <TextBox Name="Minimum" Grid.Column="2" HorizontalAlignment="Left" Margin="99,36,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.minAmount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
         <TextBox Name="Amount" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.Column="2" Margin="99,63,0,0" Grid.Row="1" Grid.ColumnSpan="2" Width="150"/>
         <TextBox Name="Box" Grid.Column="2" HorizontalAlignment="Left" Margin="99,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.boxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
-        <TextBox Name="Bookcase" Grid.Column="2" HorizontalAlignment="Left" Margin="99,36,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.bookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <ComboBox Name="Bookcase" Grid.Column="2" ItemsSource="{Binding bookcaseCombo}" SelectedItem="{Binding Path = _bookcaseName}" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="2" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2"/>
+ 
         <TextBox Name="Location" Grid.Column="2" HorizontalAlignment="Left" Margin="99,71,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="150"/>
 
-
+        
         <TextBox Name="tb_Find" HorizontalAlignment="Left" Height="23" Margin="18,18,0,0" TextWrapping="Wrap" Text="{Binding FindViewTextBox, Mode=TwoWay , UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
         <Button Name="Edit" Content="Rediger" Grid.Column="3" HorizontalAlignment="Left" Margin="75,9,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Edit_Click"/>
+        
 
     </Grid>
 </Window>
