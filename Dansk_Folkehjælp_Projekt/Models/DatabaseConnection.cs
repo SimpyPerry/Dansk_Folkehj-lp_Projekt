@@ -32,11 +32,16 @@ namespace Dansk_Folkehjælp_Projekt.Models
             int DB_minAmount;
             string DB_box;
             string DB_bookcaseID;
-            string checkIfExists = "SELECT COUNT(*) FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
-                string query = "SELECT ItemID, ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
+            string checkIfExists = "SELECT COUNT(*) FROM ITEM WHERE ItemName LIKE'%" + itemName + "%'";
+                string query2 = "SELECT ItemID, ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
                     + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
-            
-            
+
+            string query = "Select Item.ItemID, Item.ItemName, Item.Amount, Item.MinAmount, " +
+      "Item.BoxID, Bookcase.BookcaseName, Item.Location From Item inner join Bookcase on " +
+      "Item.Bookcase = Bookcase.BookcaseID" +
+" Where ItemName LIKE'%" + itemName + "%'";
+
+
                 using (SqlConnection Connect = new SqlConnection(connectionString))
                 {
              SqlCommand CheckFirst = new SqlCommand(checkIfExists, Connect);
