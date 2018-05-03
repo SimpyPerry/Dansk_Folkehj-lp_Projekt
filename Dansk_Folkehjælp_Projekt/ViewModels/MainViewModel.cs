@@ -29,7 +29,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             collection = DatabaseConnection.GetStorages;
             Current = collection[0];
             DatabaseConnection.ShowBookcases();
-
+            bagcollcetion = DatabaseConnection.GetBags;
             bookcaseCombo = DatabaseConnection.bookcases;
         }
         public string _itemName { get; set; }
@@ -135,6 +135,18 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public void ChooseBagType()
         {
             DatabaseConnection.SelectBag(_BagID);
+            int p = bagcollcetion.Count;
+            for(int i=0; i<p; i++)
+            {
+                bagcollcetion.RemoveAt(0);
+            }
+
+            int u = DatabaseConnection.GetBags.Count;
+            for(int i=0; i<u; i++)
+            {
+                bagcollcetion.Add(DatabaseConnection.GetBags[i]);
+            }
+            
             bagcollcetion = DatabaseConnection.GetBags;
         }
 
