@@ -16,6 +16,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
             public List<string> bookcases { get; set; }
             public ObservableCollection<Storage> GetBags { get; set; }
+            public ObservableCollection<Storage> GetItems { get; set; }
 
         public List<string> MailList { get; set; }
 
@@ -345,6 +346,35 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         string bagsName = reader.GetString(1);
 
                         GetBags.Add(new Storage() { itemID = bagsID, itemName = bagsName });
+                    }
+                }
+            }
+        }
+        public void GetBagItems(int bagID)
+        {
+            string query = String.Format("SELECT Bag.ID, Item.ItemName, Type_Item.Minimum, Bag_Item.Amount FROM Bag FULL OUTER JOIN Type_Item ON Bag.Type=Type_Item.Type FULL OUTER JOIN Bag_Item ON Bag.ID = Bag_Item.Bag INNER JOIN Item ON Type_Item.Item = Item.ItemID WHERE Bag.ID = {0}", bagID);
+            using(SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand GetItemsFromBag = new SqlCommand(query, Connect);
+                Connect.Open();
+                using(SqlDataReader reader = GetItemsFromBag.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int number = 0;
+                        string name = reader.GetString(1);
+                        int Min = reader.GetInt32(2);
+                        if(reader[3] != DBNull.Value)
+                        {
+                            number = reader.GetInt32(3);
+                        }
+                        else
+                        {
+                            number = 0;
+                        }
+
+                        GetItems.Add(new Storage(){itemName=name, minAmount=Min, amount=number  });
+                        
                     }
                 }
             }
