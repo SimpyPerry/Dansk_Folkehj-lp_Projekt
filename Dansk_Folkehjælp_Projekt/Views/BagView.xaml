@@ -7,8 +7,14 @@
         mc:Ignorable="d"
         Title="BagView" Height="450" Width="800">
     <Grid>
-        
-        <Button Content="Behandler Tasker" HorizontalAlignment="Left" Margin="162,24,0,0" VerticalAlignment="Top" Width="143" Height="33"/>
+        <!--Behandler Taske Knap-->
+        <Button Name="Caretaker_Button" Content="Behandler Tasker" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="102" Height="33" Click="Caretaker_Button_Click"/>
+        <!--Førstehjælp Taske Knap-->
+        <Button x:Name="Firsthelp_button" Content="Førstehjælp Tasker" HorizontalAlignment="Left" Margin="117,50,0,0" VerticalAlignment="Top" Width="109" Height="33"/>
+        <!--Listbox af Tasker-->
+        <ListBox Name="ListOfBags_ListBox" HorizontalAlignment="Left" Background="AliceBlue" Height="319" Margin="0,101,0,0" VerticalAlignment="Top" Width="226"/>
+        <!--Listbox-->
+        <ListBox Name="ListOfItems_ListBox" HorizontalAlignment="Left" Background="AntiqueWhite" Height="319" Margin="231,101,-0.4,0" VerticalAlignment="Top" Width="563"/>
 
     </Grid>
 </Window>

@@ -23,5 +23,10 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
             InitializeComponent();
         }
+
+        private void Caretaker_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
