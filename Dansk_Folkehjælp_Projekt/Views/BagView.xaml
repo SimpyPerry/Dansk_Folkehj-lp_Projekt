@@ -10,9 +10,9 @@
         <!--Behandler Taske Knap-->
         <Button Name="Caretaker_Button" Content="Behandler Tasker" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="102" Height="33" Click="Caretaker_Button_Click"/>
         <!--Førstehjælp Taske Knap-->
-        <Button x:Name="Firsthelp_button" Content="Førstehjælp Tasker" HorizontalAlignment="Left" Margin="117,50,0,0" VerticalAlignment="Top" Width="109" Height="33"/>
+        <Button x:Name="Firsthelp_button" Content="Førstehjælp Tasker" HorizontalAlignment="Left" Margin="117,50,0,0" VerticalAlignment="Top" Width="109" Height="33" Click="Firsthelp_button_Click"/>
         <!--Listbox af Tasker-->
-        <ListBox Name="ListOfBags_ListBox" ItemsSource="{Binding bagCollcetion, Mode=OneWay}" HorizontalAlignment="Left" Background="AliceBlue" Height="319" Margin="0,101,0,0" VerticalAlignment="Top" Width="226"/>
+        <ListBox Name="ListOfBags_ListBox" ItemsSource="{Binding bagcollcetion, Mode=OneWay}" DisplayMemberPath="itemName"  HorizontalAlignment="Left" Background="AliceBlue" Height="319" Margin="0,101,0,0" VerticalAlignment="Top" Width="226"/>
         <!--Listbox-->
         <ListBox Name="ListOfItems_ListBox" HorizontalAlignment="Left" Background="AntiqueWhite" Height="319" Margin="231,101,-0.4,0" VerticalAlignment="Top" Width="563"/>
 

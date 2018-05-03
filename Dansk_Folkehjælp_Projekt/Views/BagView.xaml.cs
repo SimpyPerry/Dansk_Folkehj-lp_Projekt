@@ -34,5 +34,11 @@ namespace Dansk_Folkehjælp_Projekt.Views
             MainView._BagID = 2;
             MainView.ChooseBagType();
         }
+
+        private void Firsthelp_button_Click(object sender, RoutedEventArgs e)
+        {
+            MainView._BagID = 1;
+            MainView.ChooseBagType();
+        }
     }
 }
