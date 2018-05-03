@@ -26,6 +26,7 @@ namespace Dansk_Folkehjælp_Projekt
         private FindView find;
         private NewItemView newItem;
         private NewBookcaseView newCase;
+        private BagView bagView;
         public MainWindow()
         {
            
@@ -60,6 +61,12 @@ namespace Dansk_Folkehjælp_Projekt
         {
             newCase = new NewBookcaseView();
             newCase.ShowDialog();
+        }
+
+        private void Bag_Button_Click(object sender, RoutedEventArgs e)
+        {
+            bagView = new BagView();
+            bagView.ShowDialog();
         }
     }
 }

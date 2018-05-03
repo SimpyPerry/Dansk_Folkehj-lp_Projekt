@@ -23,7 +23,9 @@ namespace Dansk_Folkehjælp_Projekt.Views
         private MainViewModel MainView;
         public BagView()
         {
+            MainView = new MainViewModel();
             DataContext = MainView;
+
             InitializeComponent();
         }
 
