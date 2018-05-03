@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Dansk_Folkehjælp_Projekt.ViewModels;
 
 namespace Dansk_Folkehjælp_Projekt.Views
 {
@@ -19,14 +20,17 @@ namespace Dansk_Folkehjælp_Projekt.Views
     /// </summary>
     public partial class BagView : Window
     {
+        private MainViewModel MainView;
         public BagView()
         {
+            DataContext = MainView;
             InitializeComponent();
         }
 
         private void Caretaker_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MainView._BagID = 2;
+            MainView.ChooseBagType();
         }
     }
 }
