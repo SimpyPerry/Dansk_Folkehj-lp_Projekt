@@ -67,7 +67,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 OnPropertyChanged("itemName");
             }
         }
-        private string _showIfEnough;
+     
         public string showIfEnoughItems
         {
             get { return itemName + " (skriv hvis ikke nok)"; }

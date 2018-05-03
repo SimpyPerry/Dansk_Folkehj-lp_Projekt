@@ -43,7 +43,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void BagChoosen(object sender, SelectionChangedEventArgs e)
         {
-
+            MainView.ChooseSpecificBag();
         }
     }
 }

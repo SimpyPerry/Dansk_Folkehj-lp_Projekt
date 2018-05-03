@@ -22,7 +22,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
         public Storage selectedBag { get; set; }
-        public Storage Test { get; set; }
+      
         public MainViewModel()
         {
             DatabaseConnection = new Models.DatabaseConnection();
@@ -152,6 +152,22 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             }
             
             bagcollcetion = DatabaseConnection.GetBags;
+        }
+        public void ChooseSpecificBag()
+        {
+            DatabaseConnection.GetBagItems(selectedBag.itemID);
+            int p = itemCollection.Count;
+
+            for(int i=0; i<p;i++)
+            {
+                itemCollection.RemoveAt(0);
+            }
+
+            int u = DatabaseConnection.GetItems.Count;
+            for(int i =0; i<u;i++)
+            {
+                itemCollection.Add(DatabaseConnection.GetItems[i]);
+            }
         }
 
     }
