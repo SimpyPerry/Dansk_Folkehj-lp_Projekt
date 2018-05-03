@@ -66,5 +66,10 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
             MainView.EditData();
         }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
