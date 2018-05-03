@@ -14,7 +14,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         Models.DatabaseConnection DatabaseConnection;
         public List<Storage> ItemList { get; set; }
         public ObservableCollection<Storage> collection { get; set; }
-
+        public ObservableCollection<Storage> bagcollcetion { get; set; }
         public List<string> bookcaseCombo { get; set; }
         public List<string> NotificationMail;
 
@@ -38,6 +38,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public string _boxID { get; set; }
         public string _bookcaseName { get; set; }
         public string _location { get; set; }
+        public int _BagID { get; set; }
        
         public void FindItem()
         {
@@ -130,6 +131,11 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
             }
 
+        }
+        public void ChooseBagType()
+        {
+            DatabaseConnection.SelectBag(_BagID);
+            bagcollcetion = DatabaseConnection.GetBags;
         }
 
     }

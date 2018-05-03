@@ -1,0 +1,20 @@
+﻿<Window x:Class="Dansk_Folkehjælp_Projekt.Views.BagView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dansk_Folkehjælp_Projekt.Views"
+        mc:Ignorable="d"
+        Title="BagView" Height="450" Width="800">
+    <Grid>
+        <!--Behandler Taske Knap-->
+        <Button Name="Caretaker_Button" Content="Behandler Tasker" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="102" Height="33" Click="Caretaker_Button_Click"/>
+        <!--Førstehjælp Taske Knap-->
+        <Button x:Name="Firsthelp_button" Content="Førstehjælp Tasker" HorizontalAlignment="Left" Margin="117,50,0,0" VerticalAlignment="Top" Width="109" Height="33"/>
+        <!--Listbox af Tasker-->
+        <ListBox Name="ListOfBags_ListBox" ItemsSource="{Binding bagCollcetion, Mode=OneWay}" HorizontalAlignment="Left" Background="AliceBlue" Height="319" Margin="0,101,0,0" VerticalAlignment="Top" Width="226"/>
+        <!--Listbox-->
+        <ListBox Name="ListOfItems_ListBox" HorizontalAlignment="Left" Background="AntiqueWhite" Height="319" Margin="231,101,-0.4,0" VerticalAlignment="Top" Width="563"/>
+
+    </Grid>
+</Window>

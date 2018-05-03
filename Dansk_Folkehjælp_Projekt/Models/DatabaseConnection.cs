@@ -15,6 +15,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             public ObservableCollection <Storage> GetStorages { get; set; }
             private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A21; User ID = USER_A21; Password=SesamLukOp_21;";
             public List<string> bookcases { get; set; }
+            public ObservableCollection<Storage> GetBags { get; set; }
 
         public List<string> MailList { get; set; }
 
@@ -305,6 +306,27 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public void DeleteMailAddress()
         {
 
+        }
+        public void SelectBag(int type)
+        {
+            GetBags = new ObservableCollection<Storage>();
+            string query = String.Format("SELECT ID, BagName FROM Bag WHERE Type ={0}", type); 
+
+            using(SqlConnection Conncet = new SqlConnection(connectionString))
+            {
+                SqlCommand getBags = new SqlCommand(query, Conncet);
+                Conncet.Open();
+                using(SqlDataReader reader = getBags.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int bagsID = reader.GetInt32(0);
+                        string bagsName = reader.GetString(1);
+
+                        GetBags.Add(new Storage() { itemID = bagsID, itemName = bagsName });
+                    }
+                }
+            }
         }
     }
 }
