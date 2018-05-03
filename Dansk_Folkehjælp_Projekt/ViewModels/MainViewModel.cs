@@ -17,10 +17,11 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public ObservableCollection<Storage> bagcollcetion { get; set; }
         public List<string> bookcaseCombo { get; set; }
         public List<string> NotificationMail;
+        public ObservableCollection<Storage> itemCollection { get; set; }
 
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
-
+        public Storage selectedBag { get; set; }
         public Storage Test { get; set; }
         public MainViewModel()
         {
@@ -31,6 +32,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.ShowBookcases();
             bagcollcetion = DatabaseConnection.GetBags;
             bookcaseCombo = DatabaseConnection.bookcases;
+            selectedBag = bagcollcetion[0];
+            DatabaseConnection.GetBagItems(selectedBag.itemID);
+            itemCollection = DatabaseConnection.GetItems;
         }
         public string _itemName { get; set; }
         public int _amount { get; set; }
