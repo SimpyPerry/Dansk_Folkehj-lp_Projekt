@@ -62,7 +62,8 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public void GetItemRequirementsForTypes(int bagTypeId)
         {
             BagTypeRequirements = new ObservableCollection<Storage>();
-            string query = string.Format("select * from Type_Item where Type={0}", bagTypeId);
+            string query = string.Format("select Type_Item.Item, Item.ItemName, Type_Item.Minimum from " +
+                "Type_Item inner join Item on Type_Item.Item=Item.ItemID where Type={0}",bagTypeId);
 
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
