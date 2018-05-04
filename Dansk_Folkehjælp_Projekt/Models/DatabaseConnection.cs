@@ -353,7 +353,10 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public void GetBagItems(int bagID)
         {
             GetItems = new ObservableCollection<Storage>();
-            string query = String.Format("SELECT Bag.ID, Item.ItemName, Type_Item.Minimum, Bag_Item.Amount FROM Bag FULL OUTER JOIN Type_Item ON Bag.Type=Type_Item.Type FULL OUTER JOIN Bag_Item ON Bag.ID = Bag_Item.Bag INNER JOIN Item ON Type_Item.Item = Item.ItemID WHERE Bag.ID = {0}", bagID);
+            string query = String.Format("Select Bag.ID, Item.ItemName, Type_Item.Minimum, Bag_Item.Amount" 
++" From Bag inner join Type_Item on Bag.Type = Type_Item.Type"
+ + " inner join Bag_Item on  Bag.ID = Bag_Item.Bag AND Bag_Item.Item = Type_Item.Item inner join Item on Type_Item.Item = Item.ItemID " +
+ "Where Bag.ID = {0}", bagID);
             using(SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand GetItemsFromBag = new SqlCommand(query, Connect);
