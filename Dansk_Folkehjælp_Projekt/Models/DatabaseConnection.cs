@@ -32,6 +32,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
         public void InitBagTypes()
         {
+            BagTypes = new ObservableCollection<Storage>();
             string query = "select * from BagType";
 
             using (SqlConnection Connect = new SqlConnection(connectionString))

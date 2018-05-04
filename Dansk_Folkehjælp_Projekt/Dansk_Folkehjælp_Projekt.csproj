@@ -62,6 +62,9 @@
     <Compile Include="Views\BagView.xaml.cs">
       <DependentUpon>BagView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditBagType.xaml.cs">
+      <DependentUpon>EditBagType.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FindView.xaml.cs">
       <DependentUpon>FindView.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BagView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditBagType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
