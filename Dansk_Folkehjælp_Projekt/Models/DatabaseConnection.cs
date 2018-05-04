@@ -18,14 +18,68 @@ namespace Dansk_Folkehjælp_Projekt.Models
             public ObservableCollection<Storage> GetBags { get; set; }
             public ObservableCollection<Storage> GetItems { get; set; }
 
+        public ObservableCollection<Storage> BagTypes { get; set; }
+        public ObservableCollection<Storage> BagTypeRequirements { get; set; }
+
         public List<string> MailList { get; set; }
 
         public DatabaseConnection()
             {
                 GetStorages = new ObservableCollection<Storage>();
                 InitBagData();
-
+            InitBagTypes();
             }
+
+        public void InitBagTypes()
+        {
+            string query = "select * from BagType";
+
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand GetBagTypes = new SqlCommand(query, Connect);
+
+                using (SqlDataReader reader = GetBagTypes.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int ID = reader.GetInt32(0);
+                        string typeName = reader.GetString(1);
+                      
+
+                        BagTypes.Add(new Storage() {itemID=ID, itemName=typeName });
+                    }
+
+                }
+                Connect.Close();
+            }
+            
+
+        }
+
+        public void GetItemRequirementsForTypes(int bagTypeId)
+        {
+            BagTypeRequirements = new ObservableCollection<Storage>();
+            string query = string.Format("select * from Type_Item where Type={0}", bagTypeId);
+
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand GetTypeItems = new SqlCommand(query, Connect);
+                using (SqlDataReader reader = GetTypeItems.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+                        int minimum = reader.GetInt32(2);
+                        BagTypeRequirements.Add(new Storage() { itemID = id, itemName = name, minAmount = minimum });
+                    }
+
+                }
+                Connect.Close();
+            }
+        }
 
             //Metode til at søge efter alle genstande med navn der minder om ItemName
             public void FindByItemName(string itemName)
