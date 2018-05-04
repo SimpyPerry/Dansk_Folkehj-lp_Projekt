@@ -27,5 +27,9 @@ namespace Dansk_Folkehjælp_Projekt.Views
             InitializeComponent();
         }
 
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
