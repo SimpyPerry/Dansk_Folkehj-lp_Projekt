@@ -18,7 +18,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public List<string> bookcaseCombo { get; set; }
         public List<string> NotificationMail;
         public ObservableCollection<Storage> itemCollection { get; set; }
-
+        public ObservableCollection<Storage> bagItemInfo { get; set; }
+        public Storage specificBagItem { get; set; }
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
         public Storage selectedBag { get; set; }
@@ -168,6 +169,10 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             {
                 itemCollection.Add(DatabaseConnection.GetItems[i]);
             }
+        }
+        public void ChooseBagItem()
+        {
+
         }
 
     }

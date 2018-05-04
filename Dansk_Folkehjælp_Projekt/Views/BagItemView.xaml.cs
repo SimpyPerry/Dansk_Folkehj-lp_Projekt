@@ -19,8 +19,11 @@ namespace Dansk_Folkehjælp_Projekt.Views
     /// </summary>
     public partial class BagItemView : Window
     {
+        private BagView bagView;
         public BagItemView()
         {
+            bagView = new BagView();
+            DataContext = bagView;
             InitializeComponent();
         }
 
