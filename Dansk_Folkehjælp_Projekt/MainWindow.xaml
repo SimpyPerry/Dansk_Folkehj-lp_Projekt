@@ -49,7 +49,7 @@
                 <Button x:Name="bt_AllInstructors" Content="Ny Reol" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_AllInstructors_Click"/>
                 <!--Bag Button-->
                 <Button x:Name="Bag_Button" Content="Tasker" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen" Click="Bag_Button_Click"/>
-
+                <Button x:Name="EditBagType" Content="Rediger tasketype" Click="EditBagType_Click"/>
             </StackPanel>
         </DockPanel>
     </Grid>
