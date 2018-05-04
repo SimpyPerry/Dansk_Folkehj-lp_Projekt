@@ -27,6 +27,7 @@ namespace Dansk_Folkehjælp_Projekt
         private NewItemView newItem;
         private NewBookcaseView newCase;
         private BagView bagView;
+        private EditBagType EditBag;
         public MainWindow()
         {
            
@@ -67,6 +68,12 @@ namespace Dansk_Folkehjælp_Projekt
         {
             bagView = new BagView();
             bagView.ShowDialog();
+        }
+
+        private void EditBagType_Click(object sender, RoutedEventArgs e)
+        {
+            EditBag = new EditBagType();
+            EditBag.ShowDialog();
         }
     }
 }

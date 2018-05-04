@@ -23,6 +23,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
         public Storage selectedBag { get; set; }
+        public ObservableCollection<Storage> BagType { get; set; }
       
         public MainViewModel()
         {
@@ -38,6 +39,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             itemCollection = DatabaseConnection.GetItems;
             //Her skal database metoden ind når den er skrevet til
             //specificBagItem = bagItemInfo[0];
+            DatabaseConnection.InitBagTypes();
+            BagType = DatabaseConnection.BagTypes;
         }
         public string _itemName { get; set; }
         public int _amount { get; set; }
