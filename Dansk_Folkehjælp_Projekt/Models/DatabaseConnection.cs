@@ -20,6 +20,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
         public ObservableCollection<Storage> BagTypes { get; set; }
         public ObservableCollection<Storage> BagTypeRequirements { get; set; }
+        public ObservableCollection<Storage> ItemFromBag { get; set; }
 
         public List<string> MailList { get; set; }
 
@@ -436,6 +437,45 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         
                     }
                 }
+            }
+        }
+        public void GetItemFromBag(string itemName)
+        {
+            ItemFromBag = new ObservableCollection<Storage>();
+            string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, Item.BoxID, Item.Bookcase
+                            FROM Bag INNER JOIN Bag_Item ON Bag_Item.Item = Bag.ID
+                            INNER JOIN Item ON Item.ItemID = Bag_Item.Item
+                            INNER JOIN Type_Item ON Type_Item.Item = Item.ItemID
+                            WHERE Item.ItemName ='{0}'", itemName);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand SpecificItemFromBag = new SqlCommand(query, Connect);
+                Connect.Open();
+                using(SqlDataReader reader = SpecificItemFromBag.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int AmountNumber = 0;
+                        
+                        string name = reader.GetString(0);
+                        int min = reader.GetInt32(1);
+                        if(reader[3] != DBNull.Value)
+                        {
+                            AmountNumber = reader.GetInt32(3);
+                        }
+                        else
+                        {
+                            AmountNumber = 0;
+                        }
+                        string loca = reader.GetString(4);
+                        string box = reader.GetString(5);
+                        string bCase = reader.GetString(6);
+
+                        ItemFromBag.Add(new Storage { itemName = name, minAmount = min, amount = AmountNumber, location = loca, boxID = box, bookcaseName = bCase });
+
+                    }
+                }
+                
             }
         }
     }
