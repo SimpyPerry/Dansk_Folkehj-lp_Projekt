@@ -21,6 +21,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
     public partial class BagView : Window
     {
         private MainViewModel MainView;
+        private BagItemView bagItemView;
         public BagView()
         {
             MainView = new MainViewModel();
@@ -44,6 +45,12 @@ namespace Dansk_Folkehjælp_Projekt.Views
         private void BagChoosen(object sender, SelectionChangedEventArgs e)
         {
             MainView.ChooseSpecificBag();
+        }
+
+        private void ListOfItems_ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            bagItemView = new BagItemView();
+            bagItemView.ShowDialog();
         }
     }
 }
