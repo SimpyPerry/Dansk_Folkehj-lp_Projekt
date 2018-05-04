@@ -23,5 +23,6 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
             InitializeComponent();
         }
+
     }
 }
