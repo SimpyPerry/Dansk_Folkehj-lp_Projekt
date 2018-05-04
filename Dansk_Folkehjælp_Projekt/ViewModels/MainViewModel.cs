@@ -38,8 +38,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             selectedBag = bagcollcetion[0];
             DatabaseConnection.GetBagItems(selectedBag.itemID);
             itemCollection = DatabaseConnection.GetItems;
-            //Her skal database metoden ind når den er skrevet til
-            //specificBagItem = bagItemInfo[0];
+            bagItemInfo = DatabaseConnection.ItemFromBag;
+            specificBagItem = bagItemInfo[0];
             DatabaseConnection.InitBagTypes();
             BagType = DatabaseConnection.BagTypes;
             DatabaseConnection.GetItemRequirementsForTypes(BagType[0].itemID);
@@ -180,9 +180,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
                 itemCollection.Add(DatabaseConnection.GetItems[i]);
             }
         }
-        public void ChosenBagItem()
+        public void SelectItem()
         {
-
+            DatabaseConnection.GetItemFromBag(_itemName);
         }
         public void AddMoreOfItemToBag()
         {
