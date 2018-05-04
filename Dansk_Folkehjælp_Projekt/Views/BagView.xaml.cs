@@ -50,6 +50,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
         private void ListOfItems_ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             bagItemView = new BagItemView();
+            MainView.SelectItem();
             bagItemView.ShowDialog();
         }
     }
