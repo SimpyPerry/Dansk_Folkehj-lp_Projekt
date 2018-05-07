@@ -69,10 +69,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         {
             DatabaseConnection.AddItemToRequirements(selectedBagType.itemID, selectedItem.itemID, amount);
 
-            //Sådan som det laves i Database
-
-            //public void AddItemToRequirements (int typeID, int itemID, int minimum)
-            //{
+            ChangeBagTypeRequirements();
         }
 
         public void ReduceAmount()
