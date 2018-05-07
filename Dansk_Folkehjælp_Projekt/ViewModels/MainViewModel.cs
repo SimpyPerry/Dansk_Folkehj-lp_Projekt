@@ -67,7 +67,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void AddNewRequirement(int amount)
         {
-
+            DatabaseConnection.Somemethos();
         }
 
         public void ReduceAmount()
