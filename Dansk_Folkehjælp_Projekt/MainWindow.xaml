@@ -50,6 +50,7 @@
                 <!--Bag Button-->
                 <Button x:Name="Bag_Button" Content="Tasker" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen" Click="Bag_Button_Click"/>
                 <Button x:Name="EditBagType" Content="Rediger tasketype" Click="EditBagType_Click" Background="LimeGreen"/>
+                <Button x:Name="AddBag" Content="Ny Taske" Click="bt_AddBag" /> 
             </StackPanel>
         </DockPanel>
     </Grid>
