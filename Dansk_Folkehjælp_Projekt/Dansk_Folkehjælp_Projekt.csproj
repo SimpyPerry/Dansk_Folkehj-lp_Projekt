@@ -56,6 +56,9 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\FindViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\AddBag.xaml.cs">
+      <DependentUpon>AddBag.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BagItemView.xaml.cs">
       <DependentUpon>BagItemView.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AddBag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BagItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
