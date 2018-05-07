@@ -43,8 +43,9 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void bt_Add_Click(object sender, RoutedEventArgs e)
         {
-            int amount = 
-            main.AddNewRequirement(Amount.Text.)
+            //int j;
+            //int amount = Int32.TryParse(Amount.Text);
+            //main.AddNewRequirement(amount);
         }
     }
 }
