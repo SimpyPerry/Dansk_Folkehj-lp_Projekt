@@ -15,12 +15,12 @@
         <TextBox Name="ItemMinimum" HorizontalAlignment="Left" Height="23" Margin="190,163,0,0" TextWrapping="Wrap" Text="{Binding selectedItemForType.minAmount}" VerticalAlignment="Top" Width="90"/>
         <Button Name="ChangeMinimum" Content="Gem minimumsantal" HorizontalAlignment="Left" Margin="190,232,0,0" VerticalAlignment="Top" Width="130" Height="20" Click="ChangeMinimum_Click"/>
         <Button Content="Slet genstand fra krav" HorizontalAlignment="Left" Margin="190,272,0,0" VerticalAlignment="Top" Width="130"/>
-        <Button Name="bt_Add" Content="Tilføj genstand til tasketype" HorizontalAlignment="Left" Margin="535,311,0,0" VerticalAlignment="Top" Width="130" Click="bt_Add_Click" />
+        <Button Name="bt_Add" Content="Tilføj genstand til tasketype"  HorizontalAlignment="Left" Margin="515,310,0,0" VerticalAlignment="Top" Width="150" Click="bt_Add_Click" />
         <ListBox ItemsSource="{Binding bagItemInfo}" DisplayMemberPath="itemName" SelectedItem="{Binding Path=selectedItem}" HorizontalAlignment="Left" Height="212" Margin="684,118,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="709,54,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="19" Margin="589,54,0,0" TextWrapping="Wrap" Text="Søg" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Søg" HorizontalAlignment="Left" Margin="709,54,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="19" Margin="589,54,0,0" TextWrapping="Wrap" Text="Indsæt søgeord" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Amount" HorizontalAlignment="Left" Height="33" Margin="618,258,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="47"/>
-        <TextBlock Text="Vælg genstand og antal og tilføj til type" HorizontalAlignment="Left" Margin="589,131,0,0" VerticalAlignment="Top" Width="76" Height="82"/>
+        <TextBlock Text="Vælg genstand og antal og tilføj til type" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="589,131,0,0" VerticalAlignment="Top" Width="76" Height="82"/>
         <TextBlock HorizontalAlignment="Left" Margin="599,218,0,0" TextWrapping="Wrap" Text="{Binding selectedBagType.itemName}" VerticalAlignment="Top"/>
 
     </Grid>
