@@ -276,7 +276,18 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 }
             }
         }
-        
+        public void EditMinimumForType(int typeID, int itemID, int minimum)
+        {
+            string query = String.Format("Update Type_Item set Minimum={0} where Type={1} and Item={2}", minimum, typeID, itemID);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand editMinimum = new SqlCommand(query, Connect);
+                Connect.Open();
+                editMinimum.ExecuteNonQuery();
+                Connect.Close();
+            }
+
+        }
         //Redigere genstand info
         public void EditItem(int itemID, string itemName, int amount, int minAmount, string boxID, string bookcase, string location)
         {

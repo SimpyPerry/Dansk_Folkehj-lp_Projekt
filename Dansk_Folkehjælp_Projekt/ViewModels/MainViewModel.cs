@@ -78,8 +78,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void ChangeMinimumForRequirements (int minimum)
         {
-            DatabaseConnection.SomeMethod(selectedBagType.itemID, selectedItemForType.itemID, minimum);
-                
+            
+            DatabaseConnection.EditMinimumForType(selectedBagType.itemID, selectedItemForType.itemID, minimum);
+            ChangeBagTypeRequirements();  
 
         }
         public void ChangeBagTypeRequirements()
