@@ -294,13 +294,34 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
         public void AddBag(string name, int type)
         {
+            ObservableCollection<Storage> RequirementsForType = new ObservableCollection<Storage>();
             string query = String.Format("Insert into Bag Values('{0}',{1})", name, type);
+            string itemRequirements = String.Format("Select Item from Bag Where Type={0}", type);
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand AddedBag = new SqlCommand(query, Connect);
+                SqlCommand FindBagViaTypes = new SqlCommand(itemRequirements, Connect);
+
                 Connect.Open();
                 AddedBag.ExecuteNonQuery();
-                Connect.Close();
+
+
+                using (SqlDataReader reader = FindBagViaTypes.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        int ID = reader.GetInt32(0);
+                        RequirementsForType.Add(new Storage() { itemID = ID });
+                    }
+                }
+
+                int items = RequirementsForType.Count;
+                for(int i=0;i<items;i++)
+                {
+
+                }
+
+                    Connect.Close();
             }
         }
         public void EditMinimumForType(int typeID, int itemID, int minimum)
