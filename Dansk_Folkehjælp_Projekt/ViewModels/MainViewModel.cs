@@ -84,6 +84,12 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             ChangeBagTypeRequirements();  
 
         }
+
+        public void DeleteRequirement()
+        {
+            DatabaseConnection.DeleteFromTypeRequirements(selectedBagType.itemID, selectedItemForType.itemID);
+            ChangeBagTypeRequirements();
+        }
         public void ChangeBagTypeRequirements()
         {
             DatabaseConnection.GetItemRequirementsForTypes(selectedBagType.itemID);
