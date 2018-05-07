@@ -29,7 +29,29 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 GetStorages = new ObservableCollection<Storage>();
                 InitBagData();
             InitBagTypes();
+            GetAllItems();
             }
+
+        public void GetAllItems()
+        {
+            ItemFromBag = new ObservableCollection<Storage>();
+            string query = "select ItemID, ItemName from Item";
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand GetAllItems = new SqlCommand(query, Connect);
+                using (SqlDataReader reader = GetAllItems.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int ID = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+                        ItemFromBag.Add(new Storage() { itemID = ID, itemName = name });
+                    }
+                }
+                Connect.Close();
+            }
+        }
 
         public void InitBagTypes()
         {
