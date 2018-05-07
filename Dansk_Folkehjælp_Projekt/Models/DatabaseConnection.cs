@@ -27,6 +27,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
         public DatabaseConnection()
             {
+            ChosenItemFromBag = new ObservableCollection<Storage>();      
                 GetStorages = new ObservableCollection<Storage>();
                 InitBagData();
             InitBagTypes();
