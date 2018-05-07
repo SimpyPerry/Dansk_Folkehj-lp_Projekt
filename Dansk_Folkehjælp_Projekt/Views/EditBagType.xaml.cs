@@ -27,5 +27,13 @@ namespace Dansk_Folkehjælp_Projekt.Views
             DataContext = main;
             InitializeComponent();
         }
+
+       
+
+        private void TypeListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            main.ChangeBagTypeRequirements();
+            
+        }
     }
 }

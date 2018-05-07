@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="EditBagType" Height="450" Width="800">
     <Grid>
-        <ListBox ItemsSource="{Binding BagType}" DisplayMemberPath="itemName" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox ItemsSource="{Binding BagType}" DisplayMemberPath="itemName" SelectedItem="{Binding Path=selectedBagType}" SelectionChanged="TypeListBox_SelectionChanged" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
         <ListBox ItemsSource="{Binding GetItemsInType}" DisplayMemberPath="itemName" HorizontalAlignment="Left" Height="264" Margin="10,131,0,0" VerticalAlignment="Top" Width="100"/>
         <Label Content="Rediger indholdskrav for hver tasketype" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="190,94,0,0" TextWrapping="Wrap" Text="EX Hjertestarter" VerticalAlignment="Top" Height="16" Width="90"/>
@@ -16,7 +16,7 @@
         <Button Content="Gem minimumsantal" HorizontalAlignment="Left" Margin="190,232,0,0" VerticalAlignment="Top" Width="130" Height="20"/>
         <Button Content="Slet genstand fra krav" HorizontalAlignment="Left" Margin="190,272,0,0" VerticalAlignment="Top" Width="130"/>
         <Button Content="Tilføj genstand til tasketype" HorizontalAlignment="Left" Margin="535,311,0,0" VerticalAlignment="Top" Width="130"/>
-        <ListBox HorizontalAlignment="Left" Height="212" Margin="684,118,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox ItemsSource="{Binding bagItemInfo}" DisplayMemberPath="itemName" HorizontalAlignment="Left" Height="212" Margin="684,118,0,0" VerticalAlignment="Top" Width="100"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="709,54,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox HorizontalAlignment="Left" Height="19" Margin="589,54,0,0" TextWrapping="Wrap" Text="Søg" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="618,258,0,0" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Width="47"/>
