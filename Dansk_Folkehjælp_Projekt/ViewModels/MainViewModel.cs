@@ -53,6 +53,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             selectedItem = bagItemInfo[0];
             HotStuff = DatabaseConnection.ChosenItemFromBag;
             
+            
 
         }
         public string _itemName { get; set; }
@@ -225,9 +226,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void SelectItem()
         {
-           
+            
             DatabaseConnection.GetItemFromBag(SelectedItemFromBag.itemName, selectedBag.itemName);
-           
+            SelectedItemFromBag = HotStuff[0];
         }
         public void AddMoreOfItemToBag()
         {
