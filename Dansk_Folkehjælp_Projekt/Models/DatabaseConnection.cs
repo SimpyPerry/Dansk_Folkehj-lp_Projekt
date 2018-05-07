@@ -290,6 +290,18 @@ namespace Dansk_Folkehjælp_Projekt.Models
             }
 
         }
+
+        public void AddBag(string name, int type)
+        {
+            string query = String.Format("Insert into Bag Values('{0}',{1})", name, type);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand AddedBag = new SqlCommand(query, Connect);
+                Connect.Open();
+                AddedBag.ExecuteNonQuery();
+                Connect.Close();
+            }
+        }
         public void EditMinimumForType(int typeID, int itemID, int minimum)
         {
             string query = String.Format("Update Type_Item set Minimum={0} where Type={1} and Item={2}", minimum, typeID, itemID);
