@@ -466,7 +466,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
         {
             ItemFromBag = new ObservableCollection<Storage>();
             string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, Item.BoxID, Item.Bookcase
-                            FROM Bag INNER JOIN Bag_Item ON Bag_Item.Item = Bag.ID
+                            FROM Bag INNER JOIN Bag_Item ON Bag_Item.Bag = Bag.ID
                             INNER JOIN Item ON Item.ItemID = Bag_Item.Item
                             INNER JOIN Type_Item ON Type_Item.Item = Item.ItemID
                             WHERE Item.ItemName ='{0}'", itemName);
