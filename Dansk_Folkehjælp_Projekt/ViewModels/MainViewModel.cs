@@ -217,7 +217,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void SelectItem()
         {
-            DatabaseConnection.GetItemFromBag(_itemName);
+          //  DatabaseConnection.GetItemFromBag(_itemName);
         }
         public void AddMoreOfItemToBag()
         {
