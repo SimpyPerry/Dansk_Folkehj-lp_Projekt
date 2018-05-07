@@ -296,17 +296,19 @@ namespace Dansk_Folkehjælp_Projekt.Models
         {
             ObservableCollection<Storage> RequirementsForType = new ObservableCollection<Storage>();
             string query = String.Format("Insert into Bag Values('{0}',{1})", name, type);
-            string itemRequirements = String.Format("Select Item from Bag Where Type={0}", type);
+            string itemRequirements = String.Format("Select Item from Type_Item Where Type={0}", type);
+            
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand AddedBag = new SqlCommand(query, Connect);
-                SqlCommand FindBagViaTypes = new SqlCommand(itemRequirements, Connect);
+                SqlCommand FindItemsViaTypes = new SqlCommand(itemRequirements, Connect);
+               
 
                 Connect.Open();
                 AddedBag.ExecuteNonQuery();
 
 
-                using (SqlDataReader reader = FindBagViaTypes.ExecuteReader())
+                using (SqlDataReader reader = FindItemsViaTypes.ExecuteReader())
                 {
                     while(reader.Read())
                     {
@@ -314,12 +316,19 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         RequirementsForType.Add(new Storage() { itemID = ID });
                     }
                 }
+                InitBagData();
 
+                Storage newlyAddedBag = GetBags[GetBags.Count - 1];
+                
                 int items = RequirementsForType.Count;
                 for(int i=0;i<items;i++)
                 {
+                    string bag_Item = String.Format("Insert into Bag_Item Values ({0},{1},0)", newlyAddedBag.itemID, RequirementsForType[i].itemID);
+                    SqlCommand AddBagsRequirements = new SqlCommand(bag_Item, Connect);
+                    AddBagsRequirements.ExecuteNonQuery();
 
                 }
+
 
                     Connect.Close();
             }
