@@ -13,7 +13,7 @@
         <Label Content="Taske" FontSize="16" HorizontalAlignment="Left" Margin="76,58,0,0" VerticalAlignment="Top"/>
         <Label Content="Lager" FontSize="16" HorizontalAlignment="Left" Margin="76,200,0,0" VerticalAlignment="Top"/>
         <!--Amount in Bag-->
-        <TextBlock Name="ItemAmountInBag_box" Text="{Binding Path=HotStuff.Amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Background="AntiqueWhite" HorizontalAlignment="Left" Margin="250,125,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" Height="26"/>
+        <TextBlock Name="ItemAmountInBag_box" Text="{Binding Path=SelectedItemFromBag.Amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Background="AntiqueWhite" HorizontalAlignment="Left" Margin="250,125,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" Height="26"/>
         <Label Content="Antal i tasken" HorizontalAlignment="Left" Margin="125,125,0,0" VerticalAlignment="Top"/>
         <!--Minimum Amount for Bag-->
         <TextBlock x:Name="MinAmountForBag_box" Background="AntiqueWhite" HorizontalAlignment="Left" Margin="250,167,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" Height="26"/>

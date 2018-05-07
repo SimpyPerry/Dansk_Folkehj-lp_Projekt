@@ -29,7 +29,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public Storage selectedItemForType { get; set; }
         public Storage selectedItem { get; set; }
         public Storage SelectedItemFromBag { get; set; }
-        public Storage HotStuff { get; set; }
+        public ObservableCollection<Storage> HotStuff { get; set; }
       
         public MainViewModel()
         {
@@ -51,8 +51,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             GetItemsInType = DatabaseConnection.BagTypeRequirements;
             selectedItemForType = GetItemsInType[0];
             selectedItem = bagItemInfo[0];
-            HotStuff = null;
-           
+            HotStuff = DatabaseConnection.ChosenItemFromBag;
+            
 
         }
         public string _itemName { get; set; }
@@ -227,6 +227,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         {
            
             DatabaseConnection.GetItemFromBag(SelectedItemFromBag.itemName, selectedBag.itemName);
+           
         }
         public void AddMoreOfItemToBag()
         {
