@@ -67,7 +67,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void AddNewRequirement(int amount)
         {
+            DatabaseConnection.AddItemToRequirements(selectedBagType.itemID, selectedItem.itemID, amount);
 
+            ChangeBagTypeRequirements();
         }
 
         public void ReduceAmount()

@@ -502,6 +502,21 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 
             }
         }
+        public void AddItemToRequirements(int typeID, int itemID, int minimum)
+        {
+
+            string query = String.Format("Insert into Type_Item values ({0},{1},{2})", typeID, itemID, minimum); 
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand NewTypeRequirement = new SqlCommand(query, Connect);
+
+                NewTypeRequirement.ExecuteNonQuery();
+
+                Connect.Close();
+
+            }
+        }
     }
 }
 
