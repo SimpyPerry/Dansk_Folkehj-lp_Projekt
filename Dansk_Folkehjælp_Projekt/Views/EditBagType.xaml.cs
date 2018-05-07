@@ -48,5 +48,11 @@ namespace Dansk_Folkehjælp_Projekt.Views
             main.AddNewRequirement(m);
             
         }
+
+        private void ChangeMinimum_Click(object sender, RoutedEventArgs e)
+        {
+            int a = Int32.Parse(ItemMinimum.Text);
+            main.ChangeMinimumForRequirements(a);
+        }
     }
 }

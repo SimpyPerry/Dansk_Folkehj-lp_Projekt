@@ -12,8 +12,8 @@
         <Label Content="Rediger indholdskrav for hver tasketype" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="190,94,0,0" TextWrapping="Wrap" Text="{Binding selectedBagType.itemName}" VerticalAlignment="Top" Height="16" Width="90"/>
         <TextBlock HorizontalAlignment="Left" Margin="190,131,0,0" TextWrapping="Wrap" Text="{Binding selectedItemForType.itemName}" VerticalAlignment="Top" Width="90"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="190,163,0,0" TextWrapping="Wrap" Text="{Binding selectedItemForType.minAmount}" VerticalAlignment="Top" Width="90"/>
-        <Button Content="Gem minimumsantal" HorizontalAlignment="Left" Margin="190,232,0,0" VerticalAlignment="Top" Width="130" Height="20"/>
+        <TextBox Name="ItemMinimum" HorizontalAlignment="Left" Height="23" Margin="190,163,0,0" TextWrapping="Wrap" Text="{Binding selectedItemForType.minAmount}" VerticalAlignment="Top" Width="90"/>
+        <Button Name="ChangeMinimum" Content="Gem minimumsantal" HorizontalAlignment="Left" Margin="190,232,0,0" VerticalAlignment="Top" Width="130" Height="20" Click="ChangeMinimum_Click"/>
         <Button Content="Slet genstand fra krav" HorizontalAlignment="Left" Margin="190,272,0,0" VerticalAlignment="Top" Width="130"/>
         <Button Name="bt_Add" Content="Tilføj genstand til tasketype" HorizontalAlignment="Left" Margin="535,311,0,0" VerticalAlignment="Top" Width="130" Click="bt_Add_Click" />
         <ListBox ItemsSource="{Binding bagItemInfo}" DisplayMemberPath="itemName" SelectedItem="{Binding Path=selectedItem}" HorizontalAlignment="Left" Height="212" Margin="684,118,0,0" VerticalAlignment="Top" Width="100"/>
