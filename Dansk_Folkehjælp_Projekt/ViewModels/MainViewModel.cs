@@ -28,6 +28,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public Storage selectedBagType { get; set; }
         public Storage selectedItemForType { get; set; }
         public Storage selectedItem { get; set; }
+        public Storage SelectedItemFromBag { get; set; }
       
         public MainViewModel()
         {
@@ -217,7 +218,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void SelectItem()
         {
-          //  DatabaseConnection.GetItemFromBag(_itemName);
+            DatabaseConnection.GetItemFromBag(SelectedItemFromBag.itemName, selectedBag.itemName);
         }
         public void AddMoreOfItemToBag()
         {
