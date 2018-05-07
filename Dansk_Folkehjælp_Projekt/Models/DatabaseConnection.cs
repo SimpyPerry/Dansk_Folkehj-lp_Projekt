@@ -560,12 +560,12 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         }
                         else
                         {
-
+                            StorageAmount = 0;
                         }
                         
 
 
-                        ChosenItemFromBag.Add(new Storage { itemName = name, minAmount = min, amount = AmountNumber, location = loca, boxID = box, bookcaseName = bCase });
+                        ChosenItemFromBag.Add(new Storage { itemName = name, minAmount = min, amount = AmountNumber, location = loca, boxID = box, bookcaseName = bCase, itemID = StorageAmount });
 
                     }
                 }
