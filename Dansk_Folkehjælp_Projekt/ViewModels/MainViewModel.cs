@@ -27,6 +27,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public ObservableCollection<Storage> GetItemsInType { get; set; }
         public Storage selectedBagType { get; set; }
         public Storage selectedItemForType { get; set; }
+        public Storage selectedItem { get; set; }
       
         public MainViewModel()
         {
@@ -48,6 +49,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.GetItemRequirementsForTypes(BagType[0].itemID);
             GetItemsInType = DatabaseConnection.BagTypeRequirements;
             selectedItemForType = GetItemsInType[0];
+            selectedItem = bagItemInfo[0];
 
 
         }
@@ -62,6 +64,10 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public void FindItem()
         {
             DatabaseConnection.FindByItemName(_itemName);
+        }
+        public void AddNewRequirement(int amount)
+        {
+
         }
 
         public void ReduceAmount()
@@ -82,6 +88,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             {
                 GetItemsInType.Add(DatabaseConnection.BagTypeRequirements[i]);
             }
+            selectedItemForType = GetItemsInType[0];
         }
 
         public void NewItem()
