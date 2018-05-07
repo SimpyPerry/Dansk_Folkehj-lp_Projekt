@@ -277,6 +277,18 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 }
             }
         }
+        public void DeleteFromTypeRequirements(int typeID, int itemID)
+        {
+            string query = String.Format("Delete from Type_Item where type={0} and item={1}", typeID, itemID);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand deleteRequirement = new SqlCommand(query, Connect);
+                Connect.Open();
+                deleteRequirement.ExecuteNonQuery();
+                Connect.Close();
+            }
+
+        }
         public void EditMinimumForType(int typeID, int itemID, int minimum)
         {
             string query = String.Format("Update Type_Item set Minimum={0} where Type={1} and Item={2}", minimum, typeID, itemID);
