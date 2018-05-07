@@ -230,11 +230,11 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void AddMoreOfItemToBag()
         {
-
         }
-        public void addBag()
+        
+        public void AddBag()
         {
-
+                DatabaseConnection.AddBag(_itemName, selectedBagType.itemID);
         }
 
     }

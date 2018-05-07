@@ -30,6 +30,9 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            BindingExpression binding = BagName.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource();
+            main.AddBag();
 
         }
     }
