@@ -49,6 +49,8 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void ListOfItems_ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            BindingExpression itemName = ListOfItems_ListBox.GetBindingExpression(ListBox.SelectedItemProperty);
+            itemName.UpdateSource();
             bagItemView = new BagItemView();
             MainView.SelectItem();
             bagItemView.ShowDialog();
