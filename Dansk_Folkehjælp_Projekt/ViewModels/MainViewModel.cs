@@ -51,7 +51,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             GetItemsInType = DatabaseConnection.BagTypeRequirements;
             selectedItemForType = GetItemsInType[0];
             selectedItem = bagItemInfo[0];
-            HotStuff = DatabaseConnection.ChosenItemFromBag[0];
+            HotStuff = null;
            
 
         }
@@ -229,6 +229,10 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.GetItemFromBag(SelectedItemFromBag.itemName, selectedBag.itemName);
         }
         public void AddMoreOfItemToBag()
+        {
+
+        }
+        public void addBag()
         {
 
         }

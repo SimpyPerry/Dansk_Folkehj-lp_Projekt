@@ -31,6 +31,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 InitBagData();
             InitBagTypes();
             GetAllItems();
+            
             }
 
         public void GetAllItems()
