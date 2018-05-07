@@ -533,7 +533,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public void GetItemFromBag(string itemName, string BagName)
         {
             ItemFromBag = new ObservableCollection<Storage>();
-            string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, Item.BoxID, Bookcase.BookcaseName
+            string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, Item.BoxID, Bookcase.BookcaseName, Item.Amount
                             FROM Bag INNER JOIN Bag_Item ON Bag_Item.Bag = Bag.ID
                             INNER JOIN Item ON Item.ItemID = Bag_Item.Item
                             INNER JOIN Type_Item ON Type_Item.Item = Item.ItemID
@@ -548,6 +548,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     while (reader.Read())
                     {
                         int AmountNumber = 0;
+                        int StorageAmount = 0;
                         
                         string name = reader.GetString(0);
                         int min = reader.GetInt32(1);
@@ -562,8 +563,18 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         string loca = reader.GetString(3);
                         string box = reader.GetString(4);
                         string bCase = reader.GetString(5);
+                        if(reader[6] != DBNull.Value)
+                        {
+                            StorageAmount = reader.GetInt32(6);
+                        }
+                        else
+                        {
+                            StorageAmount = 0;
+                        }
+                        
 
-                        ChosenItemFromBag.Add(new Storage { itemName = name, minAmount = min, amount = AmountNumber, location = loca, boxID = box, bookcaseName = bCase });
+
+                        ChosenItemFromBag.Add(new Storage { itemName = name, minAmount = min, amount = AmountNumber, location = loca, boxID = box, bookcaseName = bCase, itemID = StorageAmount });
 
                     }
                 }
