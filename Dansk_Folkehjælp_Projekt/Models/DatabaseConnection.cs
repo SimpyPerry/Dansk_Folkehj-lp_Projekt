@@ -462,14 +462,15 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 }
             }
         }
-        public void GetItemFromBag(string itemName)
+        public void GetItemFromBag(string itemName, string BagName)
         {
             ItemFromBag = new ObservableCollection<Storage>();
             string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, Item.BoxID, Item.Bookcase
                             FROM Bag INNER JOIN Bag_Item ON Bag_Item.Bag = Bag.ID
                             INNER JOIN Item ON Item.ItemID = Bag_Item.Item
                             INNER JOIN Type_Item ON Type_Item.Item = Item.ItemID
-                            WHERE Item.ItemName ='{0}'", itemName);
+                            INNER JOIN Bookcase ON Bookcase.BookcaseID = Item.Bookcase
+                            WHERE Item.ItemName ='{0}' AND Bag.BagName = '{1}'", itemName, BagName);
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand SpecificItemFromBag = new SqlCommand(query, Connect);
