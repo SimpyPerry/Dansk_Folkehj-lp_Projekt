@@ -500,7 +500,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public void GetBagItems(int bagID)
         {
             GetItems = new ObservableCollection<Storage>();
-            string query = String.Format("Select Bag.ID, Item.ItemName, Type_Item.Minimum, Bag_Item.Amount" 
+            string query = String.Format("Select Bag.ID, Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.ItemID" 
 +" From Bag inner join Type_Item on Bag.Type = Type_Item.Type"
  + " inner join Bag_Item on  Bag.ID = Bag_Item.Bag AND Bag_Item.Item = Type_Item.Item inner join Item on Type_Item.Item = Item.ItemID " +
  "Where Bag.ID = {0}", bagID);
@@ -523,14 +523,15 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         {
                             number = 0;
                         }
+                        int itemNr = reader.GetInt32(4);
 
-                        GetItems.Add(new Storage(){itemName=name, minAmount=Min, amount=number  });
+                        GetItems.Add(new Storage(){itemName=name, minAmount=Min, amount=number, itemID = itemNr  });
                         
                     }
                 }
             }
         }
-        public void GetItemFromBag(string itemName, string BagName)
+        public void GetItemFromBag(string bagName, int itemID)
         {
             ItemFromBag = new ObservableCollection<Storage>();
             string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, Item.BoxID, Bookcase.BookcaseName, Item.Amount
@@ -538,7 +539,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                             INNER JOIN Item ON Item.ItemID = Bag_Item.Item
                             INNER JOIN Type_Item ON Type_Item.Item = Item.ItemID
                             INNER JOIN Bookcase ON Bookcase.BookcaseID = Item.Bookcase
-                            WHERE Item.ItemName ='{0}' AND Bag.BagName = '{1}'", itemName, BagName);
+                            WHERE Item.ItemID ='{0}' AND Bag.BagName = '{1}'", itemID, bagName);
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand SpecificItemFromBag = new SqlCommand(query, Connect);
@@ -595,6 +596,10 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 Connect.Close();
 
             }
+        }
+        public void TakeItemFromStorageToBag(string bagName, string itemName, int amountRemoved)
+        {
+            string query = string.Format(@"");
         }
     }
 }
