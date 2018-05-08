@@ -234,6 +234,10 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         {
             DatabaseConnection.TakeItemFromStorageToBag(selectedBag.itemName, SelectedItemFromBag.itemName, _amount);
         }
+        public void RemoveItemFromBag()
+        {
+            DatabaseConnection.RemoveItemFromBag(selectedBag.itemName, SelectedItemFromBag.itemName, _amount);
+        }
         
         public void AddBag()
         {
