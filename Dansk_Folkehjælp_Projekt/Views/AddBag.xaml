@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dansk_Folkehjælp_Projekt.Views"
         mc:Ignorable="d"
-        Title="AddBag" Height="450" Width="800">
+        Title="AddBag" Height="250" Width="400">
     <Grid>
         <ListBox Name="BagTypes" ItemsSource="{Binding BagType}" DisplayMemberPath="itemName" SelectedItem="{Binding Path=selectedBagType}" HorizontalAlignment="Left" Height="100" Margin="10,34,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBlock Name="tBlock_Type" HorizontalAlignment="Left" Margin="230,52,0,0" TextWrapping="Wrap" Text="{Binding selectedBagType.itemName}" VerticalAlignment="Top"/>
