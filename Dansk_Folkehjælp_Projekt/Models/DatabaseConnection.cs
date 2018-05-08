@@ -680,6 +680,24 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 Connect.Close();
             }
         }
+        public void RemoveItemFromBag(string bagName, string itemName, int amountRemoved)
+        {
+            string query = string.Format(@"UPDATE Bag_Item
+						SET Bag_Item.Amount = Bag_Item.Amount -{0}
+						FROM Bag_Item
+						INNER JOIN Bag ON Bag_Item.Bag = Bag.ID
+						INNER JOIN Item ON Item.ItemID = Bag_Item.Item
+						WHERE Item.ItemName ='{2}' AND Bag.BagName = '{1}'", amountRemoved, bagName, itemName);
+            using (SqlConnection Conncet = new SqlConnection(connectionString))
+            {
+                Conncet.Open();
+                SqlCommand RemoveFromBag = new SqlCommand(query, Conncet);
+
+                RemoveFromBag.ExecuteNonQuery();
+
+                Conncet.Close();
+            }
+        }
     }
 }
 
