@@ -347,13 +347,25 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public void DeleteFromTypeRequirements(int typeID, int itemID)
         {
             string query = String.Format("Delete from Type_Item where type={0} and item={1}", typeID, itemID);
+            
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand deleteRequirement = new SqlCommand(query, Connect);
                 Connect.Open();
                 deleteRequirement.ExecuteNonQuery();
+
+                SelectBag(typeID);
+                int bagsOfType = GetBags.Count;
+                for(int i=0; i<bagsOfType;i++)
+                {
+                    string query2 = String.Format("Delete from Bag_Item Where bag={0} AND Item={1}", GetBags[i].itemID, itemID);
+                    SqlCommand deleteFromBag_Item = new SqlCommand(query2, Connect);
+                    deleteFromBag_Item.ExecuteNonQuery();
+                }
+               
                 Connect.Close();
             }
+
 
         }
 
