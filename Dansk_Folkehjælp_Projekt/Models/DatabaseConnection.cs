@@ -636,7 +636,29 @@ namespace Dansk_Folkehjælp_Projekt.Models
         }
         public void TakeItemFromStorageToBag(string bagName, string itemName, int amountRemoved)
         {
-            string query = string.Format(@"UPDATE Bag_Item SET Bag_Item.Anount = Bag_Item.Amount + {0} WHERE", amountRemoved);
+            string query = string.Format(@"UPDATE Bag_Item
+						SET Bag_Item.Amount = Bag_Item.Amount +{0}
+						FROM Bag_Item
+						INNER JOIN Bag ON Bag_Item.Bag = Bag.ID
+						INNER JOIN Item ON Item.ItemID = Bag_Item.Item
+						WHERE Item.ItemName ='{2}' AND Bag.BagName = '{1}'
+
+
+						UPDATE Item
+						SET Item.Amount = Item.Amount -{0}
+						FROM Item 
+						INNER JOIN Bag_Item ON Bag_Item.Item = Item.ItemID
+						INNER JOIN Bag ON Bag.ID = Bag_Item.Bag
+						WHERE Bag.BagName ='{1}' AND Item.ItemName= '{2}'",amountRemoved, bagName, itemName);
+            using(SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand RemoveFromStorageAddToBag = new SqlCommand(query, Connect);
+
+                RemoveFromStorageAddToBag.ExecuteNonQuery();
+
+                Connect.Close();
+            }
         }
     }
 }
