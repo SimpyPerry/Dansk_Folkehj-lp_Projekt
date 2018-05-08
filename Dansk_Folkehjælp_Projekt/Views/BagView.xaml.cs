@@ -51,8 +51,9 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
             BindingExpression itemName = ListOfItems_ListBox.GetBindingExpression(ListBox.SelectedItemProperty);
             itemName.UpdateSource();
-            bagItemView = new BagItemView(MainView);
             MainView.SelectItem();
+            bagItemView = new BagItemView(MainView);
+            
             bagItemView.ShowDialog();
         }
     }
