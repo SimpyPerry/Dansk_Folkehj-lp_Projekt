@@ -40,7 +40,10 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
-
+            BindingExpression amountRemovedFromBag = AmountAddedToBag_Box.GetBindingExpression(TextBox.TemplateProperty);
+            amountRemovedFromBag.UpdateSource();
+            mainView.RemoveItemFromBag();
+            MessageBox.Show("Også gjort");
         }
 
         private void AmountAddedToBag_Box_TextChanged(object sender, TextChangedEventArgs e)
