@@ -683,7 +683,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public void RemoveItemFromBag(string bagName, string itemName, int amountRemoved)
         {
             string query = string.Format(@"UPDATE Bag_Item
-						SET Bag_Item.Amount = Bag_Item.Amount -{0}
+						SET Bag_Item.Amount = Bag_Item.Amount - {0}
 						FROM Bag_Item
 						INNER JOIN Bag ON Bag_Item.Bag = Bag.ID
 						INNER JOIN Item ON Item.ItemID = Bag_Item.Item
