@@ -108,9 +108,66 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 Connect.Close();
             }
         }
+        public void UpdateBagsAfterRequirementsChanged()
+        {
+            GetItemRequirementsForTypes(2);
+            SelectBag(2);
+            int itemsForThisType = BagTypeRequirements.Count;
+            int bagsForThisType = GetBags.Count;
+            
+            for(int i=0; i<bagsForThisType;i++)
+            {
+                int bagID = GetBags[i].itemID;
+                //Se om tasken har denne ting i Bag_item
+                for (int p=0;p<itemsForThisType;p++)
+                {
+                    int itemID = BagTypeRequirements[p].itemID;
+                  int o=  CheckIfBagHasItem(bagID, itemID);
+                    if (o==0)
+                    {
+                        string query = String.Format("Insert into bag_item values({0},{1},0)", bagID, itemID);
+                    }
+                    
+                }
+            }
+        }
+        public int CheckIfBagHasItem(int bagID, int itemID)
+        {
+            string checkIfExists = String.Format("SELECT COUNT(*) FROM BAG_ITEM WHERE Bag={0} And Item={1}", bagID, itemID);
+            int matches;
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand Check = new SqlCommand(checkIfExists, Connect);
+                Connect.Open();
+                matches = (int)Check.ExecuteScalar();
+            }
 
-            //Metode til at søge efter alle genstande med navn der minder om ItemName
-            public void FindByItemName(string itemName)
+            return matches;
+        }
+        public void SelectBag(int type)
+        {
+            GetBags = new ObservableCollection<Storage>();
+            string query = String.Format("SELECT ID, BagName FROM Bag WHERE Type ={0}", type);
+
+            using (SqlConnection Conncet = new SqlConnection(connectionString))
+            {
+                SqlCommand getBags = new SqlCommand(query, Conncet);
+                Conncet.Open();
+                using (SqlDataReader reader = getBags.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int bagsID = reader.GetInt32(0);
+                        string bagsName = reader.GetString(1);
+
+                        GetBags.Add(new Storage() { itemID = bagsID, itemName = bagsName });
+                    }
+                }
+            }
+        }
+
+        //Metode til at søge efter alle genstande med navn der minder om ItemName
+        public void FindByItemName(string itemName)
             {
             GetStorages = new ObservableCollection<Storage>();
 
@@ -456,27 +513,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
         {
 
         }
-        public void SelectBag(int type)
-        {
-            GetBags = new ObservableCollection<Storage>();
-            string query = String.Format("SELECT ID, BagName FROM Bag WHERE Type ={0}", type); 
-
-            using(SqlConnection Conncet = new SqlConnection(connectionString))
-            {
-                SqlCommand getBags = new SqlCommand(query, Conncet);
-                Conncet.Open();
-                using(SqlDataReader reader = getBags.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        int bagsID = reader.GetInt32(0);
-                        string bagsName = reader.GetString(1);
-
-                        GetBags.Add(new Storage() { itemID = bagsID, itemName = bagsName });
-                    }
-                }
-            }
-        }
+        
         public void InitBagData()
         {
             GetBags = new ObservableCollection<Storage>();
