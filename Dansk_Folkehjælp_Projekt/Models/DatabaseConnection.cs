@@ -476,6 +476,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 Connect.Open();
+
                 SqlCommand Exsits = new SqlCommand(query, Connect);
                 string empty = null;
                 empty = (string)Exsits.ExecuteScalar();
@@ -483,11 +484,12 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 if(empty == null)
                 {
                     return true;
-                }else
+                }
+
+                else
                 {
                     return false;
                 }
-                Connect.Close();
             }
         }
 
