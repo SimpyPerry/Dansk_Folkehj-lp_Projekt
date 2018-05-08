@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="EditBagType" Height="450" Width="800">
     <Grid>
+        <TextBox Background="FloralWhite" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+
         <ListBox ItemsSource="{Binding BagType}" DisplayMemberPath="itemName" SelectedItem="{Binding Path=selectedBagType}" SelectionChanged="TypeListBox_SelectionChanged" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
         <ListBox ItemsSource="{Binding GetItemsInType}" SelectedItem="{Binding Path=selectedItemForType}" DisplayMemberPath="itemName" HorizontalAlignment="Left" Height="264" Margin="10,131,0,0" VerticalAlignment="Top" Width="100"/>
         <Label Content="Rediger indholdskrav for hver tasketype" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top"/>

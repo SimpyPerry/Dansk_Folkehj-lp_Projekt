@@ -20,18 +20,22 @@ namespace Dansk_Folkehjælp_Projekt.Views
     /// </summary>
     public partial class BagItemView : Window
     {
-        
+        MainViewModel mainView;
         public BagItemView(MainViewModel main)
         {
-            
-            
-            DataContext = main;
+
+            mainView = main;
+            DataContext = mainView;
             InitializeComponent();
+           
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-
+            BindingExpression amountOfItemAdded = AmountAddedToBag_Box.GetBindingExpression(TextBox.TextProperty);
+            amountOfItemAdded.UpdateSource();
+            mainView.AddMoreOfItemToBag();
+            MessageBox.Show("Gjort");
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
