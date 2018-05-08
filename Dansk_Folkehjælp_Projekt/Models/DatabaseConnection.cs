@@ -126,6 +126,14 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     if (o==0)
                     {
                         string query = String.Format("Insert into bag_item values({0},{1},0)", bagID, itemID);
+                        using (SqlConnection Connect = new SqlConnection(connectionString))
+                        {
+                            SqlCommand AlterBag_Item = new SqlCommand(query, Connect);
+                            Connect.Open();
+                            AlterBag_Item.ExecuteNonQuery();
+                            Connect.Close();
+
+                        }
                     }
                     
                 }
