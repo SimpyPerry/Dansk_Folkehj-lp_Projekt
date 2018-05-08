@@ -42,5 +42,14 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
 
         }
+
+        private void AmountAddedToBag_Box_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(System.Text.RegularExpressions.Regex.IsMatch(AmountAddedToBag_Box.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Kun Tal tak");
+                AmountAddedToBag_Box.Text = AmountAddedToBag_Box.Text.Remove(AmountAddedToBag_Box.Text.Length - 1);
+            }
+        }
     }
 }
