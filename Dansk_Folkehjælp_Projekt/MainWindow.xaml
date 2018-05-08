@@ -32,7 +32,7 @@
 
             <!--De forskellige overskrifter og knapper-->
             <StackPanel  Margin="0,0,0,0" Width="200" Height="450">
-                <Label Grid.Row="0" Content="Oversigt" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent" Margin="75,20,67,0"/>
+                <Label Grid.Row="0" Content="Oversigts Menu" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent" Margin=" 0,5,0,0"/>
 
                 <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click" Margin=" 0,0,0,5" Background="LimeGreen"  />
 
@@ -43,14 +43,18 @@
                 <Button x:Name="bt_Container" Content="Container" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_Container_Click"/>
 
 
-                <Label Content="Overskrift" HorizontalContentAlignment="Center" FontWeight="Bold" Margin=" 0,20,0,5" />
+                <Label Content="Opret nyt" HorizontalContentAlignment="Center" FontWeight="Bold" Margin=" 0,20,0,5" />
 
                 <Button x:Name="bt_AddInstructor" Content="Ny genstand" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_AddInstructor_Click"/>
                 <Button x:Name="bt_AllInstructors" Content="Ny Reol" Margin=" 0,0,0,5" Background="LimeGreen" Click="bt_AllInstructors_Click"/>
+                <Button x:Name="AddBag" Content="Ny Taske" Click="bt_AddBag" Background="LimeGreen"  Margin=" 0,5,0,0"/> 
+
+                
+                <Label Content="Taske oversigt" HorizontalContentAlignment="Center" FontWeight="Bold" Margin=" 0,20,0,5" />
+                
                 <!--Bag Button-->
                 <Button x:Name="Bag_Button" Content="Tasker" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen" Click="Bag_Button_Click"/>
                 <Button x:Name="EditBagType" Content="Rediger tasketype" Click="EditBagType_Click" Background="LimeGreen"/>
-                <Button x:Name="AddBag" Content="Ny Taske" Click="bt_AddBag" /> 
             </StackPanel>
         </DockPanel>
     </Grid>
