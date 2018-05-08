@@ -53,7 +53,7 @@
                 <Label Content="Taske oversigt" HorizontalContentAlignment="Center" FontWeight="Bold" Margin=" 0,20,0,5" />
                 
                 <!--Bag Button-->
-                <Button x:Name="Bag_Button" Content="Tasker" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen" Click="Bag_Button_Click"/>
+                <Button x:Name="Bag_Button" Content="Taskers indhold" HorizontalContentAlignment=" Center" Margin=" 0,0,0,5" Background="LimeGreen" Click="Bag_Button_Click"/>
                 <Button x:Name="EditBagType" Content="Rediger tasketype" Click="EditBagType_Click" Background="LimeGreen"/>
             </StackPanel>
         </DockPanel>
