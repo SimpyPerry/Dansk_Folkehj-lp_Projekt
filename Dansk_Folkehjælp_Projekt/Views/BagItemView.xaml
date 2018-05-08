@@ -23,17 +23,18 @@
         <TextBlock Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.itemID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="191,266,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
         <!--Current Storage-->
         <Label Content="Lager" HorizontalAlignment="Left" Margin="125,309,0,0" VerticalAlignment="Top"/>
-        <TextBlock Background="AntiqueWhite" HorizontalAlignment="Left" Margin="191,309,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
+        <TextBlock Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="191,309,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
         <!--Box-->
         <Label Content="Kasse" HorizontalAlignment="Left" Margin="316,265,0,0" VerticalAlignment="Top"/>
-        <TextBlock Background="AntiqueWhite" HorizontalAlignment="Left" Margin="375,266,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
+        <TextBlock Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.boxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="375,266,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
         <!--Bookcase-->
         <Label Content="Reol" HorizontalAlignment="Left" Margin="316,309,0,0" VerticalAlignment="Top"/>
-        <TextBlock Background="AntiqueWhite" HorizontalAlignment="Left" Margin="375,309,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
+        <TextBlock Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.bookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="375,309,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
         <!--Amount Add to bag-->
         <TextBox Background="AntiqueWhite" Name="AmountAddedToBag_Box" HorizontalAlignment="Left" Height="26" Margin="250,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" />
         <Label Content="Antal der skal tilføjes" HorizontalAlignment="Left" Margin="88,85,0,0" VerticalAlignment="Top"/>
-        <Button Content="Tilføj" Name="AddButton" HorizontalAlignment="Left" Margin="368,85,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="AddButton_Click"/>
+        <Button Content="Tilføj" Name="AddButton" HorizontalAlignment="Left" Margin="368,67,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="AddButton_Click"/>
+        <Button Content="Fratræk" Name="RemoveButton" HorizontalAlignment="Left" Margin="368,107,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="RemoveButton_Click"/>
 
 
 

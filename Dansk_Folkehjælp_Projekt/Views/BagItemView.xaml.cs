@@ -33,5 +33,10 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
 
         }
+
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
