@@ -108,10 +108,10 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 Connect.Close();
             }
         }
-        public void UpdateBagsAfterRequirementsChanged()
+        public void UpdateBagsAfterRequirementsChanged(int bagType)
         {
-            GetItemRequirementsForTypes(2);
-            SelectBag(2);
+            GetItemRequirementsForTypes(bagType);
+            SelectBag(bagType);
             int itemsForThisType = BagTypeRequirements.Count;
             int bagsForThisType = GetBags.Count;
             
