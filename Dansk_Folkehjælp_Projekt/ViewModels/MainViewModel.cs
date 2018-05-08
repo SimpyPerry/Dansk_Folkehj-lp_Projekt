@@ -34,9 +34,9 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public MainViewModel()
         {
             DatabaseConnection = new Models.DatabaseConnection();
-            DatabaseConnection.FindByItemName("Bandage");
-            collection = DatabaseConnection.GetStorages;
-            Current = collection[0];
+            
+           
+            
             DatabaseConnection.ShowBookcases();
             bagcollcetion = DatabaseConnection.GetBags;
             bookcaseCombo = DatabaseConnection.bookcases;
@@ -44,6 +44,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.GetBagItems(selectedBag.itemID);
             itemCollection = DatabaseConnection.GetItems;
             bagItemInfo = DatabaseConnection.ItemFromBag;
+            collection = DatabaseConnection.ItemFromBag;
+            Current = collection[0];
             DatabaseConnection.InitBagTypes();
             BagType = DatabaseConnection.BagTypes;
             selectedBagType = BagType[0];
@@ -242,6 +244,23 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public void AddBag()
         {
                 DatabaseConnection.AddBag(_itemName, selectedBagType.itemID);
+        }
+        public void SeekThenAlterCollection()
+        {
+            DatabaseConnection.FindByItemName(FindViewTextBox);
+            int p = bagItemInfo.Count;
+            for (int i = 0; i < p; i++)
+            {
+                bagItemInfo.RemoveAt(0);
+            }
+
+            int u = DatabaseConnection.GetStorages.Count;
+            for (int i = 0; i < u; i++)
+            { bagItemInfo.Add(DatabaseConnection.GetStorages[i]); }
+
+
+
+            
         }
 
     }

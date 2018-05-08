@@ -59,5 +59,12 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
             main.DeleteRequirement();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            BindingExpression binding = Find.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource();
+            main.SeekThenAlterCollection();
+        }
     }
 }
