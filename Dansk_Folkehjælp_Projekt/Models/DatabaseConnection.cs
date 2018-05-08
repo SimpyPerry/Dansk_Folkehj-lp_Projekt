@@ -568,6 +568,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             using(SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand GetItemsFromBag = new SqlCommand(query, Connect);
+
                 Connect.Open();
                 using(SqlDataReader reader = GetItemsFromBag.ExecuteReader())
                 {
@@ -604,6 +605,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand SpecificItemFromBag = new SqlCommand(query, Connect);
+
                 Connect.Open();
                 using(SqlDataReader reader = SpecificItemFromBag.ExecuteReader())
                 {
@@ -692,14 +694,14 @@ namespace Dansk_Folkehjælp_Projekt.Models
 						INNER JOIN Bag ON Bag_Item.Bag = Bag.ID
 						INNER JOIN Item ON Item.ItemID = Bag_Item.Item
 						WHERE Item.ItemName ='{2}' AND Bag.BagName = '{1}'", amountRemoved, bagName, itemName);
-            using (SqlConnection Conncet = new SqlConnection(connectionString))
+            using (SqlConnection Connect = new SqlConnection(connectionString))
             {
-                Conncet.Open();
-                SqlCommand RemoveFromBag = new SqlCommand(query, Conncet);
+                Connect.Open();
+                SqlCommand RemoveFromBag = new SqlCommand(query, Connect);
 
                 RemoveFromBag.ExecuteNonQuery();
 
-                Conncet.Close();
+                Connect.Close();
             }
         }
     }
