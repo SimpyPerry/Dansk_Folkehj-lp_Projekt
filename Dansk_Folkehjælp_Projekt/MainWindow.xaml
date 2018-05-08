@@ -32,7 +32,7 @@
 
             <!--De forskellige overskrifter og knapper-->
             <StackPanel  Margin="0,0,0,0" Width="200" Height="450">
-                <Label Grid.Row="0" Content="Oversigts Menu" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent" Margin=" 0,5,0,0"/>
+                <Label Grid.Row="0" Content="Søg efter genstand" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent" Margin=" 0,5,0,0"/>
 
                 <Button x:Name="bt_Find" Content="Søg" Click="bt_Find_Click" Margin=" 0,0,0,5" Background="LimeGreen"  />
 
