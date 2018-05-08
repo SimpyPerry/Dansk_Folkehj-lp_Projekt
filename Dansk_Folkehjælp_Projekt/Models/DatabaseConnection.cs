@@ -473,10 +473,10 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public bool SeeIfExsists(string bookcaseName)
         {
             string query = "SELECT BookcaseName FROM Bookcase WHERE BookcaseName = '"+bookcaseName+"'";
-            using (SqlConnection Conncet = new SqlConnection(connectionString))
+            using (SqlConnection Connect = new SqlConnection(connectionString))
             {
-                Conncet.Open();
-                SqlCommand Exsits = new SqlCommand(query, Conncet);
+                Connect.Open();
+                SqlCommand Exsits = new SqlCommand(query, Connect);
                 string empty = null;
                 empty = (string)Exsits.ExecuteScalar();
 
@@ -487,7 +487,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 {
                     return false;
                 }
-
+                Connect.Close();
             }
         }
 
@@ -538,10 +538,10 @@ namespace Dansk_Folkehjælp_Projekt.Models
         {
             GetBags = new ObservableCollection<Storage>();
             string query = String.Format("SELECT ID, BagName FROM Bag");
-            using (SqlConnection Conncet = new SqlConnection(connectionString))
+            using (SqlConnection Connect = new SqlConnection(connectionString))
             {
-                SqlCommand getBags = new SqlCommand(query, Conncet);
-                Conncet.Open();
+                SqlCommand getBags = new SqlCommand(query, Connect);
+                Connect.Open();
                 using (SqlDataReader reader = getBags.ExecuteReader())
                 {
                     while (reader.Read())
@@ -552,6 +552,8 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         GetBags.Add(new Storage() { itemID = bagsID, itemName = bagsName });
                     }
                 }
+
+                Connect.Close();
             }
         }
         public void GetBagItems(int bagID)
