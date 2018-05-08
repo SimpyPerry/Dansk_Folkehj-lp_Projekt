@@ -64,6 +64,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
             BindingExpression binding = Find.GetBindingExpression(TextBox.TextProperty);
             binding.UpdateSource();
+            main.SeekThenAlterCollection();
         }
     }
 }
