@@ -11,86 +11,86 @@ namespace Dansk_Folkehjælp_Projekt.Models
     {
         //ItemID
         private int _itemID;
-        public int itemID
+        public int ItemID
         {
             get { return _itemID; }
             set
             {
                 _itemID = value;
-                OnPropertyChanged("itemID");
+                OnPropertyChanged("ItemID");
             }
         }
         //Storage
         private string _location;
-        public string location
+        public string Location
         {
             get { return _location; }
             set
             {
                 _location = value;
-                OnPropertyChanged("location");
+                OnPropertyChanged("Location");
             }
         }
 
         //Bookcase
         private string _bookcaseName;
-        public string bookcaseName
+        public string BookcaseName
         {
             get { return _bookcaseName; }
             set
             {
                 _bookcaseName = value;
-                OnPropertyChanged("bookcaseName");
+                OnPropertyChanged("BookcaseName");
             }
         }
 
         //Box
         private string _boxID;
-        public string boxID
+        public string BoxID
         {
             get { return _boxID; }
             set
             {
                 _boxID = value;
-                OnPropertyChanged("boxID");
+                OnPropertyChanged("BoxID");
             }
         }
 
         //Item
         private string _itemName;
-        public string itemName
+        public string ItemName
         {
             get { return _itemName; }
             set
             {
                 _itemName = value;
-                OnPropertyChanged("itemName");
+                OnPropertyChanged("ItemName");
             }
         }
      
-        public string showIfEnoughItems
+        public string ShowIfEnoughItems
         {
-            get { return itemName + " (skriv hvis ikke nok)"; }
+            get { return ItemName + " (skriv hvis ikke nok)"; }
             
         }
         private int _amount;
-        public int amount
+        public int Amount
         {
             get { return _amount; }
             set
             {
                 _amount = value;
-                OnPropertyChanged("amount");
+                OnPropertyChanged("Amount");
             }
         }
         private int _minAmount;
-        public int minAmount
+        public int MinAmount
         {
             get { return _minAmount; }
             set
             {
                 _minAmount = value;
-                OnPropertyChanged("minAmount");
+                OnPropertyChanged("MinAmount");
             }
         }
 
