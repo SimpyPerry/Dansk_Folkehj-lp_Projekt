@@ -437,7 +437,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
         }
         public void ShowBookcases()
         {
-            bookcases = new List<string>();
+            Bookcases = new List<string>();
             string query = "SELECT BookcaseName FROM Bookcase";
 
             using (SqlConnection connect = new SqlConnection(connectionString))
@@ -449,7 +449,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     while (reader.Read())
                     {
                         string BookcaseName = reader.GetString(0);
-                        bookcases.Add(BookcaseName);
+                        Bookcases.Add(BookcaseName);
                     }
                 }
                 
