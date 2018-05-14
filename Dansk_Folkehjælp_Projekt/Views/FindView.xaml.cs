@@ -37,18 +37,6 @@ namespace Dansk_Folkehjælp_Projekt.Views
             binding.UpdateSource();
             mainView.UpdateList();
 
-            BindingExpression[] bindings = new BindingExpression[6];
-            TextBox[] boxes = new TextBox[] { Name, Minimum, Amount, Box, Bookcase, Location };
-
-           for(int i=0;i<6;i++)
-            {
-                bindings[i] = boxes[i].GetBindingExpression(TextBox.TextProperty);
-                bindings[i].UpdateTarget();
-            }
-
-      
-
-       //     MainView.SendNotificationMail();
 
         }
 

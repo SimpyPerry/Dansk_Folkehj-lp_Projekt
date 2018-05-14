@@ -127,27 +127,18 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void UpdateList()
         {
-            
-
-
-
-            DatabaseConnection.FindByItemName(FindViewTextBox);
+              DatabaseConnection.FindByItemName(FindViewTextBox);
 
             int p = Collection.Count;
             for(int i=0; i<p; i++)
             {
                 Collection.RemoveAt(0);
             }
-
             int u = DatabaseConnection.GetStorages.Count;
             for(int i=0; i<u;i++)
             { Collection.Add(DatabaseConnection.GetStorages[i]); }
-            
-           
-           
+ 
             Current = DatabaseConnection.GetStorages[0];
-
-            
         }
 
         public void EditData()
