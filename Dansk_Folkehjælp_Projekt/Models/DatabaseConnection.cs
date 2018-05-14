@@ -211,9 +211,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
             string db_Box;
             string db_BookcaseID;
             string checkIfExists = "SELECT COUNT(*) FROM ITEM WHERE ItemName LIKE'%" + itemName + "%'";
-                string query2 = "SELECT ItemID, ItemName, Amount, MinAmount, BoxID, BookcaseName, Location "
-                    + "FROM STORAGE WHERE ItemName LIKE'%" + itemName + "%'";
-
+               
             string query = "Select Item.ItemID, Item.ItemName, Item.Amount, Item.MinAmount, " +
       "Item.BoxID, Bookcase.BookcaseName, Item.Location From Item inner join Bookcase on " +
       "Item.Bookcase = Bookcase.BookcaseID" +
@@ -229,21 +227,15 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
              if(records!=0)
                 {
-                    SqlCommand GetByName = new SqlCommand(query, Connect);
-
+               SqlCommand GetByName = new SqlCommand(query, Connect);
                     using (SqlDataReader reader = GetByName.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-
-                            int db_ItemID = reader.GetInt32(0);
+                    {   while (reader.Read()){
+                      int db_ItemID = reader.GetInt32(0);
                             string db_Name = reader.GetString(1);
 
                             int db_Amount = reader.GetInt32(2);
                             if (reader[3] != DBNull.Value)
-                            {
-
-                                db_MinAmount = reader.GetInt32(3);
+                            {   db_MinAmount = reader.GetInt32(3);
                             }
                             else { db_MinAmount = 0; }
 
@@ -262,23 +254,14 @@ namespace Dansk_Folkehjælp_Projekt.Models
                             else
                             {
                                 db_BookcaseID = "";
-
                             }
-                            string DB_location = reader.GetString(6);
-
-                            GetStorages.Add(new Storage() { ItemID = db_ItemID, ItemName = db_Name, Amount = db_Amount, MinAmount = db_MinAmount, BoxID = db_Box, BookcaseName = db_BookcaseID, Location = DB_location });
-                        }
-
-                    }
-                }
-
-             else
+                            string db_Location = reader.GetString(6);
+                            GetStorages.Add(new Storage() { ItemID = db_ItemID, ItemName = db_Name, Amount = db_Amount,
+                                MinAmount = db_MinAmount, BoxID = db_Box, BookcaseName = db_BookcaseID, Location = db_Location }); }}
+                } else
                 {
                     GetStorages.Add(new Storage() {  ItemName = "Eksisterer ikke" });
-                }
-
-                
-                }
+                }  }
             }
 
         public int GetBookcaseID(string name)

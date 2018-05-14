@@ -138,7 +138,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             for(int i=0; i<u;i++)
             { Collection.Add(DatabaseConnection.GetStorages[i]); }
  
-            Current = DatabaseConnection.GetStorages[0];
+            Current = Collection[0];
         }
 
         public void EditData()
