@@ -43,8 +43,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             SelectedBag = Bagcollection[0];
             DatabaseConnection.GetBagItems(SelectedBag.ItemID);
             ItemCollection = DatabaseConnection.GetItems;
-            BagItemInfo = DatabaseConnection.ItemFromBag;
-            Collection = DatabaseConnection.ItemFromBag;
+            BagItemInfo = DatabaseConnection.ItemFromDatabase;
+            Collection = DatabaseConnection.ItemFromDatabase;
             Current = Collection[0];
             DatabaseConnection.InitBagTypes();
             BagType = DatabaseConnection.BagTypes;

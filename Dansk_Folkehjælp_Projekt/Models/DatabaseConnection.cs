@@ -20,7 +20,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
         public ObservableCollection<Storage> BagTypes { get; set; }
         public ObservableCollection<Storage> BagTypeRequirements { get; set; }
-        public ObservableCollection<Storage> ItemFromBag { get; set; }
+        public ObservableCollection<Storage> ItemFromDatabase { get; set; }
         public ObservableCollection<Storage> ChosenItemFromBag { get; set; }
 
         public List<string> MailList { get; set; }
@@ -37,19 +37,47 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
         public void GetAllItems()
         {
-            ItemFromBag = new ObservableCollection<Storage>();
-            string query = "select ItemID, ItemName from Item";
+            ItemFromDatabase = new ObservableCollection<Storage>();
+            //string query = "select ItemID, ItemName from Item";
+            string query = "Select Item.ItemID, Item.ItemName, Item.Amount, Item.MinAmount, " +
+      "Item.BoxID, Bookcase.BookcaseName, Item.Location From Item inner join Bookcase on " +
+      "Item.Bookcase = Bookcase.BookcaseID";
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 Connect.Open();
                 SqlCommand GetAllItems = new SqlCommand(query, Connect);
                 using (SqlDataReader reader = GetAllItems.ExecuteReader())
                 {
+                    int amount = 0;
+                    int minAmount = 0;
+                    string boxID = "";
+                    string bookCaseName = "";
+
                     while (reader.Read())
                     {
-                        int ID = reader.GetInt32(0);
+                        int id = reader.GetInt32(0);
                         string name = reader.GetString(1);
-                        ItemFromBag.Add(new Storage() { ItemID = ID, ItemName = name });
+                        if(reader[2]!=DBNull.Value)
+                        {
+                            amount = reader.GetInt32(2);
+                        }
+
+                        if (reader[3] != DBNull.Value)
+                        {
+                            minAmount = reader.GetInt32(3);
+                        }
+                        if(reader[4]!=DBNull.Value)
+                        {
+                          boxID  = reader.GetString(4);
+                        }
+                        
+                         if(reader[5]!=DBNull.Value)
+                        {
+                         bookCaseName   = reader.GetString(5);
+                        }
+                       
+                        string location = reader.GetString(6);
+                        ItemFromDatabase.Add(new Storage() { ItemID = id, ItemName = name, Amount=amount, MinAmount=minAmount, BoxID= boxID, BookcaseName=bookCaseName, Location=location });
                     }
                 }
                 Connect.Close();
@@ -595,7 +623,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
         }
         public void GetItemFromBag(string bagName, int itemID)
         {
-            ItemFromBag = new ObservableCollection<Storage>();
+            ItemFromDatabase = new ObservableCollection<Storage>();
             string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, Item.BoxID, Bookcase.BookcaseName, Item.Amount
                             FROM Bag INNER JOIN Bag_Item ON Bag_Item.Bag = Bag.ID
                             INNER JOIN Item ON Item.ItemID = Bag_Item.Item
