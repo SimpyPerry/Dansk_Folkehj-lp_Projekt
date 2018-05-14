@@ -13,21 +13,21 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
     {
         Models.DatabaseConnection DatabaseConnection;
         public List<Storage> ItemList { get; set; }
-        public ObservableCollection<Storage> collection { get; set; }
+        public ObservableCollection<Storage> Collection { get; set; }
         public ObservableCollection<Storage> Bagcollection { get; set; }
-        public List<string> bookcaseCombo { get; set; }
+        public List<string> BookcaseCombo { get; set; }
         public List<string> NotificationMail;
-        public ObservableCollection<Storage> itemCollection { get; set; }
-        public ObservableCollection<Storage> bagItemInfo { get; set; }
-        public Storage specificBagItem { get; set; }
+        public ObservableCollection<Storage> ItemCollection { get; set; }
+        public ObservableCollection<Storage> BagItemInfo { get; set; }
+        public Storage SpecificBagItem { get; set; }
         public Storage Current { get; set; }
         public string FindViewTextBox { get; set; } = "Indsæt søgeord";
-        public Storage selectedBag { get; set; }
+        public Storage SelectedBag { get; set; }
         public ObservableCollection<Storage> BagType { get; set; }
         public ObservableCollection<Storage> GetItemsInType { get; set; }
-        public Storage selectedBagType { get; set; }
-        public Storage selectedItemForType { get; set; }
-        public Storage selectedItem { get; set; }
+        public Storage SelectedBagType { get; set; }
+        public Storage SelectedItemForType { get; set; }
+        public Storage SelectedItem { get; set; }
         public Storage SelectedItemFromBag { get; set; }
         public ObservableCollection<Storage> HotStuff { get; set; }
       
@@ -39,20 +39,20 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             
             DatabaseConnection.ShowBookcases();
             Bagcollection = DatabaseConnection.GetBags;
-            bookcaseCombo = DatabaseConnection.Bookcases;
-            selectedBag = Bagcollection[0];
-            DatabaseConnection.GetBagItems(selectedBag.ItemID);
-            itemCollection = DatabaseConnection.GetItems;
-            bagItemInfo = DatabaseConnection.ItemFromBag;
-            collection = DatabaseConnection.ItemFromBag;
-            Current = collection[0];
+            BookcaseCombo = DatabaseConnection.Bookcases;
+            SelectedBag = Bagcollection[0];
+            DatabaseConnection.GetBagItems(SelectedBag.ItemID);
+            ItemCollection = DatabaseConnection.GetItems;
+            BagItemInfo = DatabaseConnection.ItemFromBag;
+            Collection = DatabaseConnection.ItemFromBag;
+            Current = Collection[0];
             DatabaseConnection.InitBagTypes();
             BagType = DatabaseConnection.BagTypes;
-            selectedBagType = BagType[0];
+            SelectedBagType = BagType[0];
             DatabaseConnection.GetItemRequirementsForTypes(BagType[0].ItemID);
             GetItemsInType = DatabaseConnection.BagTypeRequirements;
-            selectedItemForType = GetItemsInType[0];
-            selectedItem = bagItemInfo[0];
+            SelectedItemForType = GetItemsInType[0];
+            SelectedItem = BagItemInfo[0];
             HotStuff = DatabaseConnection.ChosenItemFromBag;
             
             
@@ -72,8 +72,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void AddNewRequirement(int amount)
         {
-            DatabaseConnection.AddItemToRequirements(selectedBagType.ItemID, selectedItem.ItemID, amount);
-            DatabaseConnection.UpdateBagsAfterRequirementsChanged(selectedBagType.ItemID);
+            DatabaseConnection.AddItemToRequirements(SelectedBagType.ItemID, SelectedItem.ItemID, amount);
+            DatabaseConnection.UpdateBagsAfterRequirementsChanged(SelectedBagType.ItemID);
             ChangeBagTypeRequirements();
         }
 
@@ -84,19 +84,19 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public void ChangeMinimumForRequirements (int minimum)
         {
             
-            DatabaseConnection.EditMinimumForType(selectedBagType.ItemID, selectedItemForType.ItemID, minimum);
+            DatabaseConnection.EditMinimumForType(SelectedBagType.ItemID, SelectedItemForType.ItemID, minimum);
             ChangeBagTypeRequirements();  
 
         }
 
         public void DeleteRequirement()
         {
-            DatabaseConnection.DeleteFromTypeRequirements(selectedBagType.ItemID, selectedItemForType.ItemID);
+            DatabaseConnection.DeleteFromTypeRequirements(SelectedBagType.ItemID, SelectedItemForType.ItemID);
             ChangeBagTypeRequirements();
         }
         public void ChangeBagTypeRequirements()
         {
-            DatabaseConnection.GetItemRequirementsForTypes(selectedBagType.ItemID);
+            DatabaseConnection.GetItemRequirementsForTypes(SelectedBagType.ItemID);
             int a = GetItemsInType.Count;
             int b = DatabaseConnection.BagTypeRequirements.Count;
 
@@ -108,7 +108,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             {
                 GetItemsInType.Add(DatabaseConnection.BagTypeRequirements[i]);
             }
-            selectedItemForType = GetItemsInType[0];
+            SelectedItemForType = GetItemsInType[0];
         }
 
         public void NewItem()
@@ -133,15 +133,15 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
 
             DatabaseConnection.FindByItemName(FindViewTextBox);
 
-            int p = collection.Count;
+            int p = Collection.Count;
             for(int i=0; i<p; i++)
             {
-                collection.RemoveAt(0);
+                Collection.RemoveAt(0);
             }
 
             int u = DatabaseConnection.GetStorages.Count;
             for(int i=0; i<u;i++)
-            { collection.Add(DatabaseConnection.GetStorages[i]); }
+            { Collection.Add(DatabaseConnection.GetStorages[i]); }
             
            
            
@@ -212,51 +212,51 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void ChooseSpecificBag()
         {
-            DatabaseConnection.GetBagItems(selectedBag.ItemID);
-            int p = itemCollection.Count;
+            DatabaseConnection.GetBagItems(SelectedBag.ItemID);
+            int p = ItemCollection.Count;
 
             for(int i=0; i<p;i++)
             {
-                itemCollection.RemoveAt(0);
+                ItemCollection.RemoveAt(0);
             }
 
             int u = DatabaseConnection.GetItems.Count;
             for(int i =0; i<u;i++)
             {
-                itemCollection.Add(DatabaseConnection.GetItems[i]);
+                ItemCollection.Add(DatabaseConnection.GetItems[i]);
             }
         }
         public void SelectItem()
         {
             
-            DatabaseConnection.GetItemFromBag(selectedBag.ItemName, SelectedItemFromBag.ItemID);
+            DatabaseConnection.GetItemFromBag(SelectedBag.ItemName, SelectedItemFromBag.ItemID);
             SelectedItemFromBag = HotStuff[0];
         }
         public void AddMoreOfItemToBag()
         {
-            DatabaseConnection.TakeItemFromStorageToBag(selectedBag.ItemName, SelectedItemFromBag.ItemName, _amount);
+            DatabaseConnection.TakeItemFromStorageToBag(SelectedBag.ItemName, SelectedItemFromBag.ItemName, _amount);
         }
         public void RemoveItemFromBag()
         {
-            DatabaseConnection.RemoveItemFromBag(selectedBag.ItemName, SelectedItemFromBag.ItemName, _amount);
+            DatabaseConnection.RemoveItemFromBag(SelectedBag.ItemName, SelectedItemFromBag.ItemName, _amount);
         }
         
         public void AddBag()
         {
-                DatabaseConnection.AddBag(_itemName, selectedBagType.ItemID);
+                DatabaseConnection.AddBag(_itemName, SelectedBagType.ItemID);
         }
         public void SeekThenAlterCollection()
         {
             DatabaseConnection.FindByItemName(FindViewTextBox);
-            int p = bagItemInfo.Count;
+            int p = BagItemInfo.Count;
             for (int i = 0; i < p; i++)
             {
-                bagItemInfo.RemoveAt(0);
+                BagItemInfo.RemoveAt(0);
             }
 
             int u = DatabaseConnection.GetStorages.Count;
             for (int i = 0; i < u; i++)
-            { bagItemInfo.Add(DatabaseConnection.GetStorages[i]); }
+            { BagItemInfo.Add(DatabaseConnection.GetStorages[i]); }
 
 
 
