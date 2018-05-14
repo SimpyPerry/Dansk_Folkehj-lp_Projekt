@@ -20,13 +20,13 @@ namespace Dansk_Folkehjælp_Projekt.Views
     /// </summary>
     public partial class FindView : Window
     {
-        private MainViewModel MainView;
+        private MainViewModel mainView;
         public FindView()
         {
-            MainView = new MainViewModel();
+            mainView = new MainViewModel();
            
             
-            DataContext = MainView;
+            DataContext = mainView;
             InitializeComponent();
 
         }
@@ -35,7 +35,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
         {
             BindingExpression binding = tb_Find.GetBindingExpression(TextBox.TextProperty);
             binding.UpdateSource();
-            MainView.UpdateList();
+            mainView.UpdateList();
 
             BindingExpression[] bindings = new BindingExpression[6];
             TextBox[] boxes = new TextBox[] { Name, Minimum, Amount, Box, Bookcase, Location };
@@ -64,7 +64,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
                 bindings[i].UpdateSource();
             }
 
-            MainView.EditData();
+            mainView.EditData();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
