@@ -36,7 +36,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <TextBlock Grid.Column="0" Text="{Binding itemName}"/>
+                        <TextBlock Grid.Column="0" Text="{Binding ItemName}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -55,13 +55,13 @@
         <Label Content="Reol" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Margin="0.2,36,0,0" Grid.Row="2"/>
         <Label Content="Lager" Grid.Column="2" HorizontalAlignment="Left" Margin="0.2,67,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <!--Rækken af data-->
-        <TextBox Name="Name" Grid.Column="2" HorizontalAlignment="Left" Margin="99,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.itemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
-        <TextBox Name="Minimum" Grid.Column="2" HorizontalAlignment="Left" Margin="99,36,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.minAmount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
-        <TextBox Name="Amount" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.Column="2" Margin="99,63,0,0" Grid.Row="1" Grid.ColumnSpan="2" Width="150"/>
-        <TextBox Name="Box" Grid.Column="2" HorizontalAlignment="Left" Margin="99,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.boxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Name" Grid.Column="2" HorizontalAlignment="Left" Margin="99,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.ItemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Minimum" Grid.Column="2" HorizontalAlignment="Left" Margin="99,36,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Current.MinAmount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Amount" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.Amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.Column="2" Margin="99,63,0,0" Grid.Row="1" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Box" Grid.Column="2" HorizontalAlignment="Left" Margin="99,9,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.BoxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
 
-        <TextBox Name="Bookcase" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.bookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
-        <TextBox Name="Location" Grid.Column="2" HorizontalAlignment="Left" Margin="99,71,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Bookcase" Grid.Column="2" HorizontalAlignment="Left" Margin="99.2,36,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.BookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
+        <TextBox Name="Location" Grid.Column="2" HorizontalAlignment="Left" Margin="99,71,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Current.Location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="150"/>
 
 
         <TextBox Name="tb_Find" HorizontalAlignment="Left" Height="23" Margin="18,18,0,0" TextWrapping="Wrap" Text="{Binding FindViewTextBox, Mode=TwoWay , UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
