@@ -12,7 +12,7 @@
         <!--Førstehjælp Taske Knap-->
         <Button x:Name="Firsthelp_button" Content="Førstehjælp Tasker" HorizontalAlignment="Left" Margin="117,50,0,0" VerticalAlignment="Top" Width="109" Height="33" Click="Firsthelp_button_Click"/>
         <!--Listbox af Tasker-->
-        <ListBox Name="ListOfBags_ListBox" SelectedItem="{Binding Path=selectedBag}" SelectionChanged="BagChoosen" ItemsSource="{Binding bagcollcetion, Mode=OneWay}" DisplayMemberPath="itemName"  HorizontalAlignment="Left" Background="AliceBlue" Height="319" Margin="0,101,0,0" VerticalAlignment="Top" Width="226"/>
+        <ListBox Name="ListOfBags_ListBox" SelectedItem="{Binding Path=selectedBag}" SelectionChanged="BagChoosen" ItemsSource="{Binding Bagcollection, Mode=OneWay}" DisplayMemberPath="itemName"  HorizontalAlignment="Left" Background="AliceBlue" Height="319" Margin="0,101,0,0" VerticalAlignment="Top" Width="226"/>
         <!--Listbox-->
         <ListBox Name="ListOfItems_ListBox" ItemsSource="{Binding itemCollection}" SelectedItem="{Binding Path=SelectedItemFromBag}" DisplayMemberPath="showIfEnoughItems" HorizontalAlignment="Left" Background="AntiqueWhite" Height="319" Margin="231,101,-0.4,0" VerticalAlignment="Top" Width="563" SelectionChanged="ListOfItems_ListBox_SelectionChanged"/>
 
