@@ -58,6 +58,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             mainView.DeleteItem();
+            mainView.UpdateList();
         }
     }
 }
