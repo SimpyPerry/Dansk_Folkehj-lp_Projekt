@@ -254,6 +254,11 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             
         }
 
+        public void DeleteItem()
+        {
+            DatabaseConnection.DeleteItem(Current.ItemID);
+        }
+
     }
 }
 

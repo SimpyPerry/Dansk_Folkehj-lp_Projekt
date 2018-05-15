@@ -716,6 +716,18 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 Connect.Close();
             }
         }
+
+        public void DeleteItem(int itemID)
+        {
+            string query = string.Format("DELETE FROM ITEM WHERE ItemID={0}", itemID);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand Delete = new SqlCommand(query, Connect);
+                Delete.ExecuteNonQuery();
+                Connect.Close();
+            }
+        }
     }
 }
 
