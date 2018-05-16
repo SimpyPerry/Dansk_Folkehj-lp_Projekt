@@ -586,9 +586,11 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 {
                     while (reader.Read())
                     {
+                        string checkIfEnough = "";
                         int number = 0;
                         string name = reader.GetString(1);
                         int min = reader.GetInt32(2);
+                        
                         if(reader[3] != DBNull.Value)
                         {
                             number = reader.GetInt32(3);
@@ -598,8 +600,16 @@ namespace Dansk_Folkehjælp_Projekt.Models
                             number = 0;
                         }
                         int itemNr = reader.GetInt32(4);
+                        if(number<min)
+                        {
+                            checkIfEnough = name + " (Under minimum!)";
+                        }
+                        else
+                        {
+                            checkIfEnough = name;
+                        }
 
-                        GetItems.Add(new Storage(){ItemName=name, MinAmount=min, Amount=number, ItemID = itemNr  });
+                        GetItems.Add(new Storage() { ItemName = name, MinAmount = min, Amount = number, ItemID = itemNr, ShowIfEnoughItems = checkIfEnough;  });
                         
                     }
                 }
