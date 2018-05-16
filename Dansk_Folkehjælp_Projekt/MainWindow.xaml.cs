@@ -29,6 +29,7 @@ namespace Dansk_Folkehjælp_Projekt
         private BagView bagView;
         private EditBagType EditBag;
         private AddBag addBag;
+        private AtticView attic;
 
         public MainWindow()
         {
@@ -52,7 +53,8 @@ namespace Dansk_Folkehjælp_Projekt
 
         private void bt_Attic_Click(object sender, RoutedEventArgs e)
         {
-
+            attic = new AtticView();
+            attic.ShowDialog();
         }
 
         private void bt_Container_Click(object sender, RoutedEventArgs e)

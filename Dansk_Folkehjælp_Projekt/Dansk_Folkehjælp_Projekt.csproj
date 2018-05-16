@@ -59,11 +59,17 @@
     <Compile Include="Views\AddBag.xaml.cs">
       <DependentUpon>AddBag.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AtticView.xaml.cs">
+      <DependentUpon>AtticView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BagItemView.xaml.cs">
       <DependentUpon>BagItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BagView.xaml.cs">
       <DependentUpon>BagView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainerView.xaml.cs">
+      <DependentUpon>ContainerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditBagType.xaml.cs">
       <DependentUpon>EditBagType.xaml</DependentUpon>
@@ -93,11 +99,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AtticView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BagItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BagView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
