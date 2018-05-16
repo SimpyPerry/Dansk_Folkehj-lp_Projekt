@@ -782,6 +782,11 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 }
             }
         }
+        public void GetItemsFromContainer(string itemID, int amount)
+        {
+
+
+        }
     }
 }
 
