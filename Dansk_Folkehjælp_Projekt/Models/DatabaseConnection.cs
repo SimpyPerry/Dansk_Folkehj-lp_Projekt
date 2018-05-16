@@ -741,8 +741,9 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
         public void GetItemsFromBookcase(string bookCaseName)
         {
+            ItemFromDatabase = new ObservableCollection<Storage>();
             int bookCaseID = GetBookcaseID(bookCaseName);
-            string query = String.Format("Select ItemID, ItemName, Amount, MinAmount, BoxID Where  Bookcase={0}", bookCaseID);
+            string query = String.Format("Select ItemID, ItemName, Amount, MinAmount, BoxID From Item Where  Bookcase={0}", bookCaseID);
 
 
             using (SqlConnection Connect = new SqlConnection(connectionString))

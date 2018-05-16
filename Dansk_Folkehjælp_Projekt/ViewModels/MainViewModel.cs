@@ -298,6 +298,14 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             {
                 Collection.RemoveAt(0);
             }
+
+            int b = DatabaseConnection.ItemFromDatabase.Count;
+            for(int i =0; i<b;i++)
+            {
+                Collection.Add(DatabaseConnection.ItemFromDatabase[i]);
+            }
+
+           
         }
     }
 }
