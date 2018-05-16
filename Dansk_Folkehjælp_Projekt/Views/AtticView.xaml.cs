@@ -27,5 +27,10 @@ namespace Dansk_Folkehjælp_Projekt.Views
             DataContext = mainView;
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            mainView.ChangeDependingOnBookcase();
+        }
     }
 }
