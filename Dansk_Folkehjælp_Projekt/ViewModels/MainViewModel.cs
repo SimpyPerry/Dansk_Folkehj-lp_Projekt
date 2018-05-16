@@ -248,6 +248,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
                 BagItemInfo.RemoveAt(0);
             }
 
+
             int u = DatabaseConnection.GetStorages.Count;
             for (int i = 0; i < u; i++)
             { BagItemInfo.Add(DatabaseConnection.GetStorages[i]); }
@@ -262,6 +263,31 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             DatabaseConnection.DeleteItem(Current.ItemID);
         }
 
+        public void ShowItemsUnderMinimum()
+        {
+            //foreach( Storage items in Collection)
+            //{
+            //    if(items.MinAmount<=items.Amount)
+            //    {
+            //        Collection.Remove(items);
+            //    }
+            //}
+
+            int a = Collection.Count;
+            for(int i=0; i<a;i++)
+            {
+                Collection.RemoveAt(0);
+            }
+            DatabaseConnection.GetAllItems();
+            int b = DatabaseConnection.ItemFromDatabase.Count;
+            for(int i=0;i<b;i++)
+            {
+                if(DatabaseConnection.ItemFromDatabase[i].Amount>=DatabaseConnection.ItemFromDatabase[i].MinAmount)
+                {
+                    Collection.Add(DatabaseConnection.ItemFromDatabase[i]);
+                }
+            }
+        }
     }
 }
 

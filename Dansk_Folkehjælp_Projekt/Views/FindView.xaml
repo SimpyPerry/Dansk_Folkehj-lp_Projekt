@@ -67,6 +67,7 @@
         <TextBox Name="tb_Find" HorizontalAlignment="Left" Height="23" Margin="18,18,0,0" TextWrapping="Wrap" Text="{Binding FindViewTextBox, Mode=TwoWay , UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
         <Button Name="Edit" Content="Rediger" Grid.Column="2" HorizontalAlignment="Left" Margin="144.667,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="64" Click="Edit_Click" Grid.ColumnSpan="2"/>
         <Button Name="Delete" Content="Slet genstand" Grid.Column="2" HorizontalAlignment="Left" Margin="129.667,55,0,0" Grid.Row="3" VerticalAlignment="Top" Width="93" Click="Delete_Click" Grid.ColumnSpan="2"/>
+        <Button Name="bt_Minimum" Content="Under minimum" HorizontalAlignment="Left" Margin="158,65,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Grid.ColumnSpan="2" Click="bt_Minimum_Click"/>
 
 
     </Grid>

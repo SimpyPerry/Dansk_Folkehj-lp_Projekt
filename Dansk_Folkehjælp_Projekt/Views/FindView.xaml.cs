@@ -60,5 +60,10 @@ namespace Dansk_Folkehjælp_Projekt.Views
             mainView.DeleteItem();
             mainView.UpdateList();
         }
+
+        private void bt_Minimum_Click(object sender, RoutedEventArgs e)
+        {
+            mainView.ShowItemsUnderMinimum();
+        }
     }
 }
