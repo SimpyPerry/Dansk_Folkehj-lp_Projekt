@@ -609,7 +609,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                             checkIfEnough = name;
                         }
 
-                        GetItems.Add(new Storage() { ItemName = name, MinAmount = min, Amount = number, ItemID = itemNr, ShowIfEnoughItems = checkIfEnough;  });
+                        GetItems.Add(new Storage() { ItemName = name, MinAmount = min, Amount = number, ItemID = itemNr, ShowIfEnoughItems = checkIfEnough  });
                         
                     }
                 }

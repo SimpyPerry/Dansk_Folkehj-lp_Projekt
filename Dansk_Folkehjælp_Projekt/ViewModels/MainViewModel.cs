@@ -203,6 +203,8 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void ChooseSpecificBag()
         {
+            
+
             DatabaseConnection.GetBagItems(SelectedBag.ItemID);
             int p = ItemCollection.Count;
 
@@ -215,14 +217,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             for(int i =0; i<u;i++)
             {
                 ItemCollection.Add(DatabaseConnection.GetItems[i]);
-                //if(DatabaseConnection.GetItems[i].Amount<DatabaseConnection.GetItems[i].MinAmount)
-                //{
-                //    ItemCollection[i].ShowIfEnoughItems = ItemCollection[i].ItemName + " (Under minimum!)"; 
-                //}
-                //else
-                //{
-                //    ItemCollection[i].ShowIfEnoughItems = ItemCollection[i].ItemName;
-                //}
+               
             }
         }
         public void SelectItem()
