@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="AtticView" Height="450" Width="800">
     <Grid>
-        
+        <ListBox ItemsSource="{Binding Collection}" SelectedItem="{Binding Path=Current}" HorizontalAlignment="Left" Height="258" Margin="32,87,0,0" VerticalAlignment="Top" Width="121"/>
+        <Label Content="Navn" HorizontalAlignment="Left" Margin="473,122,0,0" VerticalAlignment="Top"/>
+        <Label Content="Antal" HorizontalAlignment="Left" Margin="473,205,0,0" VerticalAlignment="Top"/>
+        <Label Content="Minimum" HorizontalAlignment="Left" Margin="473,247,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kasse" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="473,161,0,0"/>
+        <!--Rækken af data-->
+        <TextBox Name="Name" HorizontalAlignment="Left" Margin="569,130,0,0" TextWrapping="Wrap" Text="{Binding Current.ItemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="150"/>
+        <TextBox Name="Minimum" HorizontalAlignment="Left" Margin="569,255,0,0" TextWrapping="Wrap" Text="{Binding Current.MinAmount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="150"/>
+        <TextBox Name="Amount" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Current.Amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Margin="569,213,0,0" Width="150"/>
+        <TextBox Name="Box" HorizontalAlignment="Left" Margin="569,169,0,0" TextWrapping="Wrap" Text="{Binding Current.BoxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="150"/>
+        <ComboBox SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" ItemsSource="{Binding BookcaseCombo}" SelectedItem="{Binding Path=_bookcaseName}" Margin="247,213,0,0" VerticalAlignment="Top" Width="120"/>
+
+
     </Grid>
 </Window>

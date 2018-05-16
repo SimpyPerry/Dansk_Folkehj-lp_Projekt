@@ -288,6 +288,17 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
                 }
             }
         }
+
+        public void ChangeDependingOnBookcase()
+        {
+            DatabaseConnection.GetItemsFromBookcase(_bookcaseName);
+
+            int a = Collection.Count;
+            for(int i=0;i<a;i++)
+            {
+                Collection.RemoveAt(0);
+            }
+        }
     }
 }
 

@@ -738,6 +738,50 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 Connect.Close();
             }
         }
+
+        public void GetItemsFromBookcase(string bookCaseName)
+        {
+            int bookCaseID = GetBookcaseID(bookCaseName);
+            string query = String.Format("Select ItemID, ItemName, Amount, MinAmount, BoxID Where  Bookcase={0}", bookCaseID);
+
+
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand GetItems = new SqlCommand(query, Connect);
+                using (SqlDataReader reader = GetItems.ExecuteReader())
+                {
+                    int amount = 0;
+                    int minAmount = 0;
+                    string boxID = "";
+                    
+
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+                        if (reader[2] != DBNull.Value)
+                        {
+                            amount = reader.GetInt32(2);
+                        }
+
+                        if (reader[3] != DBNull.Value)
+                        {
+                            minAmount = reader.GetInt32(3);
+                        }
+                        if (reader[4] != DBNull.Value)
+                        {
+                            boxID = reader.GetString(4);
+                        }
+
+                        
+
+                        
+                        ItemFromDatabase.Add(new Storage() { ItemID = id, ItemName = name, Amount = amount, MinAmount = minAmount, BoxID = boxID });
+                    }
+                }
+            }
+        }
     }
 }
 
