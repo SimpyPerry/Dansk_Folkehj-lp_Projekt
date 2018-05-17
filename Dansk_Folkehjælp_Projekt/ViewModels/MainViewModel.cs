@@ -229,12 +229,13 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
                 ItemCollection.Add(DatabaseConnection.GetItems[i]);
                
             }
+            
         }
         public void SelectItem()
         {
-            
+
             DatabaseConnection.GetItemFromBag(SelectedBag.ItemName, SelectedItemFromBag.ItemID);
-            SelectedItemFromBag = ItemFromBag[0];
+            SelectedItemFromBag = DatabaseConnection.ChosenItemFromBag[0];
         }
         public void AddMoreOfItemToBag()
         {
