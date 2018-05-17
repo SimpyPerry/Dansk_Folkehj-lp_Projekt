@@ -62,7 +62,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
             {
 
 
-                BindingExpression amountRemovedFromBag = AmountAddedToBag_Box.GetBindingExpression(TextBox.TemplateProperty);
+                BindingExpression amountRemovedFromBag = AmountAddedToBag_Box.GetBindingExpression(TextBox.TextProperty);
                 amountRemovedFromBag.UpdateSource();
                 mainView.RemoveItemFromBag();
                 MessageBox.Show("Også gjort");
