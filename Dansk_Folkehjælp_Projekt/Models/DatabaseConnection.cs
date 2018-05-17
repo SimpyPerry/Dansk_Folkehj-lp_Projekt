@@ -551,7 +551,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
         public void InitBagData()
         {
             GetBags = new ObservableCollection<Storage>();
-            string query = String.Format("SELECT ID, BagName FROM Bag");
+            string query = String.Format("select Bag.ID, Bag.BagName, BagType.TypeName From Bag inner join BagType on Bag.Type= BagType.ID");
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand getBags = new SqlCommand(query, Connect);
@@ -562,8 +562,9 @@ namespace Dansk_Folkehjælp_Projekt.Models
                     {
                         int bagsID = reader.GetInt32(0);
                         string bagsName = reader.GetString(1);
+                        string bagsType = reader.GetString(2);
 
-                        GetBags.Add(new Storage() { ItemID = bagsID, ItemName = bagsName });
+                        GetBags.Add(new Storage() { ItemID = bagsID, ItemName = bagsName, Type=bagsType  });
                     }
                 }
 

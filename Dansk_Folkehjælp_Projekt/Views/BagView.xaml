@@ -14,7 +14,13 @@
         <!--Listbox af Tasker-->
         <ListBox Name="ListOfBags_ListBox" SelectedItem="{Binding Path=SelectedBag}" SelectionChanged="BagChoosen" ItemsSource="{Binding Bagcollection, Mode=OneWay}" DisplayMemberPath="ItemName"  HorizontalAlignment="Left" Background="AliceBlue" Height="319" Margin="0,101,0,0" VerticalAlignment="Top" Width="226"/>
         <!--Listbox-->
-        <ListBox Name="ListOfItems_ListBox" ItemsSource="{Binding ItemCollection}" SelectedItem="{Binding Path=SelectedItemFromBag}" DisplayMemberPath="ShowIfEnoughItems" HorizontalAlignment="Left" Background="AntiqueWhite" Height="319" Margin="231,101,-0.4,0" VerticalAlignment="Top" Width="563" SelectionChanged="ListOfItems_ListBox_SelectionChanged"/>
+        <ListBox Name="ListOfItems_ListBox" ItemsSource="{Binding ItemCollection}" SelectedItem="{Binding Path=SelectedItemFromBag}" DisplayMemberPath="ShowIfEnoughItems" HorizontalAlignment="Left" Background="AntiqueWhite" Height="319" Margin="231,101,0,0" VerticalAlignment="Top" Width="310" SelectionChanged="ListOfItems_ListBox_SelectionChanged"/>
+        <Button Name="bt_Delete" Content="Slet taske" HorizontalAlignment="Left" Margin="693,378,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="bt_SaveName" Content="Gem navn" HorizontalAlignment="Left" Margin="598,378,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="693,144,0,0" TextWrapping="Wrap" Text="{Binding SelectedBag.ItemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="90"/>
+        <TextBlock HorizontalAlignment="Left" Margin="693,198,0,0" TextWrapping="Wrap" Text="{Binding SelectedBag.Type}" VerticalAlignment="Top" Width="90"/>
+        <TextBlock Background="DarkTurquoise" HorizontalAlignment="Left" Margin="598,198,0,0" TextWrapping="Wrap" Text="  Type  " VerticalAlignment="Top"/>
+        <TextBlock Background="DarkTurquoise"  HorizontalAlignment="Left" Margin="598,151,0,0" TextWrapping="Wrap" Text="  Navn  " VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

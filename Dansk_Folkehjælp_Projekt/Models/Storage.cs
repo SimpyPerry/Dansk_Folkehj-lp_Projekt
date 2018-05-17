@@ -31,6 +31,16 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 OnPropertyChanged("Location");
             }
         }
+        private string _type;
+        public string Type
+        {
+            get { return _type; }
+            set
+            {
+                _type = value;
+                OnPropertyChanged("Type");
+            }
+        }
 
         //Bookcase
         private string _bookcaseName;
