@@ -47,15 +47,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
             MainView.ChooseSpecificBag();
         }
 
-        private void ListOfItems_ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            BindingExpression itemName = ListOfItems_ListBox.GetBindingExpression(ListBox.SelectedItemProperty);
-            itemName.UpdateSource();
-            MainView.SelectItem();
-            bagItemView = new BagItemView(MainView);
-            
-            bagItemView.ShowDialog();
-        }
+        
 
         private void bt_SaveName_Click(object sender, RoutedEventArgs e)
         {
@@ -67,6 +59,14 @@ namespace Dansk_Folkehjælp_Projekt.Views
         private void bt_Delete_Click(object sender, RoutedEventArgs e)
         {
             MainView.DeleteBag();
+        }
+
+        private void EditAmount_Click(object sender, RoutedEventArgs e)
+        {
+            MainView.SelectItem();
+            bagItemView = new BagItemView(MainView);
+
+            bagItemView.ShowDialog();
         }
     }
 }
