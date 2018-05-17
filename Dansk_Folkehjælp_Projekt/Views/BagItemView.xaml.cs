@@ -32,18 +32,41 @@ namespace Dansk_Folkehjælp_Projekt.Views
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression amountOfItemAdded = AmountAddedToBag_Box.GetBindingExpression(TextBox.TextProperty);
-            amountOfItemAdded.UpdateSource();
-            mainView.AddMoreOfItemToBag();
-            MessageBox.Show("Gjort");
+            int amountToBag = Int32.Parse(AmountAddedToBag_Box.Text);
+            int amountStorage = Int32.Parse(StorageAmount_box.Text);
+            if (amountToBag > amountStorage)
+            {
+                MessageBox.Show("Du kan ikke tilføje mere af genstanden end der er på lager");
+                AmountAddedToBag_Box.Text = AmountAddedToBag_Box.Text.Remove(AmountAddedToBag_Box.Text.Length - 1);
+            }
+            else
+            {
+                BindingExpression amountOfItemAdded = AmountAddedToBag_Box.GetBindingExpression(TextBox.TextProperty);
+                amountOfItemAdded.UpdateSource();
+
+                mainView.AddMoreOfItemToBag();
+                MessageBox.Show("Gjort");
+            }
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
-            BindingExpression amountRemovedFromBag = AmountAddedToBag_Box.GetBindingExpression(TextBox.TemplateProperty);
-            amountRemovedFromBag.UpdateSource();
-            mainView.RemoveItemFromBag();
-            MessageBox.Show("Også gjort");
+            int amountInBag = Int32.Parse(ItemAmountInBag_box.Text);
+            int amountRemoveFromBag = Int32.Parse(AmountAddedToBag_Box.Text);
+            if (amountInBag < amountRemoveFromBag)
+            {
+                MessageBox.Show("Du kan ikke fjerne mere end hvad der er i tasken");
+                AmountAddedToBag_Box.Text = AmountAddedToBag_Box.Text.Remove(AmountAddedToBag_Box.Text.Length - 1);
+            }
+            else
+            {
+
+
+                BindingExpression amountRemovedFromBag = AmountAddedToBag_Box.GetBindingExpression(TextBox.TemplateProperty);
+                amountRemovedFromBag.UpdateSource();
+                mainView.RemoveItemFromBag();
+                MessageBox.Show("Også gjort");
+            }
         }
 
         private void AmountAddedToBag_Box_TextChanged(object sender, TextChangedEventArgs e)
@@ -53,6 +76,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
                 MessageBox.Show("Kun Tal tak");
                 AmountAddedToBag_Box.Text = AmountAddedToBag_Box.Text.Remove(AmountAddedToBag_Box.Text.Length - 1);
             }
+            
         }
     }
 }
