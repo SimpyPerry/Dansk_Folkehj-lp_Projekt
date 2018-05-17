@@ -20,7 +20,7 @@
         <Label Content="Minimum der skal være i tasken" HorizontalAlignment="Left" Margin="30,167,0,0" VerticalAlignment="Top"/>
         <!--Amount in Storage-->
         <Label Content="Antal på Lager" HorizontalAlignment="Left" Margin="79,266,0,0" VerticalAlignment="Top"/>
-        <TextBlock Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.ItemID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="191,266,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
+        <TextBlock Name="StorageAmount_box" Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.ItemID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="191,266,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
         <!--Current Storage-->
         <Label Content="Lager" HorizontalAlignment="Left" Margin="125,309,0,0" VerticalAlignment="Top"/>
         <TextBlock Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.Location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="191,309,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
