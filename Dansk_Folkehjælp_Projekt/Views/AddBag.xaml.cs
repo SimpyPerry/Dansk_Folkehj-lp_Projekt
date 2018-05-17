@@ -34,7 +34,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
             binding.UpdateSource();
             main.AddBag();
             binding.UpdateTarget();
-
+           
         }
     }
 }
