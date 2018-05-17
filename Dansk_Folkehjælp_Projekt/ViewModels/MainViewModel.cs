@@ -184,6 +184,16 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             }
 
         }
+        public void ChangeBagName()
+        {
+            DatabaseConnection.ChangeBagName(SelectedBag.ItemID, SelectedBag.ItemName);
+        }
+
+        public void DeleteBag()
+        {
+            DatabaseConnection.DeleteBag(SelectedBag.ItemID);
+            
+        }
         public void ChooseBagType()
         {
             DatabaseConnection.SelectBag(_BagID);
@@ -238,6 +248,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         public void AddBag()
         {
                 DatabaseConnection.AddBag(_itemName, SelectedBagType.ItemID);
+            _itemName = null;
         }
         public void SeekThenAlterCollection()
         {
