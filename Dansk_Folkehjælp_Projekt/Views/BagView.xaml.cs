@@ -56,5 +56,17 @@ namespace Dansk_Folkehjælp_Projekt.Views
             
             bagItemView.ShowDialog();
         }
+
+        private void bt_SaveName_Click(object sender, RoutedEventArgs e)
+        {
+            BindingExpression bindingExpression = BagName.GetBindingExpression(TextBox.TextProperty);
+            bindingExpression.UpdateSource();
+            MainView.ChangeBagName();
+        }
+
+        private void bt_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            MainView.DeleteBag();
+        }
     }
 }

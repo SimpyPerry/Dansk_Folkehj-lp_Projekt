@@ -33,6 +33,7 @@ namespace Dansk_Folkehjælp_Projekt.Views
             BindingExpression binding = BagName.GetBindingExpression(TextBox.TextProperty);
             binding.UpdateSource();
             main.AddBag();
+            binding.UpdateTarget();
 
         }
     }

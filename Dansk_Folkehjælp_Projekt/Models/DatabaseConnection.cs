@@ -547,6 +547,35 @@ namespace Dansk_Folkehjælp_Projekt.Models
         {
 
         }
+        public void ChangeBagName(int bagID, string newBagName)
+        {
+            string query = String.Format("Update Bag set BagName='{0}' where ID={1}", newBagName, bagID);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand updateName = new SqlCommand(query, Connect);
+                Connect.Open();
+                updateName.ExecuteNonQuery();
+                Connect.Close();
+            }
+
+        }
+
+        public void DeleteBag(int bagID)
+        {
+            string bagItem_query = String.Format("delete from Bag_Item where Bag={0}", bagID);
+            string bag_query = String.Format("delete from bag where id={0}", bagID);
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                SqlCommand deleteFromBagItem = new SqlCommand(bagItem_query, Connect);
+                SqlCommand deleteFromBag = new SqlCommand(bag_query, Connect);
+                Connect.Open();
+                deleteFromBagItem.ExecuteNonQuery();
+                deleteFromBag.ExecuteNonQuery();
+                Connect.Close();
+            }
+
+        }
+
         
         public void InitBagData()
         {
