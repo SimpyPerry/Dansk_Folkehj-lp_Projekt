@@ -784,6 +784,46 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 }
             }
         }
+        public void GetItemsFromContainer(string itemID, int amount)
+        {
+            ItemFromDatabase = new ObservableCollection<Storage>();
+            string query = string.Format("Select ItemID, ItemName, Amount, MinAmount");
+
+            using (SqlConnection Connect = new SqlConnection(connectionString))
+            {
+                Connect.Open();
+                SqlCommand GetItems = new SqlCommand(query, Connect);
+                using (SqlDataReader reader = GetItems.ExecuteReader())
+                {
+                    int contAmount = 0;
+                    int contMinAmount = 0;
+
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+                        if (reader[2] != DBNull.Value)
+                        {
+                            contAmount = reader.GetInt32(2);
+                        }
+
+                        if (reader[3] != DBNull.Value)
+                        {
+                            contMinAmount = reader.GetInt32(3);
+                        }
+
+
+                        ItemFromDatabase.Add(new Storage() {
+                            ItemID = id,
+                            ItemName = name,
+                            Amount = contAmount,
+                            MinAmount = contMinAmount
+                        });
+                     } 
+                }
+            }
+
+        }
     }
 }
 
