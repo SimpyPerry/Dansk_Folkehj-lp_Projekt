@@ -40,6 +40,6 @@
         <TextBox x:Name="LocationBox" Background="AntiqueWhite" HorizontalAlignment="Left" Height="23" Margin="293,200,0,0" TextWrapping="Wrap" Text="{Binding _location, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ComboBookcase" ItemsSource="{Binding BookcaseCombo}" SelectedItem="{Binding Path=_bookcaseName}" HorizontalAlignment="Left" Margin="293,290,0,0" VerticalAlignment="Top" Width="120" Background="AntiqueWhite"/>
         <!--Hjælpetekst-->
-        <TextBlock Text="Er lokationen 'Container' skal resten ikke udfyldes" Margin="12,204,-12,-204.333" ></TextBlock>
+        <TextBlock Text="Er lokationen 'Container' skal resten ikke udfyldes" TextWrapping="Wrap" Margin="473,200,31,91.667" ></TextBlock>
     </Grid>
 </Window>
