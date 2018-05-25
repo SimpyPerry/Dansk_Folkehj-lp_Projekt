@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="AddBag" Height="250" Width="400">
     <Grid>
-        <TextBox Background="FloralWhite" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+        <TextBox Background="White" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
 
-        <ListBox Name="BagTypes" ItemsSource="{Binding BagType}" DisplayMemberPath="ItemName" SelectedItem="{Binding Path=SelectedBagType}" HorizontalAlignment="Left" Height="100" Margin="10,34,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox Name="BagTypes" ItemsSource="{Binding BagType}" DisplayMemberPath="ItemName" SelectedItem="{Binding Path=SelectedBagType}" HorizontalAlignment="Left" Height="161" Margin="10,34,0,0" VerticalAlignment="Top" Width="100" Background="FloralWhite"/>
         <TextBlock Name="tBlock_Type" HorizontalAlignment="Left" Margin="230,52,0,0" TextWrapping="Wrap" Text="{Binding selectedBagType.ItemName}" VerticalAlignment="Top"/>
         <TextBox Name="BagName" HorizontalAlignment="Left" Height="23" Margin="230,73,0,0" TextWrapping="Wrap" Text="{Binding _itemName, UpdateSourceTrigger=Explicit, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
         <Button Name="Save" Content="Gem" HorizontalAlignment="Left" Margin="230,145,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click"/>

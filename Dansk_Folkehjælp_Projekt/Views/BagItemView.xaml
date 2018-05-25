@@ -11,7 +11,7 @@
         <Label Content="{Binding Path=SelectedItemFromBag.ItemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}"  Background="AliceBlue" FontSize="18" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="126"/>
         <!--Labels-->
         <Label Content="Taske" FontSize="16" HorizontalAlignment="Left" Margin="76,58,0,0" VerticalAlignment="Top"/>
-        <Label Content="Lager" FontSize="16" HorizontalAlignment="Left" Margin="76,200,0,0" VerticalAlignment="Top"/>
+        <Label Content="Lager" FontSize="16" HorizontalAlignment="Left" Margin="76,230,0,0" VerticalAlignment="Top"/>
         <!--Amount in Bag-->
         <TextBlock Name="ItemAmountInBag_box" Text="{Binding Path=SelectedItemFromBag.Amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Background="AntiqueWhite" HorizontalAlignment="Left" Margin="250,125,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" Height="26"/>
         <Label Content="Antal i tasken" HorizontalAlignment="Left" Margin="125,125,0,0" VerticalAlignment="Top"/>

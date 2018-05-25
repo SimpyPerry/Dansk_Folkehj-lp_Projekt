@@ -26,13 +26,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox Background="FloralWhite" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
-        <TextBox Background="WhiteSmoke" HorizontalAlignment="Left" Width="150" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+        <TextBox Background="White" Width="800" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
+        <TextBox Background="GhostWhite" HorizontalAlignment="Left" Width="150" Height="450" Grid.ColumnSpan="5" Grid.RowSpan="8"></TextBox>
 
         <!--Usynlig koral farvet kasse-->
         <TextBox HorizontalAlignment="Left" Grid.Row="3" Height="23" Margin="121,116,0,0" TextWrapping="Wrap" Text="Klud" VerticalAlignment="Top" Width="120" Background="Coral"/>
         <!--Orange box-->
-        <ListBox  HorizontalAlignment="Left" Grid.Row="2" Height="100" Margin="18,24,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Collection, Mode=OneWay }" SelectedItem="{Binding Path=Current}" Grid.RowSpan="2" Background="DarkOrange" >
+        <ListBox  HorizontalAlignment="Left" Grid.Row="2" Height="199" Margin="18,24,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Collection, Mode=OneWay }" SelectedItem="{Binding Path=Current}" Grid.RowSpan="3" Background="FloralWhite" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
