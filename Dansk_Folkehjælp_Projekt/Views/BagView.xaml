@@ -15,7 +15,7 @@
         <ListBox Name="ListOfBags_ListBox" SelectedItem="{Binding Path=SelectedBag}" SelectionChanged="BagChoosen" ItemsSource="{Binding Bagcollection, Mode=OneWay}" DisplayMemberPath="ItemName"  HorizontalAlignment="Left" Background="FloralWhite" Height="319" Margin="4,101,0,0" VerticalAlignment="Top" Width="226"/>
         <!--Listbox-->
         <ListBox Name="ListOfItems_ListBox" ItemsSource="{Binding ItemCollection}" SelectedItem="{Binding Path=SelectedItemFromBag}" DisplayMemberPath="ShowIfEnoughItems" HorizontalAlignment="Left" Background="WhiteSmoke" Height="319" Margin="231,101,0,0" VerticalAlignment="Top" Width="310" />
-        <Button Name="bt_Delete" Content="Slet taske" HorizontalAlignment="Left" Margin="693,378,0,0" VerticalAlignment="Top" Width="75" Click="bt_Delete_Click"/>
+        <Button Name="bt_Delete" Content="Slet taske" HorizontalAlignment="Left" Margin="693,378,0,0" VerticalAlignment="Top" Width="75" Click="bt_Delete_Click"/> 
         <Button Name="bt_SaveName" Content="Gem navn" HorizontalAlignment="Left" Margin="598,378,0,0" VerticalAlignment="Top" Width="75" Click="bt_SaveName_Click"/>
         <TextBox Name="BagName" HorizontalAlignment="Left" Height="23" Margin="693,144,0,0" TextWrapping="Wrap" Text="{Binding SelectedBag.ItemName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="90"/>
         <TextBlock HorizontalAlignment="Left" Margin="693,198,0,0" TextWrapping="Wrap" Text="{Binding SelectedBag.Type}" VerticalAlignment="Top" Width="90"/>

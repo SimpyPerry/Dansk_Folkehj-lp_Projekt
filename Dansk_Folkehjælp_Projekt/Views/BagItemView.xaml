@@ -36,10 +36,5 @@
         <Button Content="Tilføj" Name="AddButton" HorizontalAlignment="Left" Margin="368,85,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="AddButton_Click"/>
         <Button Content="Fratræk" Name="RemoveButton" HorizontalAlignment="Left" Margin="368,125,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="RemoveButton_Click"/>
 
-
-
-
-
-
     </Grid>
 </Window>
