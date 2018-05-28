@@ -65,8 +65,8 @@
         <TextBlock Text="Se alle genstand i valgte lager" Grid.ColumnSpan="2" Margin="257,16.667,138.333,35.667" Grid.Row="2" Grid.RowSpan="2" ></TextBlock>
         <TextBlock Text="Tilføj en helt ny genstand og dens lokation" Grid.ColumnSpan="2" Margin="259,0.333,137.333,51.917" Grid.Row="4" Grid.RowSpan="2"></TextBlock>
         <TextBlock Text="Tilføj en ny reol til loftet" Grid.ColumnSpan="2" Margin="258,27.333,138.333,24.917" Grid.Row="4" Grid.RowSpan="2" ></TextBlock>
-        <TextBlock Text="Opret en ny Behandler eller Akut taske" Grid.ColumnSpan="2" Margin="257,1.667,139.333,50.5" Grid.Row="5" Grid.RowSpan="2" ></TextBlock>
+        <TextBlock Text="Opret en ny Behandler eller Hjertestarter taske" Grid.ColumnSpan="2" Margin="257,1.667,139.333,50.5" Grid.Row="5" Grid.RowSpan="2" ></TextBlock>
         <TextBlock Text="Se hvad en bestemt taske indeholder" Grid.ColumnSpan="2" Margin="259,23.083,136.333,28.083" Grid.Row="6" Grid.RowSpan="2" ></TextBlock>
-        <TextBlock Text="Se hvad en Behandler eller AKut taske minimum skal indeholde, og redigere disse krav" Grid.ColumnSpan="2" Margin="258,46.083,47.333,5.083" Grid.Row="6" Grid.RowSpan="2" ></TextBlock>
+        <TextBlock Text="Se hvad en Behandler eller Hjertestarter taske minimum skal indeholde, og redigere disse krav" Grid.ColumnSpan="2" Margin="258,46.083,47.333,5.083" Grid.Row="6" Grid.RowSpan="2" ></TextBlock>
     </Grid>
 </Window>
