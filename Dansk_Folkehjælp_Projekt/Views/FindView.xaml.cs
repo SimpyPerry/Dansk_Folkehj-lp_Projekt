@@ -36,8 +36,6 @@ namespace Dansk_Folkehjælp_Projekt.Views
             BindingExpression binding = tb_Find.GetBindingExpression(TextBox.TextProperty);
             binding.UpdateSource();
             mainView.UpdateList();
-
-
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
