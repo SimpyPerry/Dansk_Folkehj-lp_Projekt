@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AtticView" Height="450" Width="800">
     <Grid>
-        <ListBox DisplayMemberPath="ItemName" ItemsSource="{Binding Collection}" SelectedItem="{Binding Path=Current}" HorizontalAlignment="Left" Height="258" Margin="32,87,0,0" VerticalAlignment="Top" Width="121"/>
+        <ListBox DisplayMemberPath="ItemName" ItemsSource="{Binding Collection}" SelectedItem="{Binding Path=Current}" HorizontalAlignment="Left" Height="258" Margin="32,87,0,0" VerticalAlignment="Top" Width="121" Background="FloralWhite"/>
         <Label Content="Navn" HorizontalAlignment="Left" Margin="473,122,0,0" VerticalAlignment="Top"/>
         <Label Content="Antal" HorizontalAlignment="Left" Margin="473,205,0,0" VerticalAlignment="Top"/>
         <Label Content="Minimum" HorizontalAlignment="Left" Margin="473,247,0,0" VerticalAlignment="Top"/>
@@ -19,6 +19,8 @@
         <TextBox Name="Box" HorizontalAlignment="Left" Margin="569,169,0,0" TextWrapping="Wrap" Text="{Binding Current.BoxID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="150"/>
         <ComboBox SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" ItemsSource="{Binding BookcaseCombo}" SelectedItem="{Binding Path=_bookcaseName}" Margin="247,213,0,0" VerticalAlignment="Top" Width="120"/>
 
-
+        <!--Hjælpetekst-->
+        <TextBlock Text="Se alle genstande i loftet" Margin="32,63,607.333,334.667" ></TextBlock>
+        <TextBlock Text="Vælg indholdet for en bestemt reol" TextWrapping="Wrap" Margin="218,192,379.333,193.667" ></TextBlock>
     </Grid>
 </Window>

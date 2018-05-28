@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="ContainerView" Height="450" Width="800">
     <Grid>
-        <ListBox Name="Container_ListBox" HorizontalAlignment="Left" Height="344" VerticalAlignment="Top" Width="142" Margin="0,75,0,0" SelectionChanged="Container_ListBox_SelectionChanged"/>
+        <ListBox Name="Container_ListBox" HorizontalAlignment="Left" Height="344" VerticalAlignment="Top" Width="142" Margin="0,75,0,0" SelectionChanged="Container_ListBox_SelectionChanged" Background="FloralWhite"/>
         <Label Content="Container" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,43,0,0" Width="233" Height="32"/>
-        <TextBox TextWrapping="TextBox" Text="" Margin="261,122,411,274"/>
+        <TextBox TextWrapping="Wrap" Text="" Margin="261,122,411,274"/>
         <Label Content="Antal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,119,0,0"/>
     </Grid>
 </Window>
