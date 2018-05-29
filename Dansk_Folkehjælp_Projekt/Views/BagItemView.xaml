@@ -32,7 +32,7 @@
         <TextBlock Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.BookcaseName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="375,309,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
         <!--Amount Add to bag-->
         <TextBox Background="AntiqueWhite" Name="AmountAddedToBag_Box" Text="{Binding _amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Height="26" Margin="250,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" TextChanged="AmountAddedToBag_Box_TextChanged" />
-        <Label Content="Antal der skal tilføjes" HorizontalAlignment="Left" Margin="88,85,0,0" VerticalAlignment="Top"/>
+        <Label Content="Antal der skal tilføjes/fjernes" HorizontalAlignment="Left" Margin="88,85,0,0" VerticalAlignment="Top"/>
         <Button Content="Tilføj" Name="AddButton" HorizontalAlignment="Left" Margin="368,85,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="AddButton_Click"/>
         <Button Content="Fratræk" Name="RemoveButton" HorizontalAlignment="Left" Margin="368,125,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="RemoveButton_Click"/>
 

@@ -645,30 +645,31 @@ namespace Dansk_Folkehjælp_Projekt.Models
                 }
             }
         }
-        public void GetItemFromBag(string bagName, int itemID)
-        {
+        public Storage GetItemFromBag(int bagID, int itemID)
+        {Storage chosenItem = null;
             
-            string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, Item.BoxID, Bookcase.BookcaseName, Item.Amount
+            string query = String.Format (@"Select Item.ItemName, Type_Item.Minimum, Bag_Item.Amount, Item.Location, 
+                            Item.BoxID, Bookcase.BookcaseName, Item.Amount
                             FROM Bag INNER JOIN Bag_Item ON Bag_Item.Bag = Bag.ID
                             INNER JOIN Item ON Item.ItemID = Bag_Item.Item
                             INNER JOIN Type_Item ON Type_Item.Item = Item.ItemID
                             INNER JOIN Bookcase ON Bookcase.BookcaseID = Item.Bookcase
-                            WHERE Item.ItemID ='{0}' AND Bag.BagName = '{1}'", itemID, bagName);
+                            WHERE Item.ItemID ='{0}' AND Bag.BagName = '{1}'", itemID, bagID);
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand SpecificItemFromBag = new SqlCommand(query, Connect);
 
                 Connect.Open();
-                using(SqlDataReader reader = SpecificItemFromBag.ExecuteReader())
+                using (SqlDataReader reader = SpecificItemFromBag.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         int amountNumber = 0;
                         int storageAmount = 0;
-                        
+
                         string name = reader.GetString(0);
                         int min = reader.GetInt32(1);
-                        if(reader[2] != DBNull.Value)
+                        if (reader[2] != DBNull.Value)
                         {
                             amountNumber = reader.GetInt32(2);
                         }
@@ -679,7 +680,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         string loca = reader.GetString(3);
                         string box = reader.GetString(4);
                         string bCase = reader.GetString(5);
-                        if(reader[6] != DBNull.Value)
+                        if (reader[6] != DBNull.Value)
                         {
                             storageAmount = reader.GetInt32(6);
                         }
@@ -687,13 +688,14 @@ namespace Dansk_Folkehjælp_Projekt.Models
                         {
                             storageAmount = 0;
                         }
-
-
-                   
-                        ChosenItemFromBag.Add(new Storage { ItemName = name,  MinAmount = min, Amount = amountNumber, Location = loca, BoxID = box, BookcaseName = bCase, ItemID = storageAmount });
-
+                         chosenItem = new Storage()
+                        {
+                            ItemName = name, MinAmount = min,
+                            Amount = amountNumber, Location = loca,
+                            BoxID = box,  BookcaseName = bCase, ItemID = storageAmount
+                        };
                     }
-                }
+                }return chosenItem;
                 
             }
         }
