@@ -235,6 +235,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         {
 
             DatabaseConnection.GetItemFromBag(SelectedBag.ItemName, SelectedItemFromBag.ItemID);
+            SelectedItemFromBag = DatabaseConnection.ChosenItemFromBag[0];
            
         }
         public void AddMoreOfItemToBag()
