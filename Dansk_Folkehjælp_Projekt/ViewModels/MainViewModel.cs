@@ -240,7 +240,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
         }
         public void AddMoreOfItemToBag()
         {
-            DatabaseConnection.TakeItemFromStorageToBag(SelectedBag.ItemName, SelectedItemFromBag.ItemName, _amount);
+            DatabaseConnection.TakeItemFromStorageToBag(SelectedBag.ItemID, SelectedItemFromBag.ItemID, _amount);
             SelectItem();
         }
         public void RemoveItemFromBag()

@@ -714,7 +714,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 
             }
         }
-        public void TakeItemFromStorageToBag(string bagName, string itemName, int amountRemoved)
+        public void TakeItemFromStorageToBag(int bagID, int itemID, int amountRemoved)
         {
             string query = string.Format(@"UPDATE Bag_Item
 						SET Bag_Item.Amount = Bag_Item.Amount +{0}
@@ -729,7 +729,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 						FROM Item 
 						INNER JOIN Bag_Item ON Bag_Item.Item = Item.ItemID
 						INNER JOIN Bag ON Bag.ID = Bag_Item.Bag
-						WHERE Bag.BagName ='{1}' AND Item.ItemName= '{2}'",amountRemoved, bagName, itemName);
+						WHERE Bag.ID ='{1}' AND Item.ItemID= '{2}'",amountRemoved, bagID, itemID);
             using(SqlConnection Connect = new SqlConnection(connectionString))
             {
                 Connect.Open();
