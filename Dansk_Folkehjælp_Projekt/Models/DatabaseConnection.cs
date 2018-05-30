@@ -721,7 +721,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
 						FROM Bag_Item
 						INNER JOIN Bag ON Bag_Item.Bag = Bag.ID
 						INNER JOIN Item ON Item.ItemID = Bag_Item.Item
-						WHERE Item.ItemName ='{2}' AND Bag.BagName = '{1}'
+						WHERE Item.ItemID ='{2}' AND Bag.ID = '{1}'
 
 
 						UPDATE Item
