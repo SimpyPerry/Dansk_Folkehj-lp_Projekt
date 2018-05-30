@@ -654,7 +654,7 @@ namespace Dansk_Folkehjælp_Projekt.Models
                             INNER JOIN Item ON Item.ItemID = Bag_Item.Item
                             INNER JOIN Type_Item ON Type_Item.Item = Item.ItemID
                             INNER JOIN Bookcase ON Bookcase.BookcaseID = Item.Bookcase
-                            WHERE Item.ItemID ='{0}' AND Bag.BagName = '{1}'", itemID, bagID);
+                            WHERE Item.ItemID ='{0}' AND Bag.ID = '{1}'", itemID, bagID);
             using (SqlConnection Connect = new SqlConnection(connectionString))
             {
                 SqlCommand SpecificItemFromBag = new SqlCommand(query, Connect);

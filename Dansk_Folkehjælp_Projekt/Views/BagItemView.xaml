@@ -13,14 +13,14 @@
         <Label Content="Taske" FontSize="16" HorizontalAlignment="Left" Margin="76,58,0,0" VerticalAlignment="Top"/>
         <Label Content="Lager" FontSize="16" HorizontalAlignment="Left" Margin="76,230,0,0" VerticalAlignment="Top"/>
         <!--Amount in Bag-->
-        <TextBlock Name="ItemAmountInBag_box" Text="{Binding Path=SelectedItemFromBag.Amount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Background="AntiqueWhite" HorizontalAlignment="Left" Margin="250,125,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" Height="26"/>
+        <TextBlock Name="ItemAmountInBag_box" Text="{Binding Path=SelectedItemFromBag.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="AntiqueWhite" HorizontalAlignment="Left" Margin="250,125,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" Height="26"/>
         <Label Content="Antal i tasken" HorizontalAlignment="Left" Margin="125,125,0,0" VerticalAlignment="Top"/>
         <!--Minimum Amount for Bag-->
         <TextBlock x:Name="MinAmountForBag_box" Text="{Binding Path=SelectedItemFromBag.MinAmount, Mode=TwoWay, UpdateSourceTrigger=Explicit}" Background="AntiqueWhite" HorizontalAlignment="Left" Margin="250,167,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="86" Height="26"/>
         <Label Content="Minimum der skal være i tasken" HorizontalAlignment="Left" Margin="30,167,0,0" VerticalAlignment="Top"/>
         <!--Amount in Storage-->
         <Label Content="Antal på Lager" HorizontalAlignment="Left" Margin="79,266,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="StorageAmount_box" Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.ItemID, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="191,266,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
+        <TextBlock Name="StorageAmount_box" Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.ItemID, Mode=TwoWay, UpdateSourceTrigger=Default}" HorizontalAlignment="Left" Margin="191,266,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
         <!--Current Storage-->
         <Label Content="Lager" HorizontalAlignment="Left" Margin="125,309,0,0" VerticalAlignment="Top"/>
         <TextBlock Background="AntiqueWhite" Text="{Binding Path=SelectedItemFromBag.Location, Mode=TwoWay, UpdateSourceTrigger=Explicit}" HorizontalAlignment="Left" Margin="191,309,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" Height="25"/>
