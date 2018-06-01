@@ -296,7 +296,7 @@ namespace Dansk_Folkehjælp_Projekt.ViewModels
             int b = DatabaseConnection.ItemFromDatabase.Count;
             for(int i=0;i<b;i++)
             {
-                if(DatabaseConnection.ItemFromDatabase[i].Amount>=DatabaseConnection.ItemFromDatabase[i].MinAmount)
+                if(DatabaseConnection.ItemFromDatabase[i].Amount<=DatabaseConnection.ItemFromDatabase[i].MinAmount)
                 {
                     Collection.Add(DatabaseConnection.ItemFromDatabase[i]);
                 }

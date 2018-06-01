@@ -8,9 +8,7 @@
         Title="BagView" Height="450" Width="800">
     <Grid>
         <!--Behandler Taske Knap-->
-        <Button Name="Caretaker_Button" Content="Behandler Tasker" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="102" Height="33" Click="Caretaker_Button_Click"/>
         <!--Førstehjælp Taske Knap-->
-        <Button x:Name="Firsthelp_button" Content="Førstehjælp Tasker" HorizontalAlignment="Left" Margin="117,50,0,0" VerticalAlignment="Top" Width="109" Height="33" Click="Firsthelp_button_Click"/>
         <!--Listbox af Tasker-->
         <ListBox Name="ListOfBags_ListBox" SelectedItem="{Binding Path=SelectedBag}" SelectionChanged="BagChoosen" ItemsSource="{Binding Bagcollection, Mode=OneWay}" DisplayMemberPath="ItemName"  HorizontalAlignment="Left" Background="FloralWhite" Height="319" Margin="4,101,0,0" VerticalAlignment="Top" Width="226"/>
         <!--Listbox-->
